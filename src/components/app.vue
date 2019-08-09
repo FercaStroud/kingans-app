@@ -21,30 +21,30 @@
                             width: '100%',
                             marginTop: ((window.height - 206) / 2) - 132 + 'px',
                             }">
-                        <f7-button class="custom-btn" flat v-ripple @click="" >
+                        <f7-list-item class="custom-btn" flat link="/"
+                                      view=".view-main" v-ripple
+                                      panel-close>
                             <f7-icon class="active" style="" material="favorite"></f7-icon>
                             <span class="active" style="
-                                    position: absolute;
-                                    font-weight: 100;
                                     font-size: 1.2em;
                             ">Home</span>
-                        </f7-button>
-                        <f7-button class="custom-btn" flat v-ripple  @click="" >
+                        </f7-list-item>
+                        <f7-list-item class="custom-btn" flat v-ripple
+                                      link="/branches/" view=".view-main"
+                                      panel-close>
                             <f7-icon style="" material="place"></f7-icon>
                             <span style="
-                                    position: absolute;
-                                    font-weight: 100;
                                     font-size: 1.2em;
                             ">Sucursales</span>
-                        </f7-button>
-                        <f7-button class="custom-btn" v-ripple flat @click="">
+                        </f7-list-item>
+                        <f7-list-item class="custom-btn" flat v-ripple
+                                   link="/profile/" view=".view-main"
+                                   panel-close>
                             <f7-icon style="" material="person"></f7-icon>
                             <span style="
-                                    position: absolute;
-                                    font-weight: 100;
                                     font-size: 1.2em;
                             ">Usuario</span>
-                        </f7-button>
+                        </f7-list-item>
                     </f7-list>
 
                     <f7-list style="
@@ -169,17 +169,17 @@
         width: 100%;
         height: 40px;
         i.icon{
-            margin-left: 15px;
             margin-top: 5px;
         }
         span{
-            margin-left: 15px;
-            margin-top: 4px;
+            position: absolute;
+            margin-left: 34px;
+            margin-top: 2px;
+            font-weight: 400;
         }
     }
     .active{
         color: #f16989;
-        font-weight: bold;
     }
 
 </style>
@@ -189,6 +189,8 @@
     }
     .simple-list li:after, .links-list a:after, .list .item-inner:after{
         content: none !important;
-
+    }
+    .list .item-link .item-inner:before, .links-list a:before, .media-list .item-link .item-title-row:before, li.media-item .item-link .item-title-row:before, .media-list.chevron-center .item-link .item-inner:before, .media-list .chevron-center .item-link .item-inner:before, .media-list .item-link.chevron-center .item-inner:before, li.media-item.chevron-center .item-link .item-inner:before, li.media-item .chevron-center .item-link .item-inner:before, li.media-item .item-link.chevron-center .item-inner:before{
+        content: none !important;
     }
 </style>

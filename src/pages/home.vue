@@ -7,8 +7,10 @@
             </f7-nav-left>
             <f7-nav-title></f7-nav-title>
             <f7-nav-right>
-                <span class="navbar-text-color">Cupones</span>
-                <f7-icon style="padding-left: 5px" material="new_releases"></f7-icon>
+                <f7-link href="/promotions/" >
+                    <span class="navbar-text-color">Promociones</span>
+                    <f7-icon style="padding-left: 5px" material="new_releases"></f7-icon>
+                </f7-link>
             </f7-nav-right>
         </f7-navbar>
 

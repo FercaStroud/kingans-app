@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1edf9e-a8c7-4989-9292-88d615f236e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/branches.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/promotions.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +33,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/login.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
+            <state relative-caret-position="1888">
               <caret line="186" column="25" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#f7-login-screen-title#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
@@ -62,29 +57,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/app.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="121" selection-start-line="121" selection-end-line="121" />
+            <state relative-caret-position="260">
+              <caret line="14" column="67" lean-forward="true" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#f7-block-title#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#f7-block#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#f7-list-item#0;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#f7-list-item#1;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#f7-list-item#2;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#f7-list-item#0;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#f7-button#0;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#f7-button#1;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#f7-button#2;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#f7-list-item#0;n#f7-list#1;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -92,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="16" selection-start-column="16" selection-end-column="23" />
+            <state relative-caret-position="338">
+              <caret line="21" column="9" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -101,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="207">
+              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#f7-icon#0;n#f7-nav-right#0;n#f7-navbar#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h1#0;n#f7-block#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
@@ -115,10 +100,70 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/routes.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/branches.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            <state relative-caret-position="236">
+              <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+              <folding>
+                <element signature="n#style#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#f7-col#0;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#div#0;n#f7-col#0;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#f7-col#1;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#2;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#2;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#2;n#f7-card-footer#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/promotions.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="990">
+              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#f7-col#0;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-icon#0;n#div#0;n#f7-col#0;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#f7-col#1;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#f7-card-header#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#f7-card-header#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/404.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="7" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -132,6 +177,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>custom</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -140,20 +190,22 @@
       <list>
         <option value="$PROJECT_DIR$/cordova/plugins/cordova-plugin-splashscreen/.jshintrc" />
         <option value="$PROJECT_DIR$/src/pages/loginç.vue" />
-        <option value="$PROJECT_DIR$/src/js/routes.js" />
         <option value="$PROJECT_DIR$/src/css/app.scss" />
-        <option value="$PROJECT_DIR$/src/pages/home.vue" />
         <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/pages/login.vue" />
         <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/components/app.vue" />
+        <option value="$PROJECT_DIR$/src/pages/branches.vue" />
+        <option value="$PROJECT_DIR$/src/js/routes.js" />
+        <option value="$PROJECT_DIR$/src/pages/home.vue" />
+        <option value="$PROJECT_DIR$/src/pages/promotions.vue" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="658" />
+    <option name="x" value="994" />
     <option name="y" value="22" />
-    <option name="width" value="1702" />
+    <option name="width" value="1566" />
     <option name="height" value="1197" />
   </component>
   <component name="ProjectView">
@@ -213,10 +265,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565084072989" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565331610853" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -241,18 +294,18 @@
       <option name="presentableId" value="Default" />
       <updated>1565069829991</updated>
       <workItem from="1565069845419" duration="8157000" />
-      <workItem from="1565298798052" duration="12267000" />
+      <workItem from="1565298798052" duration="17948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20424000" />
+    <option name="totallyTimeSpent" value="26105000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="658" y="22" width="1702" height="1197" extended-state="0" />
+    <frame x="994" y="22" width="1566" height="1197" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4995475" visible="true" weight="0.1813253" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4995475" visible="true" weight="0.19750656" />
       <window_info id="Structure" order="1" sideWeight="0.5004525" side_tool="true" weight="0.1813253" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -281,6 +334,36 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4995475" visible="true" weight="0.19750656" />
+      <window_info id="Structure" order="1" sideWeight="0.5004525" side_tool="true" weight="0.1813253" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -290,13 +373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -315,30 +391,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home.vue">
+    <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="n#style#0;n#f7-icon#0;n#f7-nav-right#0;n#f7-navbar#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#f7-block#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-block#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-block#3;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#f7-block#4;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="23" />
+        <state relative-caret-position="759">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/login.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
+        <state relative-caret-position="1888">
           <caret line="186" column="25" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#f7-login-screen-title#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
@@ -361,13 +423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -379,18 +434,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/404.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/branches.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#f7-col#0;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#div#0;n#f7-col#0;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#f7-col#1;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#2;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#2;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#2;n#f7-card-footer#0;n#f7-card#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/app.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        <state relative-caret-position="260">
+          <caret line="14" column="67" lean-forward="true" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
           <folding>
             <element signature="n#style#0;n#img#0;n#f7-block-title#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#f7-block#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#f7-list-item#0;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#f7-list-item#1;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#f7-list-item#2;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#f7-list-item#0;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#f7-button#0;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#f7-button#1;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#f7-button#2;n#f7-list#0;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#f7-list-item#0;n#f7-list#1;n#f7-page#0;n#f7-view#0;n#f7-panel#0;n#f7-app#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#f7-icon#0;n#f7-nav-right#0;n#f7-navbar#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#f7-block#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-block#2;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-block#3;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#f7-block#4;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/promotions.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#f7-col#0;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-icon#0;n#div#0;n#f7-col#0;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#f7-col#1;n#f7-row#0;n#f7-block#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#f7-card-header#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#f7-card-header#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#f7-card-content#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#f7-link#1;n#f7-card-footer#0;n#f7-card#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
