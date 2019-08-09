@@ -1,16 +1,19 @@
 $primary-color: #f16989;
 
-.bg-primary{
+.bg-primary {
   background-color: $primary-color;
 }
-.btn-primary{
+
+.btn-primary {
   background-color: $primary-color;
   color: #602a36;
-  height: 50px;
-}.btn-secondary{
+}
+
+.btn-secondary {
   background-color: #fdf2e2;
   color: #201f1d;
 }
+
 /* iOS Cordova Tweak */
 .device-cordova.device-ios {
   height: 100vh;
@@ -31,7 +34,7 @@ $primary-color: #f16989;
   top: 0;
   height: 100%;
   width: 1px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   content: '';
   z-index: 6000;
 }
@@ -51,7 +54,7 @@ $primary-color: #f16989;
   top: 0;
   height: 100%;
   width: 1px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   content: '';
   z-index: 6000;
 }
@@ -59,22 +62,28 @@ $primary-color: #f16989;
 .panel-backdrop {
   background-color: rgba(0, 0, 0, .32) !important;
 }
-.navbar{
+
+.navbar {
   background-color: $primary-color !important;
   box-shadow: none !important;
 }
-.page{
+
+.page {
   background-color: white !important;
 }
-.navbar-text-color{
+
+.navbar-text-color {
   color: #602a36
 }
-.circle-image{
+
+.circle-image {
   border-radius: 50%;
 }
-form.list>ul>li{
+
+form.list > ul > li {
   margin-bottom: 27px;
 }
+
 .list .item-label, .list .item-floating-label {
   position: absolute;
   padding-left: 5px;
@@ -84,6 +93,8 @@ form.list>ul>li{
   width: auto;
   padding-right: 5px;
 }
-.kingans-border{
-  border:1px solid $primary-color;border-radius: 4px
+
+.kingans-border {
+  border: 1px solid $primary-color;
+  border-radius: 4px
 }

@@ -13,11 +13,16 @@ import App from '../components/app.vue';
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import vueResource from 'vue-resource'
+import Ripple from 'vue-ripple-directive'
 
 // Init Framework7-Vue Plugin
 Framework7.use(Framework7Vue);
 Vue.use(Vuex)
 Vue.use(vueResource)
+
+Ripple.color = 'rgba(241, 105, 137, .35)';
+Ripple.zIndex = 55;
+Vue.directive('ripple', Ripple);
 
 const store = new Vuex.Store({
   plugins: [createPersistedState()],

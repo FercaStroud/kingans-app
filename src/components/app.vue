@@ -6,16 +6,60 @@
         <f7-panel left cover>
             <f7-view>
                 <f7-page>
+
                     <f7-block-title>
                         <img style="width: 50px" class="circle-image" src="../assets/logoKingans.svg"/>
                     </f7-block-title>
+
                     <f7-block>
                         <span style="font-size: 1.6em;color: black;">Alberto Martínez</span><br/>
                         <span>TORREÓN</span>
                     </f7-block>
-                    <f7-block-title>EN CONSTRUCCIÓN</f7-block-title>
-                    <f7-list>
-                        <f7-list-item @click="$store.commit('resetLogin')" panel-close title="Cerrar Sesión"></f7-list-item>
+
+                    <f7-list :style="{
+                            position: 'absolute',
+                            width: '100%',
+                            marginTop: ((window.height - 206) / 2) - 132 + 'px',
+                            }">
+                        <f7-button class="custom-btn" flat v-ripple @click="" >
+                            <f7-icon class="active" style="" material="favorite"></f7-icon>
+                            <span class="active" style="
+                                    position: absolute;
+                                    font-weight: 100;
+                                    font-size: 1.2em;
+                            ">Home</span>
+                        </f7-button>
+                        <f7-button class="custom-btn" flat v-ripple  @click="" >
+                            <f7-icon style="" material="place"></f7-icon>
+                            <span style="
+                                    position: absolute;
+                                    font-weight: 100;
+                                    font-size: 1.2em;
+                            ">Sucursales</span>
+                        </f7-button>
+                        <f7-button class="custom-btn" v-ripple flat @click="">
+                            <f7-icon style="" material="person"></f7-icon>
+                            <span style="
+                                    position: absolute;
+                                    font-weight: 100;
+                                    font-size: 1.2em;
+                            ">Usuario</span>
+                        </f7-button>
+                    </f7-list>
+
+                    <f7-list style="
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            margin: 0;">
+                        <f7-list-item @click="$store.commit('resetLogin')" panel-close>
+                            <f7-icon style="" material="close"></f7-icon>
+                            <span style="
+                                    position: absolute;
+                                    margin-left: 42px;
+                                    font-weight: 100;
+                            ">Cerrar Sesión</span>
+                        </f7-list-item>
                     </f7-list>
                 </f7-page>
             </f7-view>
@@ -44,10 +88,14 @@
         data() {
             return {
                 // Framework7 Parameters
+                window: {
+                    width: 0,
+                    height: 0
+                },
                 f7params: {
                     id: 'com.kingans', // App bundle ID
                     name: 'Kingans', // App name
-                    theme: 'auto', // Automatic theme detection
+                    theme: 'ios', // Automatic theme detection
                     // App root data
                     data: function () {
                         return {
@@ -71,6 +119,8 @@
                     },
                     // Cordova Statusbar settings
                     statusbar: {
+                        iosBackgroundColor: '#f16989',
+                        androidBackgroundColor: '#f16989',
                         overlay: this.$device.cordova && this.$device.ios || 'auto',
                         iosOverlaysWebView: true,
                         androidOverlaysWebView: false,
@@ -82,9 +132,20 @@
                 password: '',
             }
         },
+        created() {
+            window.addEventListener('resize', this.handleResize)
+            this.handleResize();
+        },
+        destroyed() {
+            window.removeEventListener('resize', this.handleResize)
+        },
         methods: {
             alertLoginData() {
                 this.$f7.dialog.alert('Username: ' + this.username + '<br>Password: ' + this.password);
+            },
+            handleResize() {
+                this.window.width = window.innerWidth;
+                this.window.height = window.innerHeight;
             }
         },
         mounted() {
@@ -98,3 +159,36 @@
         }
     }
 </script>
+
+<style scoped lang="scss">
+    .custom-btn{
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        border-radius: 0;
+        width: 100%;
+        height: 40px;
+        i.icon{
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+        span{
+            margin-left: 15px;
+            margin-top: 4px;
+        }
+    }
+    .active{
+        color: #f16989;
+        font-weight: bold;
+    }
+
+</style>
+<style>
+    .list ul:before, .list ul:after {
+        content: none !important;
+    }
+    .simple-list li:after, .links-list a:after, .list .item-inner:after{
+        content: none !important;
+
+    }
+</style>
