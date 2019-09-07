@@ -1,0 +1,71 @@
+import Vue from 'vue';
+import Framework7 from 'framework7/framework7.esm.bundle.js';
+import Framework7Vue from 'framework7-vue/framework7-vue.esm.bundle.js';
+import 'framework7/css/framework7.bundle.css';
+import '../css/icons.css';
+import '../css/app.scss';
+
+import App from '../components/app.vue';
+import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
+import Ripple from "vue-ripple-directive";
+import vueResource from 'vue-resource'
+
+Framework7.use(Framework7Vue);
+Vue.use(Vuex)
+Vue.use(vueResource)
+
+Ripple.color = 'rgba(241, 105, 137, .35)';
+Ripple.zIndex = 55;
+Vue.directive('ripple', Ripple);
+
+const store = new Vuex.Store({
+    plugins: [createPersistedState()],
+    modules: {
+        application: {
+            //namespaced: true,
+            state: {
+                title: 'Panel - Kingans',
+                drawer: {
+                    left: false,
+                    right: false,
+                    login: true,
+                },
+                config: {
+                    //api: 'https://www.appcongresonorvet.com/api/',
+                },
+                user: {
+                    age: null,
+                    city: null,
+                    created_at: null,
+                    folio: null,
+                    id: null,
+                    name: null,
+                    title: null,
+                    type: null,
+                    updated_at: null,
+                },
+            },
+            mutations: {
+                setLogin: (state, payload) => {
+                    state.drawer.login = payload
+                },
+                resetLogin: state => {
+                    state.drawer.login = true
+                },
+            },
+            getters: {}
+        },
+    }
+})
+
+
+// Init App
+new Vue({
+    el: '#app',
+    store,
+    render: (h) => h(App),
+    components: {
+        app: App
+    },
+});

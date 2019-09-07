@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1edf9e-a8c7-4989-9292-88d615f236e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/profile.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/survey.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/src/assets/logoBakings.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/src/assets/logoKingans.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/src/components/codes.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/src/pages/login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/src/pages/welcome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kingans-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kingans-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/branches.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/branches.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,10 +44,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565331610853" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/panel/src/pages" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/panel/src/pages" />
+      <recent name="$PROJECT_DIR$/panel/src/assets" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -74,6 +82,11 @@
       <workItem from="1566418457048" duration="567000" />
       <workItem from="1566586999115" duration="4751000" />
       <workItem from="1566630508841" duration="222000" />
+      <workItem from="1567435843592" duration="1048000" />
+      <workItem from="1567539060626" duration="159000" />
+      <workItem from="1567555607730" duration="90000" />
+      <workItem from="1567625915906" duration="300000" />
+      <workItem from="1567688232688" duration="7085000" />
     </task>
     <servers />
   </component>

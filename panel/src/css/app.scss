@@ -1,0 +1,100 @@
+$primary-color: #f16989;
+
+.bg-primary {
+  background-color: $primary-color;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: #602a36;
+}
+
+.btn-secondary {
+  background-color: #fdf2e2;
+  color: #201f1d;
+}
+
+/* iOS Cordova Tweak */
+.device-cordova.device-ios {
+  height: 100vh;
+}
+
+/* Custom color theme properties */
+:root {
+  --f7-theme-color: #1f0d11;
+  --f7-theme-color-rgb: 31, 13, 17;
+  --f7-theme-color-shade: #020101;
+  --f7-theme-color-tint: #3c1119;
+}
+
+/* Left Panel right border when it is visible by breakpoint */
+.panel-left.panel-visible-by-breakpoint:before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  content: '';
+  z-index: 6000;
+}
+
+/* Hide navbar link which opens left panel when it is visible by breakpoint */
+.panel-left.panel-visible-by-breakpoint ~ .view .navbar .panel-open[data-panel="left"] {
+  display: none;
+}
+
+/*
+  Extra borders for main view and left panel for iOS theme when it behaves as panel (before breakpoint size)
+*/
+.ios .panel-left:not(.panel-visible-by-breakpoint).panel-active ~ .view-main:before,
+.ios .panel-left:not(.panel-visible-by-breakpoint).panel-closing ~ .view-main:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  content: '';
+  z-index: 6000;
+}
+
+.panel-backdrop {
+  background-color: rgba(0, 0, 0, .32) !important;
+}
+
+.navbar {
+  background-color: $primary-color !important;
+  box-shadow: none !important;
+}
+
+.page {
+  background-color: white !important;
+}
+
+.navbar-text-color {
+  color: #602a36
+}
+
+.circle-image {
+  border-radius: 50%;
+}
+
+form.list > ul > li {
+  margin-bottom: 27px;
+}
+
+.list .item-label, .list .item-floating-label {
+  position: absolute;
+  padding-left: 5px;
+  background-color: white;
+  top: -7px;
+  color: $primary-color;
+  width: auto;
+  padding-right: 5px;
+}
+
+.kingans-border {
+  border: 1px solid $primary-color;
+  border-radius: 4px
+}
