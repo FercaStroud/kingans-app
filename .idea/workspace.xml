@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1edf9e-a8c7-4989-9292-88d615f236e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/panel/src/assets/logoBakings.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/assets/logoKingans.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/codes.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/pages/login.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/pages/welcome.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kingans-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kingans-app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/codes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/codes.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/pages/welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/panel/manager/welcome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/branches.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/branches.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +48,10 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/panel/src/pages/panel/manager" />
+      <recent name="$PROJECT_DIR$/panel/src/pages/panel" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/panel/src/pages" />
       <recent name="$PROJECT_DIR$/panel/src/assets" />
@@ -86,7 +88,8 @@
       <workItem from="1567539060626" duration="159000" />
       <workItem from="1567555607730" duration="90000" />
       <workItem from="1567625915906" duration="300000" />
-      <workItem from="1567688232688" duration="7085000" />
+      <workItem from="1567688232688" duration="7327000" />
+      <workItem from="1568244248604" duration="4303000" />
     </task>
     <servers />
   </component>

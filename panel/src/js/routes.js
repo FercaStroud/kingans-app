@@ -4,7 +4,7 @@ let routes = [
     {
         path: '/',
         name: 'welcome',
-        component: () => import('../pages/welcome.vue')
+        component: () => import('../pages/panel/manager/welcome.vue')
     },
     {
         path: '(.*)',

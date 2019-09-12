@@ -38,6 +38,7 @@
                 </p>
             </f7-card-content>
             <f7-card-footer>
+                <f7-link><f7-icon style="font-size: 1.5em" f7="logo_facebook"></f7-icon></f7-link>
                 <f7-link><f7-icon style="font-size: 1.5em" material="place"></f7-icon></f7-link>
                 <f7-link popover-open=".popover-menu"><f7-icon style="font-size: 1.5em" material="access_time"></f7-icon></f7-link>
                 <f7-link><f7-icon style="font-size: 1.5em" material="phone"></f7-icon></f7-link>
@@ -61,6 +62,7 @@
                 </p>
             </f7-card-content>
             <f7-card-footer>
+                <f7-link><f7-icon style="font-size: 1.5em" f7="logo_facebook"></f7-icon></f7-link>
                 <f7-link><f7-icon style="font-size: 1.5em" material="place"></f7-icon></f7-link>
                 <f7-link popover-open=".popover-menu"><f7-icon style="font-size: 1.5em" material="access_time"></f7-icon></f7-link>
                 <f7-link><f7-icon style="font-size: 1.5em" material="phone"></f7-icon></f7-link>
@@ -84,6 +86,7 @@
                 </p>
             </f7-card-content>
             <f7-card-footer>
+                <f7-link><f7-icon style="font-size: 1.5em" f7="logo_facebook"></f7-icon></f7-link>
                 <f7-link><f7-icon style="font-size: 1.5em" material="place"></f7-icon></f7-link>
                 <f7-link popover-open=".popover-menu"><f7-icon style="font-size: 1.5em" material="access_time"></f7-icon></f7-link>
                 <f7-link><f7-icon style="font-size: 1.5em" material="phone"></f7-icon></f7-link>
@@ -125,6 +128,7 @@
                 </p>
             </f7-card-content>
             <f7-card-footer>
+                <f7-link><f7-icon style="font-size: 1.5em" f7="logo_facebook"></f7-icon></f7-link>
                 <f7-link><f7-icon style="font-size: 1.5em" material="place"></f7-icon></f7-link>
                 <f7-link popover-open=".popover-menu"><f7-icon style="font-size: 1.5em" material="access_time"></f7-icon></f7-link>
                 <f7-link><f7-icon style="font-size: 1.5em" material="phone"></f7-icon></f7-link>
