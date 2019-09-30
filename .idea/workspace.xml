@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1edf9e-a8c7-4989-9292-88d615f236e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kingans-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kingans-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/codes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/codes.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/pages/welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/panel/manager/welcome.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/branches.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/branches.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/assets-src/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/assets-src/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/assets-src/web-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/assets-src/web-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/static/icons/128x128.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/static/icons/128x128.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/static/icons/144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/static/icons/144x144.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/static/icons/152x152.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/static/icons/152x152.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/static/icons/192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/static/icons/192x192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/static/icons/256x256.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/static/icons/256x256.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/static/icons/512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/static/icons/512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/static/icons/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/static/icons/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/static/icons/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/static/icons/favicon.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,10 +23,30 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/api/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -35,14 +63,93 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/api/vendor/kylekatarnls/update-helper" />
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/validation" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/events" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/session" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/console" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/http" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/queue" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/view" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/filesystem" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/bus" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/hashing" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/config" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/translation" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/auth" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/pagination" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/pipeline" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/cache" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/broadcasting" />
+      <path value="$PROJECT_DIR$/api/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/api/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/encryption" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/api/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/api/vendor/mtdowling/cron-expression" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/api/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/phpunit-mock-objects" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/api/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/api/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/api/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/api/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/api/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/api/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/api/vendor/laravel/lumen-framework" />
+      <path value="$PROJECT_DIR$/api/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/api/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1PkWDMAU4GLwfTSYHLNqjMPcrsR" />
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565331610853" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/panel/src/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -69,6 +176,26 @@
       </list>
     </option>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@bf476fa4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@bf476fa4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@43d47b7f" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -89,7 +216,12 @@
       <workItem from="1567555607730" duration="90000" />
       <workItem from="1567625915906" duration="300000" />
       <workItem from="1567688232688" duration="7327000" />
-      <workItem from="1568244248604" duration="4303000" />
+      <workItem from="1568244248604" duration="4392000" />
+      <workItem from="1569263627093" duration="2732000" />
+      <workItem from="1569276941155" duration="288000" />
+      <workItem from="1569281004127" duration="211000" />
+      <workItem from="1569351516385" duration="735000" />
+      <workItem from="1569358895526" duration="823000" />
     </task>
     <servers />
   </component>
