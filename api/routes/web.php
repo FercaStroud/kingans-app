@@ -2,10 +2,10 @@
 
 use Illuminate\Http\Request;
 
-/*$app->get('/', function (Request $request) {
+$app->get('/', function (Request $request) {
     echo sha1("ObservatorioLaguna!?123");
     //echo sha1("1");
-});*/
+});
 
 $app->get('/questions/get', function (Request $request) {
     return \Illuminate\Support\Facades\DB::table('app_questions')
