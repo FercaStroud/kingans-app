@@ -159,18 +159,102 @@
                                             @input="addUserForm.password = $event.target.value"
                                     ></f7-list-input>
                                 </f7-list>
-                                    <f7-button style="margin: 15px"
-                                            class="btn-primary"
-                                            large @click="">
-                                        <f7-icon style="margin-top: -4px" material="person"></f7-icon>
-                                        REGISTRAR
-                                    </f7-button>
+                                <f7-button style="margin: 15px"
+                                           class="btn-primary"
+                                           large @click="">
+                                    <f7-icon style="margin-top: -4px" material="person"></f7-icon>
+                                    REGISTRAR
+                                </f7-button>
                             </f7-card-content>
                         </f7-card>
                     </f7-col>
                 </f7-row>
             </f7-tab>
-            <f7-tab id="surveys-M-tab" class="page-content"></f7-tab>
+            <f7-tab id="surveys-M-tab">
+                <f7-card>
+                    <f7-card-content>
+                        <strong>Título de la encuesta de prueba</strong>
+                        <p>
+                            Nos gustaría saber tu opinión. Aquí va una descripción con lorem ipsum
+                            dolor sit amet.
+                        </p>
+                        <f7-row>
+                            <f7-col width="33">
+                                Pregunta 1: ¿Pregunta 1?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 2: ¿Pregunta 2?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 3: ¿Pregunta 3?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 1: ¿Pregunta 1?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 2: ¿Pregunta 2?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 3: ¿Pregunta 3?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                        </f7-row>
+                    </f7-card-content>
+                    <f7-card-footer class="no-border">
+                        <f7-button>
+                            <f7-icon style="margin-right: 10px;" material="cloud_download"></f7-icon>
+                            Descargar Respuestas
+                        </f7-button>
+                    </f7-card-footer>
+                </f7-card>
+
+                <f7-card>
+                    <f7-card-content>
+                        <strong>Título de la encuesta de prueba</strong>
+                        <p>
+                            Nos gustaría saber tu opinión. Aquí va una descripción con lorem ipsum
+                            dolor sit amet.
+                        </p>
+                        <f7-row>
+                            <f7-col width="33">
+                                Pregunta 1: ¿Pregunta 1?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 2: ¿Pregunta 2?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 3: ¿Pregunta 3?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 1: ¿Pregunta 1?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 2: ¿Pregunta 2?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                            <f7-col width="33">
+                                Pregunta 3: ¿Pregunta 3?
+                                <apexchart type=pie width=380 :options="chartOptions" :series="series"/>
+                            </f7-col>
+                        </f7-row>
+                    </f7-card-content>
+                    <f7-card-footer class="no-border">
+                        <f7-button>
+                            <f7-icon style="margin-right: 10px;" material="cloud_download"></f7-icon>
+                            Descargar Respuestas
+                        </f7-button>
+                    </f7-card-footer>
+                </f7-card>
+            </f7-tab>
         </f7-tabs>
     </f7-page>
 </template>
@@ -234,7 +318,22 @@
                         text: 'Me salió un tornillo en el café blah blah blah',
                         avatar: 'http://kingans.com/imgs/logo-para-dentro.png',
                     },
-                ]
+                ],
+                series: [44, 55, 13, 43, 22],
+                chartOptions: {
+                    labels: ['Respuesta A', 'Respuesta B', 'Respuesta C', 'Respuesta D', 'Respuesta E'],
+                    responsive: [{
+                        breakpoint: 480,
+                        options: {
+                            chart: {
+                                width: 200
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }],
+                }
             };
         },
         mounted() {
