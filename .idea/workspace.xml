@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1edf9e-a8c7-4989-9292-88d615f236e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/242cc2cc-dec0-4c2b-8cfd-dc7689908a02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/242cc2cc-dec0-4c2b-8cfd-dc7689908a02.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,22 +52,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/panel/src/components/panel/manager/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="188" column="24" lean-forward="true" selection-start-line="188" selection-start-column="24" selection-end-line="188" selection-end-column="24" />
+            <state relative-caret-position="675">
+              <caret line="255" column="26" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#f7-subnavbar#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#f7-tab#0;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#f7-block-title#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#f7-row#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#f7-row#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#f7-list#0;n#f7-col#0;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#f7-list#0;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#f7-button#0;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#f7-icon#0;n#f7-button#0;n#f7-list#1;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#f7-card-content#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+                <element signature="n#f7-row#0;n#f7-card-content#0;n#f7-card#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+                <element signature="n#f7-card-footer#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#f7-card-content#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+                <element signature="n#f7-row#0;n#f7-card-content#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+                <element signature="n#f7-card-footer#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#f7-icon#0;n#f7-button#0;n#f7-card-footer#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#9523#10305#0" />
+                <element signature="e#10337#11456#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/panel/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/panel/src/components/app.vue">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/panel/src/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,6 +130,7 @@
         <option value="$PROJECT_DIR$/api/.gitignore" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/api/routes/web.php" />
+        <option value="$PROJECT_DIR$/panel/src/js/app.js" />
         <option value="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" />
       </list>
     </option>
@@ -187,7 +220,7 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1927" />
+    <option name="y" value="22" />
     <option name="width" value="1491" />
     <option name="height" value="1057" />
   </component>
@@ -197,7 +230,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -236,6 +268,13 @@
               <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
               <item name="panel" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -246,22 +285,12 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="manager" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,11 +300,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/api/.env" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565331610853" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569991484565" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -353,16 +383,18 @@
       <workItem from="1569902477426" duration="2794000" />
       <workItem from="1569906754117" duration="2726000" />
       <workItem from="1569948897428" duration="9390000" />
+      <workItem from="1569965990140" duration="3138000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15837000" />
+    <option name="totallyTimeSpent" value="18975000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1927" y="0" width="1491" height="1057" extended-state="0" />
+    <frame x="0" y="22" width="1491" height="1057" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18448637" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18702553" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -492,22 +524,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/panel/src/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/panel/src/components/app.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/panel/src/components/panel/manager/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="188" column="24" lean-forward="true" selection-start-line="188" selection-start-column="24" selection-end-line="188" selection-end-column="24" />
+        <state relative-caret-position="675">
+          <caret line="255" column="26" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#f7-subnavbar#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#f7-tab#0;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#f7-block-title#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-row#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-row#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#f7-list#0;n#f7-col#0;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#f7-list#0;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#f7-button#0;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-icon#0;n#f7-button#0;n#f7-list#1;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#f7-card-content#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+            <element signature="n#f7-row#0;n#f7-card-content#0;n#f7-card#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+            <element signature="n#f7-card-footer#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#f7-card-content#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+            <element signature="n#f7-row#0;n#f7-card-content#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+            <element signature="n#f7-card-footer#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#f7-icon#0;n#f7-button#0;n#f7-card-footer#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#9523#10305#0" />
+            <element signature="e#10337#11456#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/panel/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
         </state>
       </provider>
     </entry>
