@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1edf9e-a8c7-4989-9292-88d615f236e2" name="Default Changelist" comment="">
+    <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/Http/Controllers/UsersController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/PanelUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/242cc2cc-dec0-4c2b-8cfd-dc7689908a02.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kingans-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kingans-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +22,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/api/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -44,102 +55,28 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="panel_users: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
-  </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/panel/src/components/panel/manager/index.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="255" column="26" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
-              <folding>
-                <element signature="n#style#0;n#f7-subnavbar#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#f7-tab#0;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#f7-list#0;n#f7-col#0;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#f7-list#0;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#f7-button#0;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#f7-card-content#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#f7-row#0;n#f7-card-content#0;n#f7-card#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#f7-card-footer#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#f7-card-content#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#f7-row#0;n#f7-card-content#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#f7-card-footer#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#f7-icon#0;n#f7-button#0;n#f7-card-footer#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#9523#10305#0" />
-                <element signature="e#10337#11456#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/panel/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/panel/src/components/app.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/panel/src/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Vue Single File Component" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>custom</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/api/.env.example" />
-        <option value="$PROJECT_DIR$/api/.gitignore" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/api/routes/web.php" />
-        <option value="$PROJECT_DIR$/panel/src/js/app.js" />
-        <option value="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
+  <component name="PhpTemplates">
+    <option name="NEW_PHP_FILE_LAST_EXTENSION" value="module" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -219,104 +156,17 @@
       <path value="$PROJECT_DIR$/api/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1491" />
-    <option name="height" value="1057" />
-  </component>
-  <component name="ProjectId" id="1PkWDMAU4GLwfTSYHLNqjMPcrsR" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
-  </component>
+  <component name="ProjectId" id="1RqeGShguVHE9NLf7K4v4EcPxf4" />
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/api/.env" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569991484565" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/app" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ferca\Projects\kingans-app\api" />
-      <recent name="$PROJECT_DIR$/panel/src/pages" />
-      <recent name="$PROJECT_DIR$/panel/src/assets" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/panel/src/pages/panel/manager" />
-      <recent name="$PROJECT_DIR$/panel/src/pages/panel" />
+      <recent name="$PROJECT_DIR$/api/app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -338,12 +188,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@bf476fa4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@19f9a052" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@bf476fa4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@43d47b7f" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@19f9a052" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@95b2a0b" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -356,76 +206,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ef1edf9e-a8c7-4989-9292-88d615f236e2" name="Default Changelist" comment="" />
-      <created>1565069829991</created>
+      <changelist id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="" />
+      <created>1570398957409</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1565069829991</updated>
-      <workItem from="1565069845419" duration="8157000" />
-      <workItem from="1565298798052" duration="17948000" />
-      <workItem from="1566418457048" duration="567000" />
-      <workItem from="1566586999115" duration="4751000" />
-      <workItem from="1566630508841" duration="222000" />
-      <workItem from="1567435843592" duration="1048000" />
-      <workItem from="1567539060626" duration="159000" />
-      <workItem from="1567555607730" duration="90000" />
-      <workItem from="1567625915906" duration="300000" />
-      <workItem from="1567688232688" duration="7327000" />
-      <workItem from="1568244248604" duration="4392000" />
-      <workItem from="1569263627093" duration="2732000" />
-      <workItem from="1569276941155" duration="288000" />
-      <workItem from="1569281004127" duration="211000" />
-      <workItem from="1569351516385" duration="735000" />
-      <workItem from="1569358895526" duration="823000" />
-      <workItem from="1569819776219" duration="594000" />
-      <workItem from="1569820695876" duration="325000" />
-      <workItem from="1569867539724" duration="8000" />
-      <workItem from="1569902477426" duration="2794000" />
-      <workItem from="1569906754117" duration="2726000" />
-      <workItem from="1569948897428" duration="9390000" />
-      <workItem from="1569965990140" duration="3138000" />
+      <updated>1570398957409</updated>
+      <workItem from="1570398959169" duration="9777000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18975000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1491" height="1057" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18702553" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="UI Designer" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Flutter Performance" order="12" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" show_stripe_button="false" weight="0.32971016" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Flutter Inspector" order="5" />
-      <window_info anchor="right" id="Flutter Outline" order="6" show_stripe_button="false" weight="0.32971016" />
-      <window_info anchor="right" id="Database" order="7" weight="0.23304157" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Capture Analysis" order="10" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -435,140 +223,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/.env.example">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="22" column="12" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding>
-            <element signature="n#style#0;n#strong#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/panel/src/pages/panel/manager/welcome.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/panel/src/pages/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="44" column="18" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="44" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="144" column="41" lean-forward="true" selection-start-line="135" selection-start-column="23" selection-end-line="144" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/panel/src/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/panel/src/components/app.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/panel/src/components/panel/manager/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="255" column="26" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#f7-subnavbar#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#f7-tab#0;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-list#0;n#f7-col#0;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-list#0;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#f7-button#0;n#f7-card-content#0;n#f7-card#0;n#f7-col#1;n#f7-row#0;n#f7-tab#1;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#f7-card-content#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#f7-row#0;n#f7-card-content#0;n#f7-card#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#f7-card-footer#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#f7-icon#0;n#f7-link#0;n#f7-card-footer#0;n#f7-card#0;n#f7-col#0;n#f7-row#0;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#f7-card-content#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#f7-row#0;n#f7-card-content#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#f7-card-footer#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#f7-icon#0;n#f7-button#0;n#f7-card-footer#0;n#f7-card#1;n#f7-tab#2;n#f7-tabs#0;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#9523#10305#0" />
-            <element signature="e#10337#11456#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/panel/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

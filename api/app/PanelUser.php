@@ -9,10 +9,12 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class PanelUser extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable, SoftDeletes;
     public $timestamps = true;
+    private $isLogged = false;
+
     protected $dates = [
         'created_at',
         'updated_at',
@@ -25,12 +27,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
+        'username',
+        'type',
         'name',
-        'phone',
-        'email',
-        'city',
-        'gender',
-        'birthday',
         'password',
     ];
 
@@ -42,4 +41,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+
+    public function isLogged(){
+        return $this->isLogged;
+    }
 }
