@@ -27,12 +27,14 @@ const store = new Vuex.Store({
     plugins: [createPersistedState()],
     modules: {
         application: {
-            //namespaced: true,
+            namespaced: true,
             state: {
                 title: 'Panel - Kingans',
                 drawer: {
                     left: false,
                     right: false,
+                    codes: false,
+                    dashboard: false,
                     login: true,
                 },
                 config: {

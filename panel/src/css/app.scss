@@ -98,3 +98,11 @@ form.list > ul > li {
   border: 1px solid $primary-color;
   border-radius: 4px
 }
+
+.icon-btn {
+  cursor: pointer;
+}
+
+.icon-btn:hover{
+  color: $primary-color;
+}

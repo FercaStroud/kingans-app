@@ -31,6 +31,7 @@ class PanelUser extends Model implements AuthenticatableContract, AuthorizableCo
         'type',
         'name',
         'password',
+        'branch_id',
     ];
 
     /**

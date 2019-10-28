@@ -1,16 +1,20 @@
 <template>
     <f7-page login-screen>
-        <f7-navbar title=""
+        <f7-navbar title="Captura de Cupones"
                    style="background-color: white !important;
-                   border:none !important; box-shadow: none !important;">
+                   border:none !important; box-shadow: none !important;" :sliding="true" back-link="Atrás">
             <f7-nav-right>
-                Captura de códigos <f7-link popup-close>X</f7-link>
+                <f7-link icon-ios="f7:menu"
+                         icon-aurora="f7:menu"
+                         icon-md="material:menu"
+                         panel-open="left">
+                </f7-link>
             </f7-nav-right>
         </f7-navbar>
 
         <f7-login-screen-title style="color: white;max-width: 200px">
             <div style="width: 100%">
-                <img class="circle-image" style="width: 50%; margin-top: 40px" src="../assets/logoKingans.svg"/>
+                <img class="circle-image" style="width: 50%; margin-top: 40px" src="../../assets/logoKingans.svg"/>
             </div>
         </f7-login-screen-title>
         <f7-list form style="max-width: 350px">
@@ -38,7 +42,7 @@
 
 <script>
     export default {
-        name: "codes",
+        name: "codeExchange",
         data() {
             return {
                 username: '',
