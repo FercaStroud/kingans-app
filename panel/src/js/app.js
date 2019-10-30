@@ -38,18 +38,15 @@ const store = new Vuex.Store({
                     login: true,
                 },
                 config: {
-                    //api: 'https://www.appcongresonorvet.com/api/',
+                    api: 'http://kingans.com/api/',
+                    //api: 'http://localhost:8000/',
                 },
                 user: {
-                    age: null,
-                    city: null,
-                    created_at: null,
-                    folio: null,
                     id: null,
-                    name: null,
-                    title: null,
+                    branch_id: null,
+                    username: null,
                     type: null,
-                    updated_at: null,
+                    name: null,
                 },
             },
             mutations: {

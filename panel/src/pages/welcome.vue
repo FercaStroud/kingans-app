@@ -25,7 +25,7 @@
             <f7-block>
                 <f7-row>
                     <f7-col style="text-align: center">
-                        <strong style="font-size: 2em">Usuario Administrador,</strong><br/>
+                        <strong style="font-size: 2em">{{$store.state.application.user.name}},</strong><br/>
                         <span>Selecciona una opción desde la barra de menús
                             <f7-button panel-open="left">
                                 <f7-icon f7="bars"></f7-icon>

@@ -4,12 +4,12 @@
         <f7-statusbar></f7-statusbar>
 
         <!-- Left panel with cover effect when hidden -->
-        <f7-panel left cover resizable>
+        <f7-panel left cover>
             <f7-view>
                 <f7-page>
                     <f7-block-title style="padding-bottom: 18px">
                         <img style="height: 80px; float:left" class="circle-image" src="../assets/logoKingans.svg">
-                        <strong style="font-size: 1.4em;position: relative;top: 22px;left: 10px;">Kingans</strong><br/>
+                        <strong style="font-size: 1.4em;position: relative;top: 22px;left: 10px;">{{$store.state.application.user.name}}</strong><br/>
                         <strong style="font-size: .9em;position: relative;top: 25px;left: 10px;">Bienvenido</strong>
                     </f7-block-title>
                     <f7-block-title>Acceso Rápido</f7-block-title>
@@ -130,13 +130,13 @@
             </f7-view>
         </f7-panel>
 
-        <f7-view main class="safe-areas" url="/"></f7-view>
+        <f7-view v-if="!$store.state.application.drawer.login" main class="safe-areas" url="/"></f7-view>
 
-        <!--<f7-login-screen :opened="$store.state.application.drawer.login">
+        <f7-login-screen :opened="$store.state.application.drawer.login">
             <f7-view>
                 <login/>
             </f7-view>
-        </f7-login-screen>-->
+        </f7-login-screen>
     </f7-app>
 </template>
 <script>

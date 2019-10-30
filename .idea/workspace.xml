@@ -2,29 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/app/Branch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/app.users/add.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/app.users/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/branches/add.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/branches/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/coupons/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/panel.users/add.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/panel.users/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/surveys/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/users.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/visits/add.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptstxt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/PanelUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/PanelUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/app.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/codes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/panel/manager/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/css/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/branches/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/branches/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/branches/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/branches/list.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/pages/panel/manager/welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/welcome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/pages/welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/welcome.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +51,20 @@
         <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="branches: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="panel_users: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -204,7 +205,17 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6ffcb224" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6ffcb224" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@79ae2491" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -221,7 +232,9 @@
       <option name="presentableId" value="Default" />
       <updated>1570398957409</updated>
       <workItem from="1570398959169" duration="9897000" />
-      <workItem from="1572117665853" duration="21921000" />
+      <workItem from="1572117665853" duration="22130000" />
+      <workItem from="1572333931878" duration="15399000" />
+      <workItem from="1572454389488" duration="1752000" />
     </task>
     <servers />
   </component>

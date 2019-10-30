@@ -38,7 +38,7 @@
             <f7-button
                     class="btn-primary"
                     style="width: 50%; margin-left: 25%;"
-                    large @click="falseSignIn">
+                    large @click="signIn">
                 <f7-icon style="margin-top: -4px" material="person"></f7-icon>
                 INICIA SESIÓN
             </f7-button>
@@ -51,54 +51,33 @@
         name: 'login',
         data() {
             return {
-                username: '',
-                password: '',
+                username: 'admin',
+                password: '1',
             };
         },
         methods: {
-            falseSignIn() {
-                this.$f7.dialog.preloader('Iniciando Sesión')
-                this.$http.post(/*this.$store.state.application.config.api + */  '', {
-                    name: this.username,
-                    pwd: this.password,
-                }).then(response => {
-                    this.$f7.dialog.close();
-                    this.$f7.dialog.alert("Usuario de Pruebas", 'Bienvenido', function () {
-                        this.$store.state.application.drawer.login = false
-                    }.bind(this))
-                }, response => {
-                    console.log(response, 'error get username')
-                    this.$f7.dialog.close();
-                    this.$f7.dialog.alert("Usuario de Pruebas", 'Bienvenido', function () {
-                        this.$store.state.application.drawer.login = false
-                    }.bind(this))
-                });
-            },
             signIn() {
                 this.$f7.dialog.preloader('Iniciando Sesión')
-                this.$http.post(this.$store.state.application.config.api + 'login', {
-                    name: this.username,
-                    pwd: this.password,
+                this.$http.post(this.$store.state.application.config.api + 'users/panel/login', {
+                    username: this.username,
+                    password: this.password,
                 }).then(response => {
-                    this.$store.state.application.user = response.body
                     this.$f7.dialog.close();
-                    if (this.$store.state.application.user.name != null &&
-                        this.$store.state.application.user.name != undefined &&
-                        this.$store.state.application.user.name != '') {
+                    console.log(response)
+                    if (response.data.success === false) {
                         this.$store.commit('setLogin', false)
+                        this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
+                        this.$f7.dialog.close();
+                    } else {
+                        this.$store.state.application.user = response.data;
                         this.$f7.dialog.alert(this.$store.state.application.user.name, 'Bienvenido', function () {
                             this.$store.state.application.drawer.login = false
                         }.bind(this))
-                    } else {
-                        this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
-                        //this.$f7.dialog.alert('Intente más tarde', 'Servidor no disponible')
-                        console.log(response, 'error get username')
-                        this.$f7.dialog.close();
                     }
+
                 }, response => {
-                    this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
-                    //this.$f7.dialog.alert('Intente más tarde', 'Servidor no disponible')
-                    console.log(response, 'error get username')
+                    console.log(response, 'error signIn login.vue')
+                    this.$f7.dialog.alert('Intente más tarde', 'Servidor no disponible')
                     this.$f7.dialog.close();
                 });
             },
