@@ -17,6 +17,12 @@ Class Branch extends Model
     protected $fillable = [
         'name',
         'city',
+        'address',
+        'phone',
+        'scheduling',
+        'facebook',
+        'map',
+        'svg',
     ];
     protected $primaryKey = 'id';
 }

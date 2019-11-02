@@ -111,29 +111,16 @@
                                 ></f7-list-input>
                                 <f7-list-input
                                         class="kingans-border"
-                                        label="Hora de Apertura"
-                                        placeholder="EJ: 00:00Hrs"
+                                        label="Horarios"
+                                        placeholder="EJ: L-V 00:00Hrs - 00:00Hrs / S-D 00:00Hrs - 00:00Hrs"
                                         type="text"
                                         info="Obligatorio"
-                                        :value="itemToEdit.start"
+                                        :value="itemToEdit.scheduling"
                                         clear-button
                                         validate
                                         required
                                         :error-message="'Campo Obligatorio'"
-                                        @input="itemToEdit.start = $event.target.value"
-                                ></f7-list-input>
-                                <f7-list-input
-                                        class="kingans-border"
-                                        label="Hora de Cierre"
-                                        placeholder="EJ: 00:00Hrs"
-                                        type="text"
-                                        info="Obligatorio"
-                                        :value="itemToEdit.end"
-                                        clear-button
-                                        validate
-                                        required
-                                        :error-message="'Campo Obligatorio'"
-                                        @input="itemToEdit.end = $event.target.value"
+                                        @input="itemToEdit.scheduling = $event.target.value"
                                 ></f7-list-input>
                                 <f7-list-input
                                         class="kingans-border"
@@ -195,8 +182,7 @@
                     city: '',
                     address: '',
                     phone: '',
-                    start: '',
-                    end: '',
+                    scheduling: '',
                     map: '',
                     facebook: '',
                     svg: ''
@@ -215,10 +201,11 @@
         },
         methods: {
             getList() {
-                this.$f7.dialog.preloader('Obteniendo datos...');
+                let vm = this
+                vm.$f7.dialog.preloader('Obteniendo datos...');
                 this.$http.post(this.$store.state.application.config.api + 'branches/get').then(response => {
-                    this.$f7.dialog.close();
-                    this.items = response.data
+                    vm.$f7.dialog.close();
+                    vm.items = response.data
                 }, response => {
                     console.log(response, 'error on checkForm branches/add');
                     this.$f7.dialog.close();
@@ -230,16 +217,20 @@
                 this.popupEditOpened = true;
             },
             deleteItem(id) {
-                this.$f7.dialog.preloader('Enviando datos...');
+                let vm = this;
+
+                vm.$f7.dialog.preloader('Enviando datos...');
                 this.$http.post(this.$store.state.application.config.api + 'branches/delete', {
                     id: id
                 }).then(response => {
-                    this.$f7.dialog.close();
+                    vm.$f7.dialog.close();
                     if (response.data.success) {
-                        this.$f7.dialog.alert("Elemento Eliminado", 'Éxito');
+                        vm.$f7.dialog.alert("Elemento Eliminado", 'Éxito');
                     } else {
-                        this.$f7.dialog.alert("Error desconocido", 'Intente más tarde');
+                        vm.$f7.dialog.alert("Error desconocido", 'Intente más tarde');
                     }
+                    vm.$f7.dialog.close();
+
                     this.getList();
 
                     //this.items = response.data
@@ -260,6 +251,7 @@
                 return isValid;
             },
             sendForm: function () {
+                let vm = this
                 if (this.checkForm()) {
                     this.$f7.dialog.preloader('Enviando datos...');
 
@@ -269,29 +261,28 @@
                     formData.append('city', this.itemToEdit.city);
                     formData.append('address', this.itemToEdit.address);
                     formData.append('phone', this.itemToEdit.phone);
-                    formData.append('start', this.itemToEdit.start);
-                    formData.append('end', this.itemToEdit.end);
+                    formData.append('scheduling', this.itemToEdit.end);
                     formData.append('map', this.itemToEdit.map);
                     formData.append('facebook', this.itemToEdit.facebook);
                     formData.append('svg', this.itemToEdit.svg);
                     formData.append('edited_by', this.$store.state.application.user.id);
 
                     this.$http.post(this.$store.state.application.config.api + 'branches/edit', formData).then(response => {
-                        this.$f7.dialog.close();
-                        this.$f7.dialog.alert("Datos enviados", "Éxito");
-                        this.itemToEdit = {
+                        vm.$f7.dialog.close();
+                        vm.$f7.dialog.alert("Datos enviados", "Éxito");
+                        vm.itemToEdit = {
                             name: '', city: '', address: '',
                             phone: '', start: '', end: '',
                             map: '', facebook: '', svg: ''
                         }
-                        this.popupEditOpened = false;
-                        this.$f7.dialog.close();
+                        vm.popupEditOpened = false;
+                        vm.$f7.dialog.close();
 
-                        this.getList();
+                        vm.getList();
                     }, response => {
                         console.log(response, 'error on checkForm branches/add');
-                        this.$f7.dialog.close();
-                        this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                        vm.$f7.dialog.close();
+                        vm.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                     });
 
                 } else {

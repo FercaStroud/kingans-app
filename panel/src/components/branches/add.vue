@@ -67,29 +67,16 @@
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
-                                label="Hora de Apertura"
-                                placeholder="EJ: 00:00Hrs"
+                                label="Horarios"
+                                placeholder="EJ: L-V 00:00Hrs - 00:00Hrs / S-D 00:00Hrs - 00:00Hrs"
                                 type="text"
                                 info="Obligatorio"
-                                :value="items.start"
+                                :value="items.scheduling"
                                 clear-button
                                 validate
                                 required
                                 :error-message="'Campo Obligatorio'"
-                                @input="items.start = $event.target.value"
-                        ></f7-list-input>
-                        <f7-list-input
-                                class="kingans-border"
-                                label="Hora de Cierre"
-                                placeholder="EJ: 00:00Hrs"
-                                type="text"
-                                info="Obligatorio"
-                                :value="items.end"
-                                clear-button
-                                validate
-                                required
-                                :error-message="'Campo Obligatorio'"
-                                @input="items.end = $event.target.value"
+                                @input="items.scheduling = $event.target.value"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
@@ -143,8 +130,7 @@
                     city: '',
                     address: '',
                     phone: '',
-                    start: '',
-                    end: '',
+                    scheduling: '',
                     map: '',
                     facebook: '',
                     svg: ''
@@ -173,8 +159,7 @@
                     formData.append('city', this.items.city);
                     formData.append('address', this.items.address);
                     formData.append('phone', this.items.phone);
-                    formData.append('start', this.items.start);
-                    formData.append('end', this.items.end);
+                    formData.append('scheduling', this.items.start);
                     formData.append('map', this.items.map);
                     formData.append('facebook', this.items.facebook);
                     formData.append('svg', this.items.svg);
@@ -185,7 +170,7 @@
                         this.$f7.dialog.alert("Datos enviados", "Éxito");
                         this.items = {
                             name: '', city: '', address: '',
-                            phone: '', start: '', end: '',
+                            phone: '', scheduling: '',
                             map: '', facebook: '', svg: ''
                         }
                     }, response => {
