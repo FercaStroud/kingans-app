@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/app.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/branches/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/branches/add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/branches/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/branches/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/pages/welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/welcome.vue" afterDir="false" />
-    </list>
+    <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +223,7 @@
       <workItem from="1570398959169" duration="9897000" />
       <workItem from="1572117665853" duration="22130000" />
       <workItem from="1572333931878" duration="15399000" />
-      <workItem from="1572454389488" duration="1752000" />
+      <workItem from="1572454389488" duration="1755000" />
     </task>
     <servers />
   </component>
