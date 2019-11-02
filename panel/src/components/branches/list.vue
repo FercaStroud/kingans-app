@@ -207,7 +207,7 @@
                     vm.$f7.dialog.close();
                     vm.items = response.data
                 }, response => {
-                    console.log(response, 'error on checkForm branches/add');
+                    console.log(response, 'error on getList branches/get');
                     this.$f7.dialog.close();
                     this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                 });

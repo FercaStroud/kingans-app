@@ -14,6 +14,7 @@ class PanelUser extends Model implements AuthenticatableContract, AuthorizableCo
     use Authenticatable, Authorizable, SoftDeletes;
     public $timestamps = true;
     private $isLogged = false;
+    protected $table = 'panel_users';
 
     protected $dates = [
         'created_at',

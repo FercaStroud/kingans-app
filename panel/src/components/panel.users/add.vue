@@ -19,9 +19,12 @@
                                 placeholder="EJ: ADMIN001"
                                 type="text"
                                 info="Obligatorio"
-                                :value="name"
+                                :value="items.name"
                                 clear-button
-                                @input="name = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                                @input="items.name = $event.target.value"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
@@ -29,9 +32,12 @@
                                 placeholder="EJ: Lucas K."
                                 type="text"
                                 info="Obligatorio"
-                                :value="username"
+                                :value="items.username"
                                 clear-button
-                                @input="username = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                                @input="items.username = $event.target.value"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
@@ -39,11 +45,14 @@
                                 type="select"
                                 info="Obligatorio"
                                 placeholder="Sucursal"
-                                :value="branchId"
-                                @input="branchId = $event.target.value"
+                                :value="items.branchId"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                                @input="items.branchId = $event.target.value"
                         >
-                            <option value="Saltillo">Saltillo</option>
-                            <option value="Torreón">Torreón</option>
+                            <option v-for="(branch, index) in branches" :key="index"
+                                    value="branch.id">{{branch.name}}</option>
                         </f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
@@ -51,8 +60,11 @@
                                 type="select"
                                 info="Obligatorio"
                                 placeholder="Tipo de usuario"
-                                :value="type"
-                                @input="type = $event.target.value"
+                                :value="items.type"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                                @input="items.type = $event.target.value"
                         >
                             <option value="A">Administrador</option>
                             <option value="G">Gerente</option>
@@ -64,14 +76,17 @@
                                 type="text"
                                 placeholder="**********"
                                 info="Obligatorio"
-                                :value="password"
+                                :value="items.password"
                                 clear-button
-                                @input="password = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                                @input="items.password = $event.target.value"
                         ></f7-list-input>
                     </f7-list>
                     <f7-button style="margin: 15px"
                                class="btn-primary"
-                               large @click="">
+                               large @click="sendForm">
                         REGISTRAR USUARIO AL PANEL
                     </f7-button>
                 </f7-card-content>
@@ -85,16 +100,71 @@
         name: "panelUsersAdd",
         data() {
             return {
-                username: '',
-                name: '',
-                branchId: '',
-                type: '',
-                password: '',
+                branches:[],
+                items: {
+                    username: '',
+                    name: '',
+                    branchId: '',
+                    type: '',
+                    password: '',
+                }
             }
         },
         mounted: function () {
+            this.getBranches()
         },
-        methods: {},
+        methods: {
+            checkForm() {
+                let vm = this;
+                let isValid = true;
+                Object.keys(this.items).forEach(function (index, item) {
+                    if (vm.items[index] === "") {
+                        isValid = false
+                    }
+                });
+                return isValid;
+            },
+            getBranches() {
+                let vm = this
+                vm.$f7.dialog.preloader('Obteniendo datos...');
+                this.$http.post(this.$store.state.application.config.api + 'branches/get').then(response => {
+                    vm.$f7.dialog.close();
+                    vm.branches = response.data
+                }, response => {
+                    console.log(response, 'error on getBranches branches/get');
+                    this.$f7.dialog.close();
+                    this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                });
+            },
+            sendForm: function () {
+                if (this.checkForm()) {
+                    this.$f7.dialog.preloader('Enviando datos...');
+
+                    this.$http.post(this.$store.state.application.config.api + 'users/panel/add', {
+                        username: this.items.username,
+                        name: this.items.name,
+                        branch_id: this.items.branchId,
+                        type: this.items.type,
+                        password: this.items.password,
+                    }).then(response => {
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Datos enviados", "Éxito");
+                        this.items = {
+                            username: '', name: '',
+                            branchId: '', type: '',
+                            password: '',
+                        }
+                    }, response => {
+                        console.log(response, 'error on checkForm users/panel/add');
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                    });
+
+                } else {
+                    this.$f7.dialog.alert("Todos los campos son requeridos.");
+                }
+            },
+        },
     }
 </script>
 

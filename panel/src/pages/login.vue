@@ -63,7 +63,6 @@
                     password: this.password,
                 }).then(response => {
                     this.$f7.dialog.close();
-                    console.log(response)
                     if (response.data.success === false) {
                         this.$store.commit('setLogin', false)
                         this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
