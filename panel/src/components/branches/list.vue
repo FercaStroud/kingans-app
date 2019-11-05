@@ -265,7 +265,7 @@
                     formData.append('map', this.itemToEdit.map);
                     formData.append('facebook', this.itemToEdit.facebook);
                     formData.append('svg', this.itemToEdit.svg);
-                    formData.append('edited_by', this.$store.state.application.user.id);
+                    formData.append('updated_by', this.$store.state.application.user.id);
 
                     this.$http.post(this.$store.state.application.config.api + 'branches/edit', formData).then(response => {
                         vm.$f7.dialog.close();

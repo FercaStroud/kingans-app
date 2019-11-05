@@ -52,7 +52,7 @@
                                 @input="items.branchId = $event.target.value"
                         >
                             <option v-for="(branch, index) in branches" :key="index"
-                                    value="branch.id">{{branch.name}}</option>
+                                    :value="branch.id">{{branch.name}}</option>
                         </f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
@@ -146,6 +146,7 @@
                         branch_id: this.items.branchId,
                         type: this.items.type,
                         password: this.items.password,
+                        created_by: this.$store.state.application.user.id,
                     }).then(response => {
                         this.$f7.dialog.close();
                         this.$f7.dialog.alert("Datos enviados", "Éxito");
