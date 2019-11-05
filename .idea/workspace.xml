@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/app/Answer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/app/Question.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/app/QuestionAnswer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/app/Survey.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/surveys/add.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/surveybuilder" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/app.users/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/app.users/add.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/components/surveys/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/surveys/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/routes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +66,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="questions: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="surveys: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -251,7 +252,8 @@
       <workItem from="1572454389488" duration="1755000" />
       <workItem from="1572725726714" duration="4115000" />
       <workItem from="1572740782035" duration="334000" />
-      <workItem from="1572843696399" duration="28543000" />
+      <workItem from="1572843696399" duration="35043000" />
+      <workItem from="1572992456309" duration="4601000" />
     </task>
     <servers />
   </component>

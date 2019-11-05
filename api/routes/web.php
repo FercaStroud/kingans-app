@@ -264,6 +264,13 @@ $app->group(['prefix' => 'surveys'], function () use ($app) {
     $app->post('/get', function () {
         return Survey::all();
     });
+    $app->post('/status', function (Request $request){
+        $survey = Survey::find($request->get('id'));
+        $survey->is_active = $request->get('is_active');
+        $survey->save();
+
+        return $survey;
+    });
     $app->post('/delete', function (Request $request) {
         return response()->json([
             "success" => Survey::find($request->get("id"))->delete()
@@ -272,8 +279,31 @@ $app->group(['prefix' => 'surveys'], function () use ($app) {
 
 });
 
-$app->group(['prefix' => 'question-answers'], function () use ($app) {
+$app->group(['prefix' => 'answers'], function () use ($app) {
+    $app->post('/get', function (Request $request) {
+        return Answer::where(
+            "question_id", "=", $request->get("question_id")
+        )->get();
+    });
+});
 
+$app->group(['prefix' => 'questions'], function () use ($app) {
+
+    $app->post('/get', function (Request $request) {
+        return Question::where(
+            "survey_id", "=", $request->get("survey_id")
+        )->get();
+    });
+
+    $app->post('/delete', function (Request $request) {
+        return response()->json([
+            "success" => Question::find($request->get("id"))->delete()
+        ]);
+    });
+
+});
+
+$app->group(['prefix' => 'question-answers'], function () use ($app) {
     $app->post('/add', function (Request $request) {
         $question = new Question();
 
@@ -293,6 +323,47 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
         }
 
         return $question;
+    });
+    $app->get('/excel', function (Request $request) {
+        try {
+            $results = \Illuminate\Support\Facades\DB::table('question_answer')
+                ->select(
+                    "surveys.name as Encuesta",
+                    "questions.title as Pregunta",
+                    "answers.title as Respuesta",
+                    "questions.type as Tipo",
+                    "question_answer.other as Otro"
+                )->leftJoin("answers", "answers.id", "=", "question_answer.answer_id")
+                ->leftJoin("questions", "questions.id", "=", "question_answer.question_id")
+                ->leftJoin("surveys", "surveys.id", "=", "question_answer.survey_id")
+                ->where("question_answer.survey_id", "=", $request->get("survey_id"))
+                ->orderBy('question_answer.id', 'DESC')->get();
+            $filename = $results[0]->Encuesta;
+            $i = 0;
+            header("Content-Type: application/xls;charset=utf-8");
+            header("Content-Disposition: attachment; filename=$filename.xls");
+            header("Pragma: no-cache");
+            header("Expires: 0");
+            foreach ($results as $result) {
+                if ($i > 0) {
+                    break;
+                }
+                foreach ($result as $key => $item) {
+                    echo $key . "\t";
+                    $i++;
+                }
+            }
+            print("\n");
+            foreach ($results as $row) {
+                foreach ($row as $key => $item) {
+                    echo $item . "\t";
+                }
+                print("\n");
+            }
+        } catch (exception $e) {
+            echo "<strong style='font-size: 1.4em;font-family: sans-serif;'>SIN RESPUESTAS</strong><br/>";
+            echo "<span style='font-size: 1.4em;font-family: sans-serif;color:darkred'>NO SE PUEDE GENERAR ARCHIVO</span>";
+        }
     });
 
 });
