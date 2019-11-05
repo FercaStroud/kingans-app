@@ -2,6 +2,9 @@
     <f7-page name="branchesList">
         <f7-navbar :sliding="true" back-link="Atrás" title="Listado de Sucursales">
             <f7-nav-right>
+                <f7-link @click="getList">
+                    <f7-icon material="cached"></f7-icon>
+                </f7-link>
                 <f7-link icon-ios="f7:menu"
                          icon-aurora="f7:menu"
                          icon-md="material:menu"
@@ -28,7 +31,7 @@
                             <span><strong>Nombre</strong> / Ciudad</span>
                             <span>Acciones</span>
                         </f7-list-item>
-                        <f7-list-item v-for="item in filteredList">
+                        <f7-list-item v-for="(item, index) in filteredList" :key="index">
                             <span style="padding-bottom: 7px">
                                 <img class="circle-image" style="width: 25px;top:5px;position:relative" :src="$store.state.application.config.api + 'images/branches/' + item.svg" />
                                 <strong>{{item.name}}</strong> / {{item.city}}

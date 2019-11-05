@@ -12,7 +12,6 @@ import Ripple from "vue-ripple-directive";
 import vueResource from 'vue-resource'
 import VueApexCharts from 'vue-apexcharts'
 
-
 Framework7.use(Framework7Vue);
 Vue.use(Vuex)
 Vue.use(vueResource)

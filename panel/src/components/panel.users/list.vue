@@ -56,6 +56,11 @@
                                             {{item.created_by.username}}
                                             / {{item.created_by.name}}
                                         </span>
+                                        <strong>Actualizado por: </strong>
+                                        <span v-if="item.updated_by != null">
+                                            {{item.updated_by.username}}
+                                            / {{item.updated_by.name}}
+                                        </span>
                                     </f7-card-content>
                                     <f7-card-footer>
                                         <f7-link @click="editItem(item)">

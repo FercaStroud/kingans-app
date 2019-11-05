@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/app.users/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/app.users/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/app.users/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/app.users/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/branches/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/branches/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/panel.users/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/panel.users/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/panel.users/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/panel.users/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -170,6 +176,8 @@
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -234,7 +242,7 @@
       <workItem from="1572454389488" duration="1755000" />
       <workItem from="1572725726714" duration="4115000" />
       <workItem from="1572740782035" duration="334000" />
-      <workItem from="1572843696399" duration="8510000" />
+      <workItem from="1572843696399" duration="21371000" />
     </task>
     <servers />
   </component>

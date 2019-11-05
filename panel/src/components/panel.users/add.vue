@@ -158,7 +158,7 @@
                     }, response => {
                         console.log(response, 'error on checkForm users/panel/add');
                         this.$f7.dialog.close();
-                        this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                        this.$f7.dialog.alert("Servidor no disponible y/o Datos duplicados", 'Intente más tarde');
                     });
 
                 } else {
