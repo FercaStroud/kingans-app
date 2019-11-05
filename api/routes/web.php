@@ -51,7 +51,7 @@ $app->group(['prefix' => 'branches'], function () use ($app) {
 
     $app->post('/edit', function (Request $request) {
 
-        if($request->file("svg") === null){
+        if ($request->file("svg") === null) {
             $fileName = $request->get("svg");
         } else {
             $random_string = function ($length, $directory = '', $extension = '') {
@@ -91,7 +91,7 @@ $app->group(['prefix' => 'branches'], function () use ($app) {
         return $branch;
     });
 
-    $app->post('/get', function (Request $request) {
+    $app->post('/get', function () {
         return Branch::all();
     });
 
@@ -102,7 +102,6 @@ $app->group(['prefix' => 'branches'], function () use ($app) {
     });
 
 });
-
 
 $app->group(['prefix' => 'users'], function () use ($app) {
     $app->group(['prefix' => 'panel'], function () use ($app) {
@@ -119,11 +118,55 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             }
         });
 
-    });
-});
+        $app->post('/add', function (Request $request) {
+            $user = new PanelUser();
 
-$app->group(['prefix' => 'app'], function () use ($app) {
-    $app->group(['prefix' => 'user'], function () use ($app) {
+            $user->username = $request->get('username');
+            $user->name = $request->get('name');
+            $user->branch_id = $request->get('branch_id');
+            $user->type = $request->get('type');
+            $user->password = Hash::make($request->get('password'));
+            $user->created_by = $request->get("created_by");
+            $user->save();
+
+            return $user;
+        });
+
+        $app->post('/edit', function (Request $request) {
+            $user = PanelUser::find($request->get("id"));
+
+            $user->username = $request->get('username', $user->username);
+            $user->name = $request->get('name', $user->name);
+            $user->branch_id = $request->get('branch_id', $user->branch_id);
+            $user->type = $request->get('type', $user->type);
+            $user->updated_by = $request->get("updated_by");
+            $user->save();
+
+            return $user;
+        });
+
+        $app->post('/get', function () {
+            $users = PanelUser::all();
+            foreach ($users as $key => $value) {
+                $users[$key]->{"branch"} = Branch::find($value->branch_id);
+                if($value->created_by != null) {
+                    $users[$key]->created_by = PanelUser::find($value->created_by);
+                }
+                if($value->updated_by != null) {
+                    $users[$key]->updated_by = PanelUser::find($value->updated_by);
+                }
+            }
+            return $users;
+        });
+
+        $app->post('/delete', function (Request $request) {
+            return response()->json([
+                "success" => PanelUser::find($request->get("id"))->delete()
+            ]);
+        });
+
+    });
+    $app->group(['prefix' => 'app'], function () use ($app) {
 
         $app->post('/login', function (Request $request) {
             $user = User::where(
@@ -131,12 +174,60 @@ $app->group(['prefix' => 'app'], function () use ($app) {
             )->first();
 
             if (Hash::check($request->get('password'), $user->password)) {
-                $_SESSION['user'] = $user;
-                return $_SESSION['user'];
+                return $user;
             } else {
-                $_SESSION['user'] = null;
                 response()->json(['success' => false]);
             }
+        });
+
+        $app->post('/add', function (Request $request) {
+            $user = new User();
+
+            $user->phone = $request->get('phone');
+            $user->name = $request->get('name');
+            $user->email = $request->get('email');
+            $user->city = $request->get('city');
+            $user->gender = $request->get('gender');
+            $user->birthday = $request->get('birthday');
+            $user->password = Hash::make($request->get('password'));
+            $user->created_by = $request->get("created_by");
+            $user->save();
+
+            return $user;
+        });
+
+        $app->post('/edit', function (Request $request) {
+            $user = User::find($request->get("id"));
+
+            $user->phone = $request->get('phone', $user->phone);
+            $user->name = $request->get('name',$user->name);
+            $user->email = $request->get('email',$user->email);
+            $user->city = $request->get('city',$user->city);
+            $user->gender = $request->get('gender', $user->gender);
+            $user->birthday = $request->get('birthday', $user->birthday);
+            $user->updated_by = $request->get("updated_by");
+            $user->save();
+
+            return $user;
+        });
+
+        $app->post('/get', function () {
+            $users = User::all();
+            foreach ($users as $key => $value) {
+                if($value->created_by != null) {
+                    $users[$key]->created_by = PanelUser::find($value->created_by);
+                }
+                if($value->updated_by != null) {
+                    $users[$key]->updated_by = PanelUser::find($value->updated_by);
+                }
+            }
+            return $users;
+        });
+
+        $app->post('/delete', function (Request $request) {
+            return response()->json([
+                "success" => User::find($request->get("id"))->delete()
+            ]);
         });
 
     });
