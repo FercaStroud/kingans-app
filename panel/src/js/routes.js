@@ -2,6 +2,9 @@ import HomePage from '../pages/welcome.vue';
 import DashboardPage from '../components/dashboard.vue';
 import VisitsAdd from '../components/visits/add.vue';
 import CouponsExchange from '../components/coupons/exchange.vue';
+
+//Surveys
+import SurveysAdd from '../components/surveys/add.vue';
 import SurveysList from '../components/surveys/list.vue';
 
 //Panel Users
@@ -59,6 +62,11 @@ let routes = [
         path: '/users/app/list',
         name: 'panelUsersList',
         component: AppUsersList
+    },
+    {
+        path: '/surveys/add',
+        name: 'surveysAdd',
+        component:  SurveysAdd
     },
     {
         path: '/surveys/list',

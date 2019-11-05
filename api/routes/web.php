@@ -3,6 +3,10 @@
 use App\PanelUser;
 use App\User;
 use App\Branch;
+use App\Survey;
+use App\Question;
+use App\Answer;
+use App\QuestionAnswer;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -84,7 +88,7 @@ $app->group(['prefix' => 'branches'], function () use ($app) {
         $branch->map = $request->get("map");
         $branch->facebook = $request->get("facebook");
         $branch->svg = $fileName;
-        $branch->created_by = $request->get("created_by");
+        $branch->updated_by = $request->get("updated_by");
 
         $branch->save();
 
@@ -149,10 +153,10 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             $users = PanelUser::all();
             foreach ($users as $key => $value) {
                 $users[$key]->{"branch"} = Branch::find($value->branch_id);
-                if($value->created_by != null) {
+                if ($value->created_by != null) {
                     $users[$key]->created_by = PanelUser::find($value->created_by);
                 }
-                if($value->updated_by != null) {
+                if ($value->updated_by != null) {
                     $users[$key]->updated_by = PanelUser::find($value->updated_by);
                 }
             }
@@ -200,9 +204,9 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             $user = User::find($request->get("id"));
 
             $user->phone = $request->get('phone', $user->phone);
-            $user->name = $request->get('name',$user->name);
-            $user->email = $request->get('email',$user->email);
-            $user->city = $request->get('city',$user->city);
+            $user->name = $request->get('name', $user->name);
+            $user->email = $request->get('email', $user->email);
+            $user->city = $request->get('city', $user->city);
             $user->gender = $request->get('gender', $user->gender);
             $user->birthday = $request->get('birthday', $user->birthday);
             $user->updated_by = $request->get("updated_by");
@@ -214,10 +218,10 @@ $app->group(['prefix' => 'users'], function () use ($app) {
         $app->post('/get', function () {
             $users = User::all();
             foreach ($users as $key => $value) {
-                if($value->created_by != null) {
+                if ($value->created_by != null) {
                     $users[$key]->created_by = PanelUser::find($value->created_by);
                 }
-                if($value->updated_by != null) {
+                if ($value->updated_by != null) {
                     $users[$key]->updated_by = PanelUser::find($value->updated_by);
                 }
             }
@@ -231,4 +235,64 @@ $app->group(['prefix' => 'users'], function () use ($app) {
         });
 
     });
+});
+
+$app->group(['prefix' => 'surveys'], function () use ($app) {
+
+    $app->post('/add', function (Request $request) {
+        $object = new Survey();
+
+        $object->name = $request->get("name");
+        $object->description = $request->get("description");
+        $object->is_active = $request->get("is_active", 0);
+        $object->created_by = $request->get("created_by");
+        $object->save();
+
+        return $object;
+    });
+    $app->post('/edit', function (Request $request) {
+        $object = Survey::find($request->get("id"));
+
+        $object->name = $request->get("name");
+        $object->description = $request->get("description");
+        $object->updated_by = $request->get("updated_by");
+        $object->is_active = $request->get("is_active", 0);
+        $object->save();
+
+        return $object;
+    });
+    $app->post('/get', function () {
+        return Survey::all();
+    });
+    $app->post('/delete', function (Request $request) {
+        return response()->json([
+            "success" => Survey::find($request->get("id"))->delete()
+        ]);
+    });
+
+});
+
+$app->group(['prefix' => 'question-answers'], function () use ($app) {
+
+    $app->post('/add', function (Request $request) {
+        $question = new Question();
+
+        $question->survey_id = $request->get("survey_id");
+        $question->type = $request->get("type");
+        $question->title = $request->get("title");
+
+        $question->save();
+
+        if ($request->get('type') != 'TEXT') {
+            foreach ($request->get('answers') as $item) {
+                $answer = new Answer();
+                $answer->question_id = $question->id;
+                $answer->title = $item['body'];
+                $answer->save();
+            }
+        }
+
+        return $question;
+    });
+
 });

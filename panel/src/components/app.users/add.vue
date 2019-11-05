@@ -194,7 +194,7 @@
                     }, response => {
                         console.log(response, 'error on checkForm users/app/add');
                         this.$f7.dialog.close();
-                        this.$f7.dialog.alert("Servidor no  y/o Datos duplicados", 'Intente más tarde');
+                        this.$f7.dialog.alert("Servidor no disponible y/o Datos duplicados", 'Intente más tarde');
                     });
 
                 } else {
