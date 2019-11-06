@@ -4,7 +4,7 @@
         <f7-statusbar></f7-statusbar>
 
         <!-- Left panel with cover effect when hidden -->
-        <f7-panel left cover>
+        <f7-panel left cover style="width: 280px">
             <f7-view>
                 <f7-page>
                     <f7-block-title style="padding-bottom: 18px">
@@ -16,9 +16,7 @@
                     <f7-list>
                         <f7-list-item link="/dashboard/" view=".view-main" panel-close title="Dashboard"></f7-list-item>
                         <f7-list-item link="/coupons/exchange/" view=".view-main" panel-close
-                                      title="Captura de Cupones"></f7-list-item>
-                        <f7-list-item link="/visits/add/" view=".view-main" panel-close
-                                      title="Captura de Visitas"></f7-list-item>
+                                      title="Captura de Códigos / Visitas"></f7-list-item>
                         <f7-list-item link="/logout/" view=".view-main" panel-close
                         title="Cerrar Sesión"></f7-list-item>
                     </f7-list>

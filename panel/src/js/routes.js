@@ -1,6 +1,9 @@
 import HomePage from '../pages/welcome.vue';
 import DashboardPage from '../components/dashboard.vue';
+
+//coupons
 import CouponsExchange from '../components/coupons/exchange.vue';
+import CouponsAdd from '../components/coupons/add.vue';
 
 //Visits
 import VisitsAdd from '../components/visits/add.vue';
@@ -50,6 +53,11 @@ let routes = [
         path: '/coupons/exchange',
         name: 'couponExchange',
         component:  CouponsExchange
+    },
+    {
+        path: '/coupons/add',
+        name: 'couponsAdd',
+        component:  CouponsAdd
     },
     {
         path: '/users/panel/add',

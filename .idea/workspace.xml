@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/panel/src/components/visits/list.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/Coupon.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/src/components/coupons/add.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/panel/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/app.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/visits/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/visits/list.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/routes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,42 +55,7 @@
         <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="answers: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="question_answer: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="questions: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="surveys: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="visits: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="coupons: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -208,18 +173,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/api/app" />
-      <recent name="$PROJECT_DIR$/panel/src/components" />
-      <recent name="$PROJECT_DIR$/panel/src/components/branches" />
-      <recent name="$PROJECT_DIR$/panel/src/components/visits" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/panel/src/components/surveys" />
       <recent name="$PROJECT_DIR$/panel/src/components/codes" />
       <recent name="$PROJECT_DIR$/panel/src/components" />
       <recent name="$PROJECT_DIR$/panel/src/pages" />
       <recent name="$PROJECT_DIR$/panel/src/pages/panel" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/app" />
+      <recent name="$PROJECT_DIR$/panel/src/components" />
+      <recent name="$PROJECT_DIR$/panel/src/components/branches" />
+      <recent name="$PROJECT_DIR$/panel/src/components/visits" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -233,6 +198,16 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="add.vue" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/kingans-app/panel/src/components/coupons/add.vue" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.add.vue" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -271,7 +246,7 @@
       <workItem from="1572725726714" duration="4115000" />
       <workItem from="1572740782035" duration="334000" />
       <workItem from="1572843696399" duration="35043000" />
-      <workItem from="1572992456309" duration="9501000" />
+      <workItem from="1572992456309" duration="14558000" />
     </task>
     <servers />
   </component>

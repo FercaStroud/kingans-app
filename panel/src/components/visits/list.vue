@@ -90,16 +90,7 @@
 
                 ],
                 rows: [
-                    {
-                        user_name: "Fernando Cárdenas",
-                        branch_name: "Independencia",
-                        created_at: "2019-10-31",
-                        user_phone: "000000000",
-                        user_email: "alsas@com.com",
-                        user_city: "Torreón",
-                        user_gender: "M",
-                        user_birthday: "2019-10-31",
-                    }
+
                 ],
             }
         },

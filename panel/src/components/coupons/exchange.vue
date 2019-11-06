@@ -18,22 +18,40 @@
             </div>
         </f7-login-screen-title>
         <f7-list form style="max-width: 350px">
-            <f7-list-input
-                    class="kingans-border"
-                    label="Código"
-                    type="text"
-                    placeholder="XXX XXX XX XX"
-                    :value="username"
-                    clear-button
-                    @input="username = $event.target.value"
-            ></f7-list-input>
-            <f7-list-item>
+            <f7-list-item style="width: 100%">
+                <f7-list-input
+                        style="width: 100%"
+                        class="kingans-border"
+                        label="Teléfono de usuario"
+                        type="text"
+                        placeholder="XXX XXX XX XX"
+                        :value="username"
+                        clear-button
+                        @input="username = $event.target.value"
+                ></f7-list-input>
                 <f7-button
-                        class="btn-primary" style="
-                    width: 100%;
-                    "
+                        class="btn-primary" style=""
                         large @click="">
-                    Canjear Código
+                    >
+                </f7-button>
+            </f7-list-item>
+        </f7-list>
+        <f7-list form style="max-width: 350px">
+            <f7-list-item style="width: 100%">
+                <f7-list-input
+                        style="width: 100%"
+                        class="kingans-border"
+                        label="Código de cupón"
+                        type="text"
+                        placeholder="XXX XXX XX XX"
+                        :value="username"
+                        clear-button
+                        @input="username = $event.target.value"
+                ></f7-list-input>
+                <f7-button
+                        class="btn-primary" style=""
+                        large @click="">
+                    >
                 </f7-button>
             </f7-list-item>
         </f7-list>
@@ -53,7 +71,7 @@
 </script>
 
 <style scoped>
-    .navbar:before{
+    .navbar:before {
         content: none !important;
     }
 </style>

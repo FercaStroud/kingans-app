@@ -6,7 +6,7 @@ use App\Branch;
 use App\Survey;
 use App\Question;
 use App\Answer;
-use App\QuestionAnswer;
+use App\Coupon;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -264,7 +264,7 @@ $app->group(['prefix' => 'surveys'], function () use ($app) {
     $app->post('/get', function () {
         return Survey::all();
     });
-    $app->post('/status', function (Request $request){
+    $app->post('/status', function (Request $request) {
         $survey = Survey::find($request->get('id'));
         $survey->is_active = $request->get('is_active');
         $survey->save();
@@ -286,6 +286,7 @@ $app->group(['prefix' => 'answers'], function () use ($app) {
         )->get();
     });
 });
+
 $app->group(['prefix' => 'visits'], function () use ($app) {
     $app->post('/get', function (Request $request) {
 
@@ -302,8 +303,8 @@ $app->group(['prefix' => 'visits'], function () use ($app) {
                 "users.birthday as user_birthday",
             ]
         )->join("users", "users.id", "=", "visits.user_id")
-         ->join("panel_users", "panel_users.id", "=", "visits.created_by")
-         ->join("branches", "branches.id", "=", "panel_users.branch_id")->get();
+            ->join("panel_users", "panel_users.id", "=", "visits.created_by")
+            ->join("branches", "branches.id", "=", "panel_users.branch_id")->get();
 
     });
 });
@@ -387,4 +388,31 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
         }
     });
 
+});
+
+
+$app->group(['prefix' => 'coupons'], function () use ($app) {
+
+    $app->post('/get', function (Request $request) {
+         return Coupon::select('t.*')->join("branches",
+             "branches.id", "=", "coupons.branch_id")
+             ->get();
+    });
+
+
+    $app->post('/add', function (Request $request) {
+        $object = new Coupon();
+
+        $object->name = $request->get("name");
+        $object->description = $request->get("description");
+        $object->code = $request->get("code");
+        $object->required_number = $request->get("required_number");
+        $object->start = $request->get("start");
+        $object->end = $request->get("end");
+        $object->created_by = $request->get("created_by");
+        $object->branch_id = $request->get("branch_id");
+        $object->save();
+
+        return $object;
+    });
 });
