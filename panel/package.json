@@ -55,6 +55,7 @@
     "template7": "^1.4.2",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.5.0",
+    "vue-good-table": "^2.18.0",
     "vue-survey-builder": "^0.2.0"
   },
   "devDependencies": {

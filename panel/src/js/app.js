@@ -18,6 +18,13 @@ Vue.use(vueResource)
 Vue.use(VueApexCharts)
 Vue.component('apexchart', VueApexCharts)
 
+import VueGoodTablePlugin from 'vue-good-table';
+
+// import the styles
+import 'vue-good-table/dist/vue-good-table.css'
+
+Vue.use(VueGoodTablePlugin);
+
 Ripple.color = 'rgba(241, 105, 137, .35)';
 Ripple.zIndex = 55;
 Vue.directive('ripple', Ripple);

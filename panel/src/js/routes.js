@@ -1,7 +1,10 @@
 import HomePage from '../pages/welcome.vue';
 import DashboardPage from '../components/dashboard.vue';
-import VisitsAdd from '../components/visits/add.vue';
 import CouponsExchange from '../components/coupons/exchange.vue';
+
+//Visits
+import VisitsAdd from '../components/visits/add.vue';
+import VisitsList from '../components/visits/list.vue';
 
 //Surveys
 import SurveysAdd from '../components/surveys/add.vue';
@@ -37,6 +40,11 @@ let routes = [
         path: '/visits/add',
         name: 'visitAdd',
         component:  VisitsAdd
+    },
+    {
+        path: '/visits/list',
+        name: 'visitsList',
+        component:  VisitsList
     },
     {
         path: '/coupons/exchange',

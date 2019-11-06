@@ -49,11 +49,6 @@
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
-                                            link="/visits/add" view=".view-main" panel-close
-                                            title="Captura de Visitas"
-                                            subtitle="Catálogo">
-                                    </f7-list-item>
-                                    <f7-list-item
                                             link="/visits/list" view=".view-main" panel-close
                                             title="Listar Visitas"
                                             subtitle="Catálogo">

@@ -286,6 +286,27 @@ $app->group(['prefix' => 'answers'], function () use ($app) {
         )->get();
     });
 });
+$app->group(['prefix' => 'visits'], function () use ($app) {
+    $app->post('/get', function (Request $request) {
+
+        return \Illuminate\Support\Facades\DB::table("visits")->select(
+            [
+                "visits.created_at",
+                "visits.created_by",
+                "branches.name as branch_name",
+                "users.name as user_name",
+                "users.phone as user_phone",
+                "users.email as user_email",
+                "users.city as user_city",
+                "users.gender as user_gender",
+                "users.birthday as user_birthday",
+            ]
+        )->join("users", "users.id", "=", "visits.user_id")
+         ->join("panel_users", "panel_users.id", "=", "visits.created_by")
+         ->join("branches", "branches.id", "=", "panel_users.branch_id")->get();
+
+    });
+});
 
 $app->group(['prefix' => 'questions'], function () use ($app) {
 
