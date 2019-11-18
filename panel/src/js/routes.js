@@ -3,6 +3,7 @@ import DashboardPage from '../components/dashboard.vue';
 
 //coupons
 import CouponsExchange from '../components/coupons/exchange.vue';
+import CouponsList from '../components/coupons/list.vue';
 import CouponsAdd from '../components/coupons/add.vue';
 
 //Visits
@@ -27,8 +28,14 @@ import BranchesList from '../components/branches/list.vue';
 
 //Others
 import NotFoundPage from '../pages/404.vue';
+import LogoutPage from '../pages/logout.vue';
 
 let routes = [
+    {
+        path: '/logout/',
+        name: 'logout',
+        component: LogoutPage
+    },
     {
         path: '/',
         name: 'welcome',
@@ -58,6 +65,11 @@ let routes = [
         path: '/coupons/add',
         name: 'couponsAdd',
         component:  CouponsAdd
+    },
+    {
+        path: '/coupons/list',
+        name: 'couponsList',
+        component:  CouponsList
     },
     {
         path: '/users/panel/add',

@@ -14,11 +14,9 @@
                     </f7-block-title>
                     <f7-block-title>Acceso Rápido</f7-block-title>
                     <f7-list>
-                        <f7-list-item link="/dashboard/" view=".view-main" panel-close title="Dashboard"></f7-list-item>
+                        <!--<f7-list-item link="/dashboard/" view=".view-main" panel-close title="Dashboard"></f7-list-item>-->
                         <f7-list-item link="/coupons/exchange/" view=".view-main" panel-close
                                       title="Captura de Códigos / Visitas"></f7-list-item>
-                        <f7-list-item link="/logout/" view=".view-main" panel-close
-                        title="Cerrar Sesión"></f7-list-item>
                     </f7-list>
                     <f7-block-title>Catálogos</f7-block-title>
                     <f7-list accordion-list>
@@ -26,8 +24,8 @@
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
-                                            link="/coupons/exchange" view=".view-main" panel-close
-                                            title="Captura de Cupones"
+                                            link="/coupons/exchange/list" view=".view-main" panel-close
+                                            title="Cupones Canjeados"
                                             subtitle="Catálogo">
                                     </f7-list-item>
                                     <f7-list-item
@@ -118,6 +116,7 @@
                                 </f7-list>
                             </f7-accordion-content>
                         </f7-list-item>
+                        <f7-list-item link="/logout/" view=".view-main" panel-close title="Cerrar Sesión"></f7-list-item>
                     </f7-list>
                 </f7-page>
             </f7-view>

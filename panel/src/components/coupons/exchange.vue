@@ -1,6 +1,6 @@
 <template>
     <f7-page login-screen>
-        <f7-navbar title="Captura de Cupones"
+        <f7-navbar title="Captura de Cupones y Visitas"
                    style="background-color: white !important;
                    border:none !important; box-shadow: none !important;" :sliding="true" back-link="Atrás">
             <f7-nav-right>

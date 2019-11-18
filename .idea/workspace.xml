@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/app/Coupon.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/panel/src/components/coupons/add.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/panel/src/pages/logout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/app.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/visits/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/visits/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/coupons/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/coupons/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/pages/404.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/404.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -246,7 +247,7 @@
       <workItem from="1572725726714" duration="4115000" />
       <workItem from="1572740782035" duration="334000" />
       <workItem from="1572843696399" duration="35043000" />
-      <workItem from="1572992456309" duration="14558000" />
+      <workItem from="1572992456309" duration="19511000" />
     </task>
     <servers />
   </component>

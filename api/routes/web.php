@@ -394,11 +394,28 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
 $app->group(['prefix' => 'coupons'], function () use ($app) {
 
     $app->post('/get', function (Request $request) {
-         return Coupon::select('t.*')->join("branches",
-             "branches.id", "=", "coupons.branch_id")
-             ->get();
+        return Coupon::select(
+            [
+                'coupons.id',
+                'coupons.name',
+                'coupons.description',
+                'branches.name as branch_name',
+                'coupons.code',
+                'coupons.required_number',
+                'coupons.start',
+                'coupons.end',
+            ]
+        )->leftJoin(
+            "branches",
+            "branches.id", "=", "coupons.branch_id")
+            ->get();
     });
 
+    $app->post('/delete', function (Request $request) {
+        return response()->json([
+            "success" => Coupon::find($request->get("id"))->delete()
+        ]);
+    });
 
     $app->post('/add', function (Request $request) {
         $object = new Coupon();
