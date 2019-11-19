@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/panel/src/pages/logout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/app.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/coupons/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/coupons/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/pages/404.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/pages/404.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,9 +12,6 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/api/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -51,18 +40,54 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="coupons: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="kingans-app" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="195" column="64" selection-start-line="195" selection-start-column="56" selection-end-line="195" selection-end-column="64" />
+              <folding>
+                <element signature="e#304#3864#1#PHP" />
+                <element signature="e#4410#4885#1#PHP" />
+                <element signature="e#4917#5405#1#PHP" />
+                <element signature="e#5436#5968#1#PHP" />
+                <element signature="e#6002#6171#1#PHP" />
+                <element signature="e#7250#7854#1#PHP" />
+                <element signature="e#7885#8336#1#PHP" />
+                <element signature="e#8370#8534#1#PHP" />
+                <element signature="n#style#0;n#strong#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/login.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="665">
+              <caret line="185" column="22" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/panel/src/components/app.users/add.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="668">
+              <caret line="167" column="14" lean-forward="true" selection-start-line="158" selection-start-column="12" selection-end-line="167" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -73,6 +98,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/api/routes/web.php" />
+        <option value="$PROJECT_DIR$/src/pages/login.vue" />
+      </list>
+    </option>
   </component>
   <component name="PhpTemplates">
     <option name="NEW_PHP_FILE_LAST_EXTENSION" value="module" />
@@ -155,13 +188,84 @@
       <path value="$PROJECT_DIR$/api/vendor/composer" />
     </include_path>
   </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="503" />
+    <option name="y" value="112" />
+    <option name="width" value="1568" />
+    <option name="height" value="1012" />
+  </component>
   <component name="ProjectId" id="1RqeGShguVHE9NLf7K4v4EcPxf4" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="app.users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="panel.users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kingans-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kingans-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572734372867" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574121521497" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/api/app" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -248,8 +352,46 @@
       <workItem from="1572740782035" duration="334000" />
       <workItem from="1572843696399" duration="35043000" />
       <workItem from="1572992456309" duration="19511000" />
+      <workItem from="1574119946131" duration="1589000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1589000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="503" y="112" width="1568" height="1012" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1317169" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info active="true" anchor="right" id="Database" visible="true" weight="0.14416777" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -270,6 +412,12 @@
         <entry key="1">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -302,6 +450,12 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -327,5 +481,45 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/api/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="195" column="64" selection-start-line="195" selection-start-column="56" selection-end-line="195" selection-end-column="64" />
+          <folding>
+            <element signature="e#304#3864#1#PHP" />
+            <element signature="e#4410#4885#1#PHP" />
+            <element signature="e#4917#5405#1#PHP" />
+            <element signature="e#5436#5968#1#PHP" />
+            <element signature="e#6002#6171#1#PHP" />
+            <element signature="e#7250#7854#1#PHP" />
+            <element signature="e#7885#8336#1#PHP" />
+            <element signature="e#8370#8534#1#PHP" />
+            <element signature="n#style#0;n#strong#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/panel/src/components/panel.users/add.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1590" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/panel/src/components/app.users/add.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="167" column="14" lean-forward="true" selection-start-line="158" selection-start-column="12" selection-end-line="167" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="185" column="22" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

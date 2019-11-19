@@ -81,35 +81,35 @@
                                 type="text"
                                 placeholder="XXX XXX XX XX"
                                 info="Códugo de usuario"
-                                :value="username"
+                                :value="subscribe.phone"
                                 clear-button
-                                @input="username = $event.target.value"
+                                @input="subscribe.phone = $event.target.value"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
                                 label="Nombre"
                                 placeholder="Nombre"
                                 type="text"
-                                :value="username"
+                                :value="subscribe.name"
                                 clear-button
-                                @input="username = $event.target.value"
+                                @input="subscribe.name = $event.target.value"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
                                 label="Correo"
                                 placeholder="Correo Electrónico"
                                 type="email"
-                                :value="username"
+                                :value="subscribe.email"
                                 clear-button
-                                @input="username = $event.target.value"
+                                @input="subscribe.email = $event.target.value"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
                                 label="Ciudad"
                                 type="select"
                                 placeholder="Seleccione una opción"
-                                :value="username"
-                                @input="username = $event.target.value"
+                                :value="subscribe.city"
+                                @input="subscribe.city = $event.target.value"
                         >
                             <option value="Saltillo">Saltillo</option>
                             <option value="Torreón">Torreón</option>
@@ -119,29 +119,33 @@
                                 label="Sexo"
                                 type="select"
                                 placeholder="Seleccione una opción"
-                                :value="username"
-                                @input="username = $event.target.value"
+                                :value="subscribe.gender"
+                                @input="subscribe.gender = $event.target.value"
                         >
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                         </f7-list-input>
                         <f7-list-input
-                                class="kingans-border"
-                                label="Fecha de Nacimiento"
-                                info="Fecha de Nacimiento"
+                                label="Fecha de nacimiento"
                                 type="datepicker"
-                                placeholder="XXXX-XX-XX"
+                                placeholder="Selecciona una Fecha"
+                                clear-button
+                                @calendar:change="setCalendarSubscriberDate"
+                                validate
+                                required
                                 readonly
-                        ></f7-list-input>
+                                :error-message="'Campo Obligatorio'"
+                                :calendar-params="calendarParams">
+                        </f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
                                 label="Contraseña"
                                 type="text"
                                 placeholder="**********"
                                 info="Contraseña"
-                                :value="username"
+                                :value="subscribe.password"
                                 clear-button
-                                @input="username = $event.target.value"
+                                @input="subscribe.password = $event.target.value"
                         ></f7-list-input>
                         <f7-button flat
                                 tab-link="#tab-login"
@@ -167,11 +171,42 @@
         name: 'login',
         data() {
             return {
+                calendarParams: {
+                    closeOnSelect: true,
+                    header: true,
+                    footer: false,
+                    dateFormat: 'dd MM yyyy',
+                },
                 username: '',
                 password: '',
             };
         },
         methods: {
+            checkForm() {
+                let vm = this;
+                let isValid = true;
+                Object.keys(this.items).forEach(function (index, item) {
+                    if (vm.items[index] === "") {
+                        isValid = false
+                    }
+                });
+                return isValid;
+            },
+            setCalendarDate: function (e) {
+                let d = new Date(e);
+                let month = '' + (d.getMonth() + 1);
+                let day = '' + d.getDate();
+                let year = d.getFullYear();
+
+                if (month.length < 2) {
+                    month = '0' + month;
+                }
+                if (day.length < 2) {
+                    day = '0' + day;
+                }
+
+                this.items.birthday = [year, month, day].join('-');
+            },
             falseSignIn() {
                 this.$f7.dialog.preloader('Iniciando Sesión')
                 this.$http.post(/*this.$store.state.application.config.api + */  '', {
