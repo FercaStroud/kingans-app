@@ -13,6 +13,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable, SoftDeletes;
     public $timestamps = true;
+    protected $table = 'users';
+
     protected $dates = [
         'created_at',
         'updated_at',

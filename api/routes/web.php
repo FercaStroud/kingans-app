@@ -118,7 +118,7 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             if (Hash::check($request->get('password'), $user->password)) {
                 return $user;
             } else {
-                response()->json(['success' => false]);
+                return response()->json(['success' => false]);
             }
         });
 
@@ -180,7 +180,7 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             if (Hash::check($request->get('password'), $user->password)) {
                 return $user;
             } else {
-                response()->json(['success' => false]);
+                return response()->json(['success' => false]);
             }
         });
 

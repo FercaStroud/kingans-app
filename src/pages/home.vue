@@ -14,12 +14,12 @@
         </f7-navbar>
 
         <f7-block>
-            <span style="font-size: 1.6em;color: black;">Alberto Martínez</span><br/>
-            <span>TORREÓN</span>
+            <span style="font-size: 1.6em;color: black;">{{$store.state.application.user.name}}</span><br/>
+            <span style="text-transform: capitalize">{{$store.state.application.user.city}}</span>
         </f7-block>
 
         <f7-block>
-            <h1 style="color: black">8713351343</h1>
+            <h1 style="color: black">{{$store.state.application.user.phone}}</h1>
         </f7-block>
 
         <f7-block style="
@@ -32,15 +32,14 @@
         </f7-block>
 
         <f7-block style="margin: 0;">
-            <img width="100%" @click=""
-                 src="https://store-images.s-microsoft.com/image/apps.33967.13510798887182917.246b0a3d-c3cc-46fc-9cea-021069d15c09.392bf5f5-ade4-4b36-aa63-bb15d5c3817a"/>
+            <vue-qr id="img-qr" style="width: 100%" size="600" :text="$store.state.application.user.phone"></vue-qr>
         </f7-block>
 
-        <f7-block style="text-align: center;">
+        <!--<f7-block style="text-align: center;">
             <f7-link style="font-size: 1.3em; color: #d9d9d8; font-weight: bold" @click="surveyPopupOpened = true">
                 Vista de prueba - Encuesta
             </f7-link>
-        </f7-block>
+        </f7-block>-->
 
         <f7-block>
             <img style="border-radius: 50%; width: 30%; margin-left: 35%" src="../assets/logoKingans.svg"/>
@@ -52,6 +51,7 @@
     </f7-page>
 </template>
 <script>
+    import VueQr from 'vue-qr'
     import Survey from "./survey";
     export default {
         data() {
@@ -59,6 +59,6 @@
                 surveyPopupOpened: false,
             };
         },
-        components: {Survey}
+        components: {Survey, VueQr}
     }
 </script>

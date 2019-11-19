@@ -12,8 +12,8 @@
                     </f7-block-title>
 
                     <f7-block>
-                        <span style="font-size: 1.6em;color: black;">Alberto Martínez</span><br/>
-                        <span>TORREÓN</span>
+                        <span style="font-size: 1.6em;color: black;">{{$store.state.application.user.name}}</span><br/>
+                        <span>{{$store.state.application.user.city}}</span>
                     </f7-block>
 
                     <f7-list :style="{

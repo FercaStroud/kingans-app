@@ -38,7 +38,7 @@
             <f7-button
                     class="btn-primary"
                     style="width: 50%; margin-left: 25%;"
-                    large @click="signIn">
+                    large @click="logIn">
                 <f7-icon style="margin-top: -4px" material="person"></f7-icon>
                 INICIA SESIÓN
             </f7-button>
@@ -56,7 +56,7 @@
             };
         },
         methods: {
-            signIn() {
+            logIn() {
                 this.$f7.dialog.preloader('Iniciando Sesión')
                 this.$http.post(this.$store.state.application.config.api + 'users/panel/login', {
                     username: this.username,

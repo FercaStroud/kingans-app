@@ -18,9 +18,9 @@
                             type="text"
                             placeholder="XXX XXX XX XX"
                             info="Códugo de usuario"
-                            :value="username"
+                            :value="phone"
                             clear-button
-                            @input="username = $event.target.value"
+                            @input="phone = $event.target.value"
                     ></f7-list-input>
                     <f7-list-input
                             class="kingans-border"
@@ -43,7 +43,7 @@
                     <f7-button
                             class="btn-primary"
                             style="width: 50%; margin-left: 25%;"
-                            large @click="falseSignIn">
+                            large @click="logIn">
                         <f7-icon style="margin-top: -4px" material="person"></f7-icon>
                         INICIA SESIÓN
                     </f7-button>
@@ -57,7 +57,7 @@
                     <f7-button
                             class="btn-secondary"
                             style="width: 50%; margin-left: 25%;margin-top: 10px"
-                            large @click="falseSignIn">
+                            large @click="">
                         <f7-icon style="margin-top: -4px" material="people"></f7-icon>
                         FACEBOOK
                     </f7-button>
@@ -78,38 +78,50 @@
                         <f7-list-input
                                 class="kingans-border"
                                 label="Teléfono"
-                                type="text"
+                                type="number"
                                 placeholder="XXX XXX XX XX"
                                 info="Códugo de usuario"
-                                :value="subscribe.phone"
+                                :value="addUserForm.phone"
                                 clear-button
-                                @input="subscribe.phone = $event.target.value"
+                                @input="addUserForm.phone = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
                                 label="Nombre"
                                 placeholder="Nombre"
                                 type="text"
-                                :value="subscribe.name"
+                                :value="addUserForm.name"
                                 clear-button
-                                @input="subscribe.name = $event.target.value"
+                                @input="addUserForm.name = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
                                 label="Correo"
                                 placeholder="Correo Electrónico"
                                 type="email"
-                                :value="subscribe.email"
+                                :value="addUserForm.email"
                                 clear-button
-                                @input="subscribe.email = $event.target.value"
+                                @input="addUserForm.email = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
                                 label="Ciudad"
                                 type="select"
                                 placeholder="Seleccione una opción"
-                                :value="subscribe.city"
-                                @input="subscribe.city = $event.target.value"
+                                :value="addUserForm.city"
+                                @input="addUserForm.city = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
                         >
                             <option value="Saltillo">Saltillo</option>
                             <option value="Torreón">Torreón</option>
@@ -119,8 +131,11 @@
                                 label="Sexo"
                                 type="select"
                                 placeholder="Seleccione una opción"
-                                :value="subscribe.gender"
-                                @input="subscribe.gender = $event.target.value"
+                                :value="addUserForm.gender"
+                                @input="addUserForm.gender = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
                         >
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
@@ -143,21 +158,24 @@
                                 type="text"
                                 placeholder="**********"
                                 info="Contraseña"
-                                :value="subscribe.password"
+                                :value="addUserForm.password"
                                 clear-button
-                                @input="subscribe.password = $event.target.value"
+                                @input="addUserForm.password = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
                         ></f7-list-input>
                         <f7-button flat
-                                tab-link="#tab-login"
-                                style="width: 90px;font-size:.7em;float:left;margin-right:5%">
+                                   tab-link="#tab-login"
+                                   style="width: 90px;font-size:.7em;float:left;margin-right:5%">
                             CANCELAR
                         </f7-button>
                         <f7-button
                                 class="btn-primary"
                                 style="width: 60%;"
-                                large @click="falseSignIn">
+                                large @click="signIn">
                             <f7-icon style="margin-top: -4px" material="add"></f7-icon>
-                            SUSCRIR
+                            SUSCRIBIR
                         </f7-button>
                     </f7-list>
                 </f7-block>
@@ -177,7 +195,16 @@
                     footer: false,
                     dateFormat: 'dd MM yyyy',
                 },
-                username: '',
+                addUserForm: {
+                    phone: '',
+                    name: '',
+                    email: '',
+                    city: '',
+                    gender: '',
+                    birthday: '',
+                    password: '',
+                },
+                phone: '',
                 password: '',
             };
         },
@@ -185,14 +212,14 @@
             checkForm() {
                 let vm = this;
                 let isValid = true;
-                Object.keys(this.items).forEach(function (index, item) {
-                    if (vm.items[index] === "") {
+                Object.keys(this.addUserForm).forEach(function (index, item) {
+                    if (vm.addUserForm[index] === "") {
                         isValid = false
                     }
                 });
                 return isValid;
             },
-            setCalendarDate: function (e) {
+            setCalendarSubscriberDate: function (e) {
                 let d = new Date(e);
                 let month = '' + (d.getMonth() + 1);
                 let day = '' + d.getDate();
@@ -205,53 +232,63 @@
                     day = '0' + day;
                 }
 
-                this.items.birthday = [year, month, day].join('-');
+                this.addUserForm.birthday = [year, month, day].join('-');
             },
-            falseSignIn() {
+            logIn() {
                 this.$f7.dialog.preloader('Iniciando Sesión')
-                this.$http.post(/*this.$store.state.application.config.api + */  '', {
-                    name: this.username,
-                    pwd: this.password,
+                this.$http.post(this.$store.state.application.config.api + 'users/app/login', {
+                    phone: this.phone,
+                    password: this.password,
                 }).then(response => {
                     this.$f7.dialog.close();
-                    this.$f7.dialog.alert("Usuario de Pruebas", 'Bienvenido', function () {
-                        this.$store.state.application.drawer.login = false
-                    }.bind(this))
-                }, response => {
-                    console.log(response, 'error get username')
-                    this.$f7.dialog.close();
-                    this.$f7.dialog.alert("Usuario de Pruebas", 'Bienvenido', function () {
-                        this.$store.state.application.drawer.login = false
-                    }.bind(this))
-                });
-            },
-            signIn() {
-                this.$f7.dialog.preloader('Iniciando Sesión')
-                this.$http.post(this.$store.state.application.config.api + 'login', {
-                    name: this.username,
-                    pwd: this.password,
-                }).then(response => {
-                    this.$store.state.application.user = response.body
-                    this.$f7.dialog.close();
-                    if (this.$store.state.application.user.name != null &&
-                        this.$store.state.application.user.name != undefined &&
-                        this.$store.state.application.user.name != '') {
+                    if (response.data.success === false || response.data === '') {
                         this.$store.commit('setLogin', false)
+                        this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
+                        this.$f7.dialog.close();
+                    } else {
+                        this.$store.state.application.user = response.data;
                         this.$f7.dialog.alert(this.$store.state.application.user.name, 'Bienvenido', function () {
                             this.$store.state.application.drawer.login = false
                         }.bind(this))
-                    } else {
-                        this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
-                        //this.$f7.dialog.alert('Intente más tarde', 'Servidor no disponible')
-                        console.log(response, 'error get username')
-                        this.$f7.dialog.close();
                     }
                 }, response => {
+                    console.log(response, 'error signIn login.vue')
                     this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
-                    //this.$f7.dialog.alert('Intente más tarde', 'Servidor no disponible')
-                    console.log(response, 'error get username')
                     this.$f7.dialog.close();
                 });
+            },
+            signIn() {
+                if (this.checkForm()) {
+                    this.$f7.dialog.preloader('Enviando datos...');
+                    this.$http.post(this.$store.state.application.config.api + 'users/app/add', {
+                        name: this.addUserForm.name,
+                        phone: this.addUserForm.phone,
+                        email: this.addUserForm.email,
+                        city: this.addUserForm.city,
+                        gender: this.addUserForm.gender,
+                        birthday: this.addUserForm.birthday,
+                        password: this.addUserForm.password,
+                    }).then(response => {
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Registro completo, ahora puedes iniciar sesión.", "Éxito");
+                        this.addUserForm = {
+                            name: '',
+                            phone: '',
+                            email: '',
+                            city: '',
+                            gender: '',
+                            birthday: '',
+                            password: '',
+                        }
+                    }, response => {
+                        console.log(response, 'error on checkForm users/app/add');
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Datos duplicados.", '¡Hola, revisa tus datos!');
+                    });
+
+                } else {
+                    this.$f7.dialog.alert("Todos los campos son requeridos.");
+                }
             },
         },
     };

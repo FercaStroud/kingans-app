@@ -25,52 +25,52 @@ Ripple.zIndex = 55;
 Vue.directive('ripple', Ripple);
 
 const store = new Vuex.Store({
-  plugins: [createPersistedState()],
-  modules: {
-    application: {
-      //namespaced: true,
-      state: {
-        title: 'Grupo K',
-        drawer: {
-          left: false,
-          right: false,
-          login: true,
+    plugins: [createPersistedState()],
+    modules: {
+        application: {
+            namespaced: true,
+            state: {
+                title: 'Grupo K',
+                drawer: {
+                    left: false,
+                    right: false,
+                    login: true,
+                },
+                config: {
+                    //api: 'http://kingans.com/api/',
+                    api: 'http://localhost:8000/',
+                },
+                user: {
+                    created_at: null,
+                    updated_at: null,
+                    phone: '',
+                    name: '',
+                    email: '',
+                    city: '',
+                    gender: '',
+                    birthday: '',
+                },
+            },
+            mutations: {
+                setLogin: (state, payload) => {
+                    state.drawer.login = payload
+                },
+                resetLogin: state => {
+                    state.drawer.login = true
+                },
+            },
+            getters: {}
         },
-        config: {
-          api: 'https://www.appcongresonorvet.com/api/',
-        },
-        user: {
-          age: null,
-          city: null,
-          created_at: null,
-          folio: null,
-          id: null,
-          name: null,
-          title: null,
-          type: null,
-          updated_at: null,
-        },
-      },
-      mutations: {
-        setLogin: (state, payload) => {
-          state.drawer.login = payload
-        },
-        resetLogin: state => {
-          state.drawer.login = true
-        },
-      },
-      getters: {}
-    },
-  }
+    }
 })
 
 // Init App
 new Vue({
-  el: '#app',
-  store,
-  render: (h) => h(App),
-  // Register App Component
-  components: {
-    app: App
-  },
+    el: '#app',
+    store,
+    render: (h) => h(App),
+    // Register App Component
+    components: {
+        app: App
+    },
 });
