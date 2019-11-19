@@ -10,8 +10,8 @@
                 </f7-login-screen-title>
                 <f7-list form style="
                 background-color: rgba(255,255,255,1);
-                width: 90%;
-                margin: 15px;">
+                margin: 15px;
+                ">
                     <f7-list-input
                             class="kingans-border"
                             label="Móvil"
@@ -64,121 +64,119 @@
                 </f7-list>
             </f7-tab>
             <f7-tab id="tab-register" class="page-content">
-                <f7-block>
+                <f7-page>
+                    <f7-toolbar style="background: #fff;" :position="'bottom'">
+                        <f7-link tab-link="#tab-login">CANCELAR</f7-link>
+                        <f7-link style="color:#f16989" @click="signIn">
+                            <f7-icon style="margin-top: -4px" material="add"></f7-icon>
+                            SUSCRIBIR
+                        </f7-link>
+                    </f7-toolbar>
                     <f7-block>
+                        <f7-block>
                         <span style="font-size: 1.6em;color: black;">
                             Suscríbete
                         </span><br/>
-                        <span>Cliente Frecuente</span>
-                    </f7-block>
-                    <f7-list form style="
+                            <span>Cliente Frecuente</span>
+                        </f7-block>
+                        <f7-list form style="
                 background-color: rgba(255,255,255,1);
                 width: 90%;
                 margin: 15px;">
-                        <f7-list-input
-                                class="kingans-border"
-                                label="Teléfono"
-                                type="number"
-                                placeholder="XXX XXX XX XX"
-                                info="Códugo de usuario"
-                                :value="addUserForm.phone"
-                                clear-button
-                                @input="addUserForm.phone = $event.target.value"
-                                validate
-                                required
-                                :error-message="'Campo Obligatorio'"
-                        ></f7-list-input>
-                        <f7-list-input
-                                class="kingans-border"
-                                label="Nombre"
-                                placeholder="Nombre"
-                                type="text"
-                                :value="addUserForm.name"
-                                clear-button
-                                @input="addUserForm.name = $event.target.value"
-                                validate
-                                required
-                                :error-message="'Campo Obligatorio'"
-                        ></f7-list-input>
-                        <f7-list-input
-                                class="kingans-border"
-                                label="Correo"
-                                placeholder="Correo Electrónico"
-                                type="email"
-                                :value="addUserForm.email"
-                                clear-button
-                                @input="addUserForm.email = $event.target.value"
-                                validate
-                                required
-                                :error-message="'Campo Obligatorio'"
-                        ></f7-list-input>
-                        <f7-list-input
-                                class="kingans-border"
-                                label="Ciudad"
-                                type="select"
-                                placeholder="Seleccione una opción"
-                                :value="addUserForm.city"
-                                @input="addUserForm.city = $event.target.value"
-                                validate
-                                required
-                                :error-message="'Campo Obligatorio'"
-                        >
-                            <option value="Saltillo">Saltillo</option>
-                            <option value="Torreón">Torreón</option>
-                        </f7-list-input>
-                        <f7-list-input
-                                class="kingans-border"
-                                label="Sexo"
-                                type="select"
-                                placeholder="Seleccione una opción"
-                                :value="addUserForm.gender"
-                                @input="addUserForm.gender = $event.target.value"
-                                validate
-                                required
-                                :error-message="'Campo Obligatorio'"
-                        >
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                        </f7-list-input>
-                        <f7-list-input
-                                label="Fecha de nacimiento"
-                                type="datepicker"
-                                placeholder="Selecciona una Fecha"
-                                clear-button
-                                @calendar:change="setCalendarSubscriberDate"
-                                validate
-                                required
-                                readonly
-                                :error-message="'Campo Obligatorio'"
-                                :calendar-params="calendarParams">
-                        </f7-list-input>
-                        <f7-list-input
-                                class="kingans-border"
-                                label="Contraseña"
-                                type="text"
-                                placeholder="**********"
-                                info="Contraseña"
-                                :value="addUserForm.password"
-                                clear-button
-                                @input="addUserForm.password = $event.target.value"
-                                validate
-                                required
-                                :error-message="'Campo Obligatorio'"
-                        ></f7-list-input>
-                        <f7-button flat
-                                   tab-link="#tab-login"
-                                   style="width: 90px;font-size:.7em;float:left;margin-right:5%">
-                            CANCELAR
-                        </f7-button>
-                        <f7-button
-                                class="btn-primary"
-                                style="width: 60%;"
-                                large @click="signIn">
-                            <f7-icon style="margin-top: -4px" material="add"></f7-icon>
-                            SUSCRIBIR
-                        </f7-button>
-                    </f7-list>
-                </f7-block>
+                            <f7-list-input
+                                    class="kingans-border"
+                                    label="Teléfono"
+                                    type="number"
+                                    placeholder="XXX XXX XX XX"
+                                    info="Códugo de usuario"
+                                    :value="addUserForm.phone"
+                                    clear-button
+                                    @input="addUserForm.phone = $event.target.value"
+                                    validate
+                                    required
+                                    :error-message="'Campo Obligatorio'"
+                            ></f7-list-input>
+                            <f7-list-input
+                                    class="kingans-border"
+                                    label="Nombre"
+                                    placeholder="Nombre"
+                                    type="text"
+                                    :value="addUserForm.name"
+                                    clear-button
+                                    @input="addUserForm.name = $event.target.value"
+                                    validate
+                                    required
+                                    :error-message="'Campo Obligatorio'"
+                            ></f7-list-input>
+                            <f7-list-input
+                                    class="kingans-border"
+                                    label="Correo"
+                                    placeholder="Correo Electrónico"
+                                    type="email"
+                                    :value="addUserForm.email"
+                                    clear-button
+                                    @input="addUserForm.email = $event.target.value"
+                                    validate
+                                    required
+                                    :error-message="'Campo Obligatorio'"
+                            ></f7-list-input>
+                            <f7-list-input
+                                    class="kingans-border"
+                                    label="Ciudad"
+                                    type="select"
+                                    placeholder="Seleccione una opción"
+                                    :value="addUserForm.city"
+                                    @input="addUserForm.city = $event.target.value"
+                                    validate
+                                    required
+                                    :error-message="'Campo Obligatorio'"
+                            >
+                                <option value="Saltillo">Saltillo</option>
+                                <option value="Torreón">Torreón</option>
+                            </f7-list-input>
+                            <f7-list-input
+                                    class="kingans-border"
+                                    label="Sexo"
+                                    type="select"
+                                    placeholder="Seleccione una opción"
+                                    :value="addUserForm.gender"
+                                    @input="addUserForm.gender = $event.target.value"
+                                    validate
+                                    required
+                                    :error-message="'Campo Obligatorio'"
+                            >
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </f7-list-input>
+                            <f7-list-input
+                                    label="Fecha de nacimiento"
+                                    type="datepicker"
+                                    placeholder="Selecciona una Fecha"
+                                    clear-button
+                                    @calendar:change="setCalendarSubscriberDate"
+                                    validate
+                                    required
+                                    readonly
+                                    :error-message="'Campo Obligatorio'"
+                                    :calendar-params="calendarParams">
+                            </f7-list-input>
+                            <f7-list-input
+                                    class="kingans-border"
+                                    label="Contraseña"
+                                    type="text"
+                                    placeholder="**********"
+                                    info="Contraseña"
+                                    :value="addUserForm.password"
+                                    clear-button
+                                    @input="addUserForm.password = $event.target.value"
+                                    validate
+                                    required
+                                    :error-message="'Campo Obligatorio'"
+                            ></f7-list-input>
+
+                        </f7-list>
+                    </f7-block>
+                </f7-page>
             </f7-tab>
         </f7-tabs>
     </f7-page>

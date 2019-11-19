@@ -32,7 +32,7 @@
         </f7-block>
 
         <f7-block style="margin: 0;">
-            <vue-qr id="img-qr" style="width: 100%" size="600" :text="$store.state.application.user.phone"></vue-qr>
+            <vue-qr id="img-qr" style="width: 100%" :size="600" :text="$store.state.application.user.phone"></vue-qr>
         </f7-block>
 
         <!--<f7-block style="text-align: center;">
