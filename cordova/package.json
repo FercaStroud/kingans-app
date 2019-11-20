@@ -13,8 +13,9 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "^8.0.0",
+    "cordova-android": "^8.1.0",
     "cordova-ios": "^5.0.1",
+    "cordova-plugin-facebook4": "6.2.0",
     "cordova-plugin-headercolor": "^1.0.0",
     "cordova-plugin-keyboard": "^1.2.0",
     "cordova-plugin-splashscreen": "^5.0.3",
@@ -29,7 +30,12 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-wkwebview-file-xhr": {},
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-headercolor": {}
+      "cordova-plugin-headercolor": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "783722965399540",
+        "APP_NAME": "Kingans App",
+        "FACEBOOK_HYBRID_APP_EVENTS": "true"
+      }
     },
     "platforms": [
       "ios",
