@@ -250,9 +250,9 @@
                     } else {
                         vm.$store.commit('setLogin', false)
                         vm.$store.commit('setUser', response.data)
-                        this.$f7.dialog.alert(this.$store.state.application.user.name, 'Bienvenido', function () {
-                            this.$store.state.application.drawer.login = false
-                        }.bind(this))
+                        //this.$f7.dialog.alert(this.$store.state.application.user.name, 'Bienvenido', function () {
+                        //    this.$store.state.application.drawer.login = false
+                        //}.bind(this))
                     }
                 }, response => {
                     console.log(response, 'error signIn login.vue')
