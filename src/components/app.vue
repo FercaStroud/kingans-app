@@ -68,7 +68,6 @@
         <!-- Your main view, should have "view-main" class -->
         <f7-view main class="safe-areas" url="/"></f7-view>
 
-
         <f7-login-screen
                 :opened="$store.state.application.drawer.login"
                 @loginscreen:closed="$store.state.application.drawer.login = false">
@@ -103,7 +102,6 @@
                                 firstName: 'John',
                                 lastName: 'Doe',
                             },
-
                         };
                     },
                     // App routes

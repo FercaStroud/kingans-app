@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/branches.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/branches.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +56,7 @@
         <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="visits: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -148,12 +155,6 @@
       <path value="$PROJECT_DIR$/api/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="349" />
-    <option name="y" value="108" />
-    <option name="width" value="1883" />
-    <option name="height" value="1163" />
-  </component>
   <component name="ProjectId" id="1RqeGShguVHE9NLf7K4v4EcPxf4" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -249,6 +250,7 @@
       <workItem from="1572992456309" duration="19511000" />
       <workItem from="1574119946131" duration="1988000" />
       <workItem from="1574200718428" duration="2145000" />
+      <workItem from="1574324115638" duration="5851000" />
     </task>
     <servers />
   </component>
@@ -328,16 +330,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/pages/login.vue</url>
-          <line>62</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

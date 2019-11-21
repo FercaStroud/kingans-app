@@ -28,7 +28,7 @@ const store = new Vuex.Store({
     plugins: [createPersistedState()],
     modules: {
         application: {
-            namespaced: true,
+            //namespaced: true,
             state: {
                 title: 'Grupo K',
                 drawer: {
@@ -37,8 +37,8 @@ const store = new Vuex.Store({
                     login: true,
                 },
                 config: {
-                    //api: 'http://kingans.com/api/',
-                    api: 'http://localhost:8000/',
+                    api: 'http://kingans.com/api/',
+                    //api: 'http://localhost:8000/',
                 },
                 user: {
                     created_at: null,
@@ -56,7 +56,20 @@ const store = new Vuex.Store({
                     state.drawer.login = payload
                 },
                 resetLogin: state => {
-                    state.drawer.login = true
+                    state.drawer.login = true;
+                    state.user = {
+                        created_at: null,
+                        updated_at: null,
+                        phone: '',
+                        name: '',
+                        email: '',
+                        city: '',
+                        gender: '',
+                        birthday: '',
+                    }
+                },
+                setUser: (state, payload) => {
+                    state.user = payload
                 },
             },
             getters: {}

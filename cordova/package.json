@@ -17,6 +17,7 @@
     "cordova-ios": "^5.0.1",
     "cordova-plugin-facebook4": "6.2.0",
     "cordova-plugin-headercolor": "^1.0.0",
+    "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-plugin-keyboard": "^1.2.0",
     "cordova-plugin-splashscreen": "^5.0.3",
     "cordova-plugin-statusbar": "^2.4.3",
@@ -35,7 +36,8 @@
         "APP_ID": "783722965399540",
         "APP_NAME": "Kingans App",
         "FACEBOOK_HYBRID_APP_EVENTS": "true"
-      }
+      },
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "ios",

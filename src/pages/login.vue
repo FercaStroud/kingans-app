@@ -8,37 +8,40 @@
                         <img class="circle-image" style="width: 50%; margin-top: 40px" src="../assets/logoKingans.svg"/>
                     </div>
                 </f7-login-screen-title>
-                <f7-list form style="
+                <f7-block>
+                    <f7-list form style="
                 background-color: rgba(255,255,255,1);
+
                 margin: 15px;
                 ">
-                    <f7-list-input
-                            class="kingans-border"
-                            label="Móvil"
-                            type="text"
-                            placeholder="XXX XXX XX XX"
-                            info="Códugo de usuario"
-                            :value="phone"
-                            clear-button
-                            @input="phone = $event.target.value"
-                    ></f7-list-input>
-                    <f7-list-input
-                            class="kingans-border"
-                            label="Contraseña"
-                            type="password"
-                            placeholder="Contraseña"
-                            clear-button
-                            :value="password"
-                            @input="password = $event.target.value"
-                    ></f7-list-input>
-                    <f7-link style="color: darkgrey;
+                        <f7-list-input
+                                class="kingans-border"
+                                label="Móvil"
+                                type="text"
+                                placeholder="XXX XXX XX XX"
+                                info="Códugo de usuario"
+                                :value="phone"
+                                clear-button
+                                @input="phone = $event.target.value"
+                        ></f7-list-input>
+                        <f7-list-input
+                                class="kingans-border"
+                                label="Contraseña"
+                                type="password"
+                                placeholder="Contraseña"
+                                clear-button
+                                :value="password"
+                                @input="password = $event.target.value"
+                        ></f7-list-input>
+                        <f7-link style="color: darkgrey;
                     text-align: center;
                     font-size: 0.8em;
                     margin-top: -23px;
                     position: absolute;"
-                    >¿Olvidaste la Contraseña?
-                    </f7-link>
-                </f7-list>
+                        >¿Olvidaste la Contraseña?
+                        </f7-link>
+                    </f7-list>
+                </f7-block>
                 <f7-list style="padding-top: 20px;">
                     <f7-button
                             class="btn-primary"
@@ -81,7 +84,6 @@
                         </f7-block>
                         <f7-list form style="
                 background-color: rgba(255,255,255,1);
-                width: 90%;
                 margin: 15px;">
                             <f7-list-input
                                     class="kingans-border"
@@ -206,6 +208,8 @@
                 password: '',
             };
         },
+        mounted: function(){
+        },
         methods: {
             checkForm() {
                 let vm = this;
@@ -233,6 +237,7 @@
                 this.addUserForm.birthday = [year, month, day].join('-');
             },
             logIn() {
+                let vm = this;
                 this.$f7.dialog.preloader('Iniciando Sesión')
                 this.$http.post(this.$store.state.application.config.api + 'users/app/login', {
                     phone: this.phone,
@@ -240,11 +245,11 @@
                 }).then(response => {
                     this.$f7.dialog.close();
                     if (response.data.success === false || response.data === '') {
-                        this.$store.commit('setLogin', false)
                         this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
                         this.$f7.dialog.close();
                     } else {
-                        this.$store.state.application.user = response.data;
+                        vm.$store.commit('setLogin', false)
+                        vm.$store.commit('setUser', response.data)
                         this.$f7.dialog.alert(this.$store.state.application.user.name, 'Bienvenido', function () {
                             this.$store.state.application.drawer.login = false
                         }.bind(this))
