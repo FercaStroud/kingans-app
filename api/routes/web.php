@@ -395,7 +395,6 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
 
 });
 
-
 $app->group(['prefix' => 'coupons'], function () use ($app) {
 
     $app->post('/get', function (Request $request) {
@@ -405,6 +404,7 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
                 'coupons.name',
                 'coupons.description',
                 'branches.name as branch_name',
+                'branches.id as branch_id',
                 'coupons.code',
                 'coupons.required_number',
                 'coupons.start',
@@ -433,6 +433,21 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
         $object->end = $request->get("end");
         $object->created_by = $request->get("created_by");
         $object->branch_id = $request->get("branch_id");
+        $object->save();
+
+        return $object;
+    });
+    $app->post('/edit', function (Request $request) {
+        $object = Coupon::find($request->get("id"));
+
+        $object->name = $request->get('name', $object->name);
+        $object->branch_id = $request->get('branch_id', $object->branch_id);
+        $object->description = $request->get('description', $object->description);
+        $object->code = $request->get('code', $object->code);
+        $object->required_number = $request->get('required_number', $object->required_number);
+        $object->start = $request->get('start', $object->start);
+        $object->end = $request->get('end', $object->end);
+        $object->updated_by = $request->get("updated_by");
         $object->save();
 
         return $object;

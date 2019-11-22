@@ -122,7 +122,7 @@
                                         required
                                         min="0"
                                         :error-message="'Campo Obligatorio'"
-                                        @input="items.required_number = $event.target.value"
+                                        @input="itemToEdit.required_number = $event.target.value"
                                 ></f7-list-input>
                                 <f7-list-input
                                         label="Fecha de inicio"
@@ -150,17 +150,13 @@
                                         :error-message="'Campo Obligatorio'"
                                         :calendar-params="calendarParams">
                                 </f7-list-input>
-                                <f7-button style="margin: 15px"
-                                           class="btn-primary"
-                                           large @click="sendForm">
-                                    REGISTRAR USUARIO A LA APLICACIÓN
-                                </f7-button>
+
                             </f7-list>
 
                             <f7-button style="margin: 15px"
                                        class="btn-primary"
                                        large @click="sendForm">
-                                EDITAR SUCURSAL
+                                EDITAR CUPÓN
                             </f7-button>
                         </f7-card-content>
                     </f7-card>
@@ -187,6 +183,7 @@
                     dateFormat: 'dd MM yyyy',
                 },
                 itemToEdit: {
+                    id: '',
                     branch_id: '',
                     name: '',
                     description: '',
@@ -258,6 +255,17 @@
             this.getList()
         },
         methods: {
+            checkForm() {
+                let vm = this;
+                let isValid = true;
+                Object.keys(this.itemToEdit).forEach(function (index, item) {
+                    if (vm.itemToEdit[index] === "") {
+                        isValid = false
+                    }
+                });
+                return isValid;
+
+            },
             getBranches() {
                 let vm = this
                 vm.$f7.dialog.preloader('Obteniendo datos...');
@@ -272,22 +280,25 @@
             },
             sendForm: function () {
                 let vm = this
+
                 if (this.checkForm()) {
                     this.$f7.dialog.preloader('Enviando datos...');
 
                     this.$http.post(this.$store.state.application.config.api + 'coupons/edit', {
-                        branch_id: this.items.branch_id,
-                        name: this.items.name,
-                        description: this.items.description,
-                        code: this.items.code,
-                        required_number: this.items.required_number,
-                        start: this.items.start,
-                        end: this.items.end,
+                        id: this.itemToEdit.id,
+                        branch_id: this.itemToEdit.branch_id,
+                        name: this.itemToEdit.name,
+                        description: this.itemToEdit.description,
+                        code: this.itemToEdit.code,
+                        required_number: this.itemToEdit.required_number,
+                        start: this.itemToEdit.start,
+                        end: this.itemToEdit.end,
                         updated_by: this.$store.state.application.user.id
                     }).then(response => {
                         vm.$f7.dialog.close();
                         vm.$f7.dialog.alert("Datos enviados", "Éxito");
                         vm.itemToEdit = {
+                            id: '',
                             branch_id: '',
                             name: '',
                             description: '',
@@ -331,7 +342,16 @@
                 this.itemToEdit.end = this.getDateSQLFormat(e);
             },
             editItem(item) {
-                this.itemToEdit = item;
+                //this.itemToEdit = item;
+                this.itemToEdit.id = item.id;
+                this.itemToEdit.branch_id = item.branch_id;
+                this.itemToEdit.name = item.name;
+                this.itemToEdit.description = item.description;
+                this.itemToEdit.code = item.code;
+                this.itemToEdit.required_number = item.required_number;
+                this.itemToEdit.start = item.start;
+                this.itemToEdit.end = item.end;
+
                 let dateStart = this.itemToEdit.start.split("-");
                 this.setVarStartDate = [new Date(
                     dateStart[0], (dateStart[1] - 1), dateStart[2]

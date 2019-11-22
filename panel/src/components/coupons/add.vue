@@ -109,7 +109,7 @@
                         <f7-button style="margin: 15px"
                                    class="btn-primary"
                                    large @click="sendForm">
-                            REGISTRAR USUARIO A LA APLICACIÓN
+                            REGISTRAR CÓDIGO
                         </f7-button>
                     </f7-list>
             </f7-card-content>
