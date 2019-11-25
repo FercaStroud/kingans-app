@@ -2,10 +2,10 @@
     <f7-page>
         <f7-navbar back-link="Atrás"></f7-navbar>
         <f7-toolbar style="background: #fff;" :position="'bottom'">
-        <f7-link></f7-link>
-        <f7-link style="color:#f16989" @click="sendForm">
-            ACTUALIZAR MIS DATOS
-        </f7-link>
+            <f7-link></f7-link>
+            <f7-link style="color:#f16989" @click="sendForm">
+                ACTUALIZAR MIS DATOS
+            </f7-link>
         </f7-toolbar>
         <f7-block style="
                 color: #f16989;
@@ -86,8 +86,25 @@
             </f7-list>
         </f7-block>
         <f7-block>
-            <p style="text-align: center">CLIENTE DESDE: {{dateStringMX($store.state.application.user.created_at)}}</p><br/>
+            <p style="text-align: center">CLIENTE DESDE: {{dateStringMX($store.state.application.user.created_at)}}</p>
+            <br/>
         </f7-block>
+        <f7-block style="
+                color: #f16989;
+                width: 215px;
+                border-bottom: 1px solid #f16989;
+                margin: 0;
+                margin-top: 20px;
+                padding-bottom: 6px;">
+            Configuración de la aplicación
+        </f7-block>
+        <f7-list simple-list>
+            <f7-list-item>
+                <span>Permitir Notificaciones</span>
+                <f7-toggle @toggle:change="requestPermission" checked color=""></f7-toggle>
+            </f7-list-item>
+        </f7-list>
+
     </f7-page>
 </template>
 
@@ -125,6 +142,21 @@
             this.items.birthday = this.$store.state.application.user.birthday;
         },
         methods: {
+            requestPermission: function (successPermission) {
+                let vm = this
+                if(successPermission) {
+                    cordova.plugins.notification.local.requestPermission(function (granted) {
+                        //vm.$f7.dialog.alert("Permisos Otorgados", "Éxito");
+                    });
+                }else {
+                    cordova.plugins.notification.local.schedule({
+                        title: 'My first notification',
+                        text: 'Thats pretty easy...',
+                        foreground: true
+                    });
+                }
+
+            },
             sendForm: function () {
                 let vm = this
                 if (this.checkForm()) {
@@ -202,6 +234,6 @@
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>

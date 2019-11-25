@@ -151,6 +151,9 @@
                 // Init cordova APIs (see cordova-app.js)
                 if (f7.device.cordova) {
                     cordovaApp.init(f7);
+                    //cordova.plugins.firebase.messaging.requestPermission().then(function() {
+                    //    vm.$f7.dialog.alert("Permisos Otorgados", "Éxito");
+                    //});
                 }
                 // Call F7 APIs here
             });

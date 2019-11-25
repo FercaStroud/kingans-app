@@ -98,3 +98,6 @@ form.list > ul > li {
   border: 1px solid $primary-color;
   border-radius: 4px
 }
+.ios .toggle input[type="checkbox"]:checked + .toggle-icon {
+  background-color: $primary-color !important;
+}

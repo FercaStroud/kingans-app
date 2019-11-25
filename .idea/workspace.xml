@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/promotions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/promotions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -270,7 +275,11 @@
       <workItem from="1574324115638" duration="5851000" />
       <workItem from="1574373062311" duration="4355000" />
       <workItem from="1574379745302" duration="9721000" />
-      <workItem from="1574404018562" duration="4170000" />
+      <workItem from="1574404018562" duration="4377000" />
+      <workItem from="1574492942350" duration="1851000" />
+      <workItem from="1574499654132" duration="1000000" />
+      <workItem from="1574532145570" duration="2133000" />
+      <workItem from="1574655009427" duration="3069000" />
     </task>
     <servers />
   </component>

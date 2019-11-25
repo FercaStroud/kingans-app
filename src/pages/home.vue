@@ -42,31 +42,30 @@
             <vue-qr id="img-qr" style="width: 100%" :size="600" :text="$store.state.application.user.phone"></vue-qr>
         </f7-block>
 
-        <!--<f7-block style="text-align: center;">
-            <f7-link style="font-size: 1.3em; color: #d9d9d8; font-weight: bold" @click="surveyPopupOpened = true">
-                Encuestas
-            </f7-link>
-        </f7-block>-->
-
-        <f7-card expandable>
-            <f7-card-content :padding="false">
-                <div class="bg-color-yellow" :style="{height: '300px'}">
-                    <f7-card-header text-color="black" class="display-block">
-                        Framework7
-                        <br/>
-                        <small :style="{opacity: 0.7}">Build Mobile Apps</small>
+        <f7-block>
+            <div @click="setSurvey">
+                <f7-card v-ripple>
+                    <f7-card-header style="color: #f16989">
+                        <f7-icon style="font-size: 1.2em;" material="new_releases"></f7-icon>
+                        Notificación
                     </f7-card-header>
-                    <f7-link card-close color="black" class="card-opened-fade-in" :style="{position: 'absolute', right: '15px', top: '15px'}" icon-f7="close_round_fill"></f7-link>
-                </div>
-                <div class="card-content-padding">
-                    <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel...</p>
-                </div>
-            </f7-card-content>
-        </f7-card>
-
+                    <f7-card-content>
+                        <p>
+                            <strong>¡Hola!.</strong> <br/>
+                            Tienes una encuesta disponible por asistir a nuestra sucursal
+                            <strong>KINGANS: Independencia</strong>
+                        </p>
+                    </f7-card-content>
+                    <f7-card-footer style="color: #f16989;font-size: .8em;opacity: .7;">
+                        {{dateStringMX($store.state.application.user.created_at)}}
+                    </f7-card-footer>
+                </f7-card>
+            </div>
+        </f7-block>
         <f7-popup :opened="surveyPopupOpened" @popup:closed="surveyPopupOpened = false">
             <survey/>
         </f7-popup>
+        <div style="height: 65px"></div>
     </f7-page>
 </template>
 <style>
@@ -88,9 +87,42 @@
             };
         },
         mounted: function () {
-            this.checkVisits();
+            // this.checkVisits();
         },
         methods: {
+            getSurveys: function (){
+
+            },
+            setSurvey: function (survey_id) {
+                console.log("click")
+                this.surveyPopupOpened = true
+            },
+            dateStringMX: function (arg) {
+                let months = [
+                    "ENERO",
+                    "FEBRERO",
+                    "MARZO",
+                    "ABRIL",
+                    "MAYO",
+                    "JUNIO",
+                    "JULIO",
+                    "AGOSTO",
+                    "SEPTIEMBRE",
+                    "OCTUBRE",
+                    "NOVIEMBRE",
+                    "DICIEMBRE",
+                ];
+                let date = new Date(arg);
+                let day = date.getDate();
+                let month = months[date.getMonth()];
+                let year = date.getFullYear();
+
+                if (day.length < 2) {
+                    day = '0' + day;
+                }
+
+                return month + " " + day + " DEL " + year;
+            },
             checkVisits: function () {
                 this.$f7.dialog.preloader('Obteniendo puntos...');
                 this.$http.post(this.$store.state.application.config.api + 'visits/get', {

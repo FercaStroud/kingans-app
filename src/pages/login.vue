@@ -208,7 +208,7 @@
                 password: '',
             };
         },
-        mounted: function(){
+        mounted: function () {
         },
         methods: {
             checkForm() {
@@ -239,7 +239,7 @@
             logIn() {
                 let vm = this;
                 this.$f7.dialog.preloader('Iniciando Sesión')
-                this.$http.post(this.$store.state.application.config.api + 'users/app/login', {
+                this.$http.post(vm.$store.state.application.config.api + 'users/app/login', {
                     phone: this.phone,
                     password: this.password,
                 }).then(response => {
@@ -250,9 +250,7 @@
                     } else {
                         vm.$store.commit('setLogin', false)
                         vm.$store.commit('setUser', response.data)
-                        //this.$f7.dialog.alert(this.$store.state.application.user.name, 'Bienvenido', function () {
-                        //    this.$store.state.application.drawer.login = false
-                        //}.bind(this))
+
                     }
                 }, response => {
                     console.log(response, 'error signIn login.vue')
