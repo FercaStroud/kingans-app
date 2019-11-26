@@ -89,7 +89,7 @@
             <p style="text-align: center">CLIENTE DESDE: {{dateStringMX($store.state.application.user.created_at)}}</p>
             <br/>
         </f7-block>
-        <f7-block style="
+        <!--<f7-block style="
                 color: #f16989;
                 width: 215px;
                 border-bottom: 1px solid #f16989;
@@ -103,8 +103,7 @@
                 <span>Permitir Notificaciones</span>
                 <f7-toggle @toggle:change="requestPermission" checked color=""></f7-toggle>
             </f7-list-item>
-        </f7-list>
-
+        </f7-list>-->
     </f7-page>
 </template>
 

@@ -66,7 +66,7 @@
         </f7-panel>
 
         <!-- Your main view, should have "view-main" class -->
-        <f7-view v-if="$store.state.application.user.id !== undefined" main class="safe-areas" url="/"></f7-view>
+        <f7-view main class="safe-areas" url="/"></f7-view>
 
         <f7-login-screen
                 :opened="$store.state.application.drawer.login"

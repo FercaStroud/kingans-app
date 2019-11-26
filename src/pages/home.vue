@@ -13,10 +13,15 @@
             </f7-nav-right>
         </f7-navbar>
 
-        <f7-fab @click="checkVisits" position="right-bottom" slot="fixed">
-            <div slot="text">
+        <f7-fab @click="checkVisits()" position="right-bottom" slot="fixed">
+            <div slot="text" v-if="visits == 0">
+                <strong style="font-size:1.2em">Consultar Visitas</strong>
+            </div>
+
+            <div slot="text" v-else>
                 <strong style="font-size:1.2em">{{visits}}</strong> Visita(s)
             </div>
+
             <f7-icon material="account_balance_wallet"></f7-icon>
         </f7-fab>
 
@@ -42,7 +47,7 @@
             <vue-qr id="img-qr" style="width: 100%" :size="600" :text="$store.state.application.user.phone"></vue-qr>
         </f7-block>
 
-        <f7-block>
+        <!--<f7-block>
             <div @click="setSurvey">
                 <f7-card v-ripple>
                     <f7-card-header style="color: #f16989">
@@ -61,10 +66,11 @@
                     </f7-card-footer>
                 </f7-card>
             </div>
-        </f7-block>
+        </f7-block>-->
         <f7-popup :opened="surveyPopupOpened" @popup:closed="surveyPopupOpened = false">
             <survey/>
         </f7-popup>
+
         <div style="height: 65px"></div>
     </f7-page>
 </template>
@@ -87,10 +93,10 @@
             };
         },
         mounted: function () {
-            // this.checkVisits();
+            //this.checkVisits();
         },
         methods: {
-            getSurveys: function (){
+            getSurveys: function () {
 
             },
             setSurvey: function (survey_id) {
