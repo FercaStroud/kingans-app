@@ -21,18 +21,20 @@
             <f7-list-item style="width: 100%">
                 <f7-list-input
                         style="width: 100%"
+                        info="TELÉFONO DEL USUARIO"
                         class="kingans-border"
-                        label="Teléfono de usuario"
-                        type="text"
+                        label="REGISTRAR VISITA"
+                        type="number"
                         placeholder="XXX XXX XX XX"
-                        :value="username"
+                        :value="phone"
                         clear-button
-                        @input="username = $event.target.value"
+                        @input="phone = $event.target.value"
                 ></f7-list-input>
                 <f7-button
-                        class="btn-primary" style=""
-                        large @click="">
-                    >
+                        class="btn-primary"
+                        style="height: 74px;border-left: none;border-top-left-radius: 0px;border-bottom-left-radius: 0px;margin-left: -4px;"
+                        large @click="sendVisitCode">
+                    <f7-icon style="margin-top: 20px;font-size: 1.1em;" material="play_arrow"></f7-icon>
                 </f7-button>
             </f7-list-item>
         </f7-list>
@@ -41,17 +43,19 @@
                 <f7-list-input
                         style="width: 100%"
                         class="kingans-border"
-                        label="Código de cupón"
+                        label="CANJEAR CÓDIGO"
+                        info="CÓDIGO"
                         type="text"
                         placeholder="XXX XXX XX XX"
-                        :value="username"
+                        :value="coupon"
                         clear-button
-                        @input="username = $event.target.value"
+                        @input="coupon = $event.target.value"
                 ></f7-list-input>
                 <f7-button
-                        class="btn-primary" style=""
+                        class="btn-primary"
+                        style="height: 74px;border-left: none;border-top-left-radius: 0px;border-bottom-left-radius: 0px;margin-left: -4px;"
                         large @click="">
-                    >
+                    <f7-icon style="margin-top: 20px;font-size: 1.1em;" material="play_arrow"></f7-icon>
                 </f7-button>
             </f7-list-item>
         </f7-list>
@@ -63,10 +67,36 @@
         name: "codeExchange",
         data() {
             return {
-                username: '',
-                password: '',
+                phone: '',
+                coupon: '',
             };
         },
+        methods: {
+            sendVisitCode: function () {
+                if (this.phone !== '') {
+                    this.$f7.dialog.preloader('Enviando datos...');
+                    this.$http.post(this.$store.state.application.config.api + 'visits/add', {
+                        created_by: this.$store.state.application.user.id,
+                        phone: this.phone
+                    }).then(response => {
+                        this.$f7.dialog.close();
+                        if (response.data.user_id === undefined) {
+                            this.$f7.dialog.alert("Error desconocido", "Intente más tarde");
+                        } else {
+                            this.$f7.dialog.alert("¡Visita registrada!", "Éxito");
+                            this.phone = '';
+                        }
+                    }, response => {
+                        console.log(response, 'error on checkForm coupons/add');
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Servidor no disponible y/o Datos duplicados", 'Intente más tarde');
+                    });
+
+                } else {
+                    this.$f7.dialog.alert("Todos los campos son requeridos.");
+                }
+            }
+        }
     }
 </script>
 

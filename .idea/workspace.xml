@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/Visit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kingans-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kingans-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,44 +37,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="coupons: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="u126314_kindat19@174.136.52.205" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="u126314_kindat19: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="visits: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FavoritesManager">
@@ -184,18 +154,18 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/app" />
+      <recent name="$PROJECT_DIR$/panel/src/components" />
+      <recent name="$PROJECT_DIR$/panel/src/components/branches" />
+      <recent name="$PROJECT_DIR$/panel/src/components/visits" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/panel/src/components/surveys" />
       <recent name="$PROJECT_DIR$/panel/src/components/codes" />
       <recent name="$PROJECT_DIR$/panel/src/components" />
       <recent name="$PROJECT_DIR$/panel/src/pages" />
       <recent name="$PROJECT_DIR$/panel/src/pages/panel" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/api/app" />
-      <recent name="$PROJECT_DIR$/panel/src/components" />
-      <recent name="$PROJECT_DIR$/panel/src/components/branches" />
-      <recent name="$PROJECT_DIR$/panel/src/components/visits" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -271,6 +241,9 @@
       <workItem from="1574710296181" duration="206000" />
       <workItem from="1574717091397" duration="20000" />
       <workItem from="1574746938300" duration="4225000" />
+      <workItem from="1575433498515" duration="295000" />
+      <workItem from="1575792166168" duration="2295000" />
+      <workItem from="1575990409338" duration="585000" />
     </task>
     <servers />
   </component>

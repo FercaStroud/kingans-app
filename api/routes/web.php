@@ -7,6 +7,7 @@ use App\Survey;
 use App\Question;
 use App\Answer;
 use App\Coupon;
+use App\Visit;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -311,6 +312,19 @@ $app->group(['prefix' => 'visits'], function () use ($app) {
                 ->join("panel_users", "panel_users.id", "=", "visits.created_by")
                 ->join("branches", "branches.id", "=", "panel_users.branch_id")->get();
         }
+    });
+    $app->post('/add', function (Request $request) {
+
+        $user = User::where(
+            'phone', '=', $request->get('phone')
+        )->first();
+
+        $object = new Visit();
+        $object->user_id = $user->id;
+        $object->created_by = $request->get("created_by");
+        $object->save();
+
+        return $object;
     });
 });
 

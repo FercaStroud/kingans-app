@@ -47,7 +47,7 @@
             <vue-qr id="img-qr" style="width: 100%" :size="600" :text="$store.state.application.user.phone"></vue-qr>
         </f7-block>
 
-        <!--<f7-block>
+        <f7-block>
             <div @click="setSurvey">
                 <f7-card v-ripple>
                     <f7-card-header style="color: #f16989">
@@ -66,7 +66,8 @@
                     </f7-card-footer>
                 </f7-card>
             </div>
-        </f7-block>-->
+        </f7-block>
+
         <f7-popup :opened="surveyPopupOpened" @popup:closed="surveyPopupOpened = false">
             <survey/>
         </f7-popup>
