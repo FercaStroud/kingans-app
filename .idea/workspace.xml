@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f4c7c-c578-4f67-8145-45357f873eda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/app/Visit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kingans-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kingans-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" beforeDir="false" afterPath="$PROJECT_DIR$/panel/src/components/coupons/exchange.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -243,7 +233,9 @@
       <workItem from="1574746938300" duration="4225000" />
       <workItem from="1575433498515" duration="295000" />
       <workItem from="1575792166168" duration="2295000" />
-      <workItem from="1575990409338" duration="585000" />
+      <workItem from="1575990409338" duration="751000" />
+      <workItem from="1576088975621" duration="416000" />
+      <workItem from="1576104174420" duration="37000" />
     </task>
     <servers />
   </component>
