@@ -12,7 +12,7 @@
                     label="Móvil"
                     type="text"
                     placeholder="XXX XXX XX XX"
-                    info="Códugo de usuario"
+                    info="Código de usuario"
                     :value="username"
                     clear-button
                     @input="username = $event.target.value"

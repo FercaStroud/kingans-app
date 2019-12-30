@@ -5,16 +5,13 @@ use App\User;
 use App\Branch;
 use App\Survey;
 use App\Question;
+use App\QuestionAnswer;
 use App\Answer;
 use App\Coupon;
 use App\Visit;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
-$app->get('/', function (Request $request) {
-    echo Hash::make("1");
-});
 
 $app->group(['prefix' => 'branches'], function () use ($app) {
 
@@ -47,6 +44,7 @@ $app->group(['prefix' => 'branches'], function () use ($app) {
         $branch->scheduling = $request->get("scheduling");
         $branch->map = $request->get("map");
         $branch->facebook = $request->get("facebook");
+        $branch->instagram = $request->get("instagram");
         $branch->svg = $fileName;
         $branch->created_by = $request->get("created_by");
         $branch->save();
@@ -88,6 +86,7 @@ $app->group(['prefix' => 'branches'], function () use ($app) {
         $branch->scheduling = $request->get("scheduling");
         $branch->map = $request->get("map");
         $branch->facebook = $request->get("facebook");
+        $branch->instagram = $request->get("instagram");
         $branch->svg = $fileName;
         $branch->updated_by = $request->get("updated_by");
 
@@ -172,7 +171,6 @@ $app->group(['prefix' => 'users'], function () use ($app) {
 
     });
     $app->group(['prefix' => 'app'], function () use ($app) {
-
         $app->post('/login', function (Request $request) {
             $user = User::where(
                 'phone', '=', $request->get('phone')
@@ -184,7 +182,6 @@ $app->group(['prefix' => 'users'], function () use ($app) {
                 return response()->json(['success' => false]);
             }
         });
-
         $app->post('/add', function (Request $request) {
             $user = new User();
 
@@ -200,7 +197,6 @@ $app->group(['prefix' => 'users'], function () use ($app) {
 
             return $user;
         });
-
         $app->post('/edit', function (Request $request) {
             $user = User::find($request->get("id"));
 
@@ -215,7 +211,6 @@ $app->group(['prefix' => 'users'], function () use ($app) {
 
             return $user;
         });
-
         $app->post('/get', function () {
             $users = User::all();
             foreach ($users as $key => $value) {
@@ -228,11 +223,32 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             }
             return $users;
         });
-
         $app->post('/delete', function (Request $request) {
             return response()->json([
                 "success" => User::find($request->get("id"))->delete()
             ]);
+        });
+
+        $app->post('/visit/log', function (Request $request) {
+            $user = User::find($request->get("user_id"));
+
+            $visit = Visit::where([
+                "user_id" => $user->id,
+                "checked" => 0
+            ])->whereDate(
+                'created_at',
+                \Carbon\Carbon::today()
+            )->first();
+
+            if (is_object($visit)) {
+                if ($visit->checked == 0) {
+                    $visit->checked = 1;
+                    $visit->save();
+                }
+            }
+
+            return $visit;
+
         });
 
     });
@@ -342,9 +358,64 @@ $app->group(['prefix' => 'questions'], function () use ($app) {
         ]);
     });
 
+    $app->post('/withAnswers', function (Request $request) {
+        $surveyId = $request->get('id');
+        $survey = \Illuminate\Support\Facades\DB::table('surveys')
+            ->where([
+                'id' => $surveyId,
+                "is_active" => 1
+            ])->get();
+
+        $response = [
+            'survey_id' => $survey[0]->id,
+            'name' => $survey[0]->name,
+            'description' => $survey[0]->description,
+            'questions' => []
+        ];
+        foreach (
+            \Illuminate\Support\Facades\DB::table('questions')->where(
+                'questions.survey_id', '=', $surveyId
+            )->get() as $question
+        ) {
+            array_push($response['questions'],
+                [
+                    'question_id' => $question->id,
+                    'title' => $question->title,
+                    'type' => $question->type,
+                    'vModel' => '*Selecciona una respuesta',
+                    'answers' => \Illuminate\Support\Facades\DB::table('answers')
+                        ->where(
+                            'answers.question_id', '=', $question->id
+                        )->get()
+                ]
+            );
+        }
+        return response()->json($response);
+    });
 });
 
 $app->group(['prefix' => 'question-answers'], function () use ($app) {
+    $app->group(['prefix' => 'app'], function () use ($app) {
+        $app->post('/add', function (Request $request) {
+            $questions = $request->get("questions");
+            $surveyId = $request->get("survey_id");
+            $ok = true;
+            foreach ($questions as $question) {
+                $ok = \Illuminate\Support\Facades\DB::table('question_answer')->insert([
+                    'answer_id' => $question['vModel'],
+                    'question_id' => $question['question_id'],
+                    'survey_id' => $surveyId,
+                    'other' => $question['vModel'],
+                ]);
+                if ($ok === false) {
+                    return response()->json(['success' => false]);
+                }
+            }
+            return response()->json(['success' => true]);
+        });
+
+    });
+
     $app->post('/add', function (Request $request) {
         $question = new Question();
 
@@ -406,7 +477,6 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
             echo "<span style='font-size: 1.4em;font-family: sans-serif;color:darkred'>NO SE PUEDE GENERAR ARCHIVO</span>";
         }
     });
-
 });
 
 $app->group(['prefix' => 'coupons'], function () use ($app) {

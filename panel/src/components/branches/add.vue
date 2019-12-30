@@ -93,6 +93,19 @@
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
+                                label="Instagram URL"
+                                placeholder="EJ: https://..."
+                                type="text"
+                                info="Obligatorio"
+                                :value="items.instagram"
+                                clear-button
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                                @input="items.instagram = $event.target.value"
+                        ></f7-list-input>
+                        <f7-list-input
+                                class="kingans-border"
                                 label="GMaps URL"
                                 placeholder="EJ: https://..."
                                 type="text"
@@ -133,6 +146,7 @@
                     scheduling: '',
                     map: '',
                     facebook: '',
+                    instagram: '',
                     svg: ''
                 }
             }
@@ -162,6 +176,7 @@
                     formData.append('scheduling', this.items.start);
                     formData.append('map', this.items.map);
                     formData.append('facebook', this.items.facebook);
+                    formData.append('instagram', this.items.instagram);
                     formData.append('svg', this.items.svg);
                     formData.append('created_by', this.$store.state.application.user.id);
 
@@ -171,7 +186,7 @@
                         this.items = {
                             name: '', city: '', address: '',
                             phone: '', scheduling: '',
-                            map: '', facebook: '', svg: ''
+                            map: '', facebook: '', instagram: '', svg: ''
                         }
                     }, response => {
                         console.log(response, 'error on checkForm branches/add');

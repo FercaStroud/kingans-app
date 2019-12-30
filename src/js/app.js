@@ -37,9 +37,10 @@ const store = new Vuex.Store({
                     login: true,
                 },
                 config: {
-                    api: 'http://kingans.com/api/',
-                    //api: 'http://localhost:8000/',
+                    //api: 'http://kingans.com/api/',
+                    api: 'http://localhost:8000/',
                 },
+                visits: null,
                 user: {
                     created_at: null,
                     updated_at: null,

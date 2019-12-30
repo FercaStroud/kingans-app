@@ -1,12 +1,48 @@
-$primary-color: #f16989;
+$primary-color: #f18a30;
 
 .bg-primary {
   background-color: $primary-color;
 }
 
+.navbar a.link, .fab-extended > a, .btn-primary {
+  color: white !important;
+}
+
+.custom-btn {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  border-radius: 0;
+  width: 100%;
+  height: 40px;
+
+  i.icon {
+    margin-top: 5px;
+  }
+
+  span {
+    position: absolute;
+    margin-left: 34px;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+}
+
+.active {
+  color: $primary-color;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $primary-color;
+}
+
+.fab-extended > a {
+  width: 100% !important;
+  background-color: $primary-color;
+}
+
 .btn-primary {
   background-color: $primary-color;
-  color: #602a36;
 }
 
 .btn-secondary {
@@ -72,10 +108,6 @@ $primary-color: #f16989;
   background-color: white !important;
 }
 
-.navbar-text-color {
-  color: #602a36
-}
-
 .circle-image {
   border-radius: 50%;
 }
@@ -98,6 +130,20 @@ form.list > ul > li {
   border: 1px solid $primary-color;
   border-radius: 4px
 }
+
 .ios .toggle input[type="checkbox"]:checked + .toggle-icon {
   background-color: $primary-color !important;
 }
+
+.list ul:before, .list ul:after {
+  content: none !important;
+}
+
+.simple-list li:after, .links-list a:after, .list .item-inner:after {
+  content: none !important;
+}
+
+.list .item-link .item-inner:before, .links-list a:before, .media-list .item-link .item-title-row:before, li.media-item .item-link .item-title-row:before, .media-list.chevron-center .item-link .item-inner:before, .media-list .chevron-center .item-link .item-inner:before, .media-list .item-link.chevron-center .item-inner:before, li.media-item.chevron-center .item-link .item-inner:before, li.media-item .chevron-center .item-link .item-inner:before, li.media-item .item-link.chevron-center .item-inner:before {
+  content: none !important;
+}
+

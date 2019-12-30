@@ -1,16 +1,19 @@
 <template>
     <f7-page>
-        <f7-navbar back-link="Atrás"></f7-navbar>
+        <f7-navbar no-shadow no-hairline back-link="Atrás">
+            <f7-nav-title>
+                <img style="height: 47px" src="../assets/logoKingans.svg">
+            </f7-nav-title>
+        </f7-navbar>
         <f7-block strong style="margin:0 ">
             <f7-row>
                 <f7-col width="30">
-                    <div style="
+                    <div class="bg-primary" style="
                         width: 75px;
                         height: 75px;
                         border-radius: 100%;
-                        background-color: #f6b05d
                         ">
-                        <f7-icon style="font-size: 3em;margin: 16px;" material="place"></f7-icon>
+                        <f7-icon style="color:white;font-size: 3em;margin: 16px;" material="place"></f7-icon>
                     </div>
                 </f7-col>
                 <f7-col width="70">
@@ -38,23 +41,27 @@
                 <f7-link @click="openBrowser(item.facebook)">
                     <f7-icon style="font-size: 1.5em" f7="logo_facebook"></f7-icon>
                 </f7-link>
-                <!--<f7-link>
-                    <f7-icon style="font-size: 1.5em" material="place"></f7-icon>
-                </f7-link>-->
+                <f7-link @click="openBrowser(item.instagram)">
+                    <f7-icon style="font-size: 1.5em" f7="logo_instagram"></f7-icon>
+                </f7-link>
                 <f7-link @click="scheduling = item.scheduling" popover-open=".popover-menu">
                     <f7-icon style="font-size: 1.5em" material="access_time"></f7-icon>
                 </f7-link>
-                <f7-link @click="openBrowser('tel:'+item.phone)">
+                <f7-link @click="phone = item.phone" popover-open=".popover-menu-phone">
                     <f7-icon style="font-size: 1.5em" material="phone"></f7-icon>
                 </f7-link>
             </f7-card-footer>
         </f7-card>
-
-
         <f7-popover class="popover-menu">
             <f7-block>
                 <f7-block-title style="font-weight: bold; text-transform: capitalize">Horarios</f7-block-title>
                 <p>{{scheduling}}</p>
+            </f7-block>
+        </f7-popover>
+        <f7-popover class="popover-menu-phone">
+            <f7-block>
+                <f7-block-title style="font-weight: bold; text-transform: capitalize">Teléfono</f7-block-title>
+                <p>{{phone}}</p>
             </f7-block>
         </f7-popover>
     </f7-page>
@@ -66,7 +73,8 @@
         data() {
             return {
                 items: [],
-                scheduling: ''
+                scheduling: '',
+                phone: '',
             }
         },
         mounted: function () {
@@ -76,6 +84,11 @@
             openBrowser(url) {
                 let options = "location=no,clearcache=yes,clearsessioncache=yes,zoom=yes,EnableViewPortScale=yes"
                 let ref = cordova.InAppBrowser.open(url, '_system', options);
+                const self = this;
+                self.$f7.dialog.preloader('Cargando...');
+                setTimeout(() => {
+                    self.$f7.dialog.close();
+                }, 2000);
             },
             getBranches: function () {
                 this.$f7.dialog.preloader('Cargando...');

@@ -1,16 +1,18 @@
 <template>
     <f7-page>
-        <f7-navbar back-link="Atrás"></f7-navbar>
-        <f7-toolbar style="background: #fff;" :position="'bottom'">
-            <f7-link></f7-link>
-            <f7-link style="color:#f16989" @click="sendForm">
-                ACTUALIZAR MIS DATOS
-            </f7-link>
-        </f7-toolbar>
-        <f7-block style="
-                color: #f16989;
+        <f7-navbar no-shadow no-hairline back-link="Atrás">
+            <f7-nav-title>
+                <img style="height: 47px" src="../assets/logoKingans.svg">
+            </f7-nav-title>
+            <f7-nav-right>
+                <f7-link class="active" @click="sendForm">
+                    Guardar
+                </f7-link>
+            </f7-nav-right>
+        </f7-navbar>
+
+        <f7-block class="active border-bottom" style="
                 width: 205px;
-                border-bottom: 1px solid #f16989;
                 margin: 0;
                 margin-top: 20px;
                 padding-bottom: 6px;">
@@ -19,7 +21,7 @@
         <f7-block>
             <span style="font-weight: bold">ID: {{$store.state.application.user.phone}}</span><br/>
             <span style="font-size: 1.6em;color: black;">{{$store.state.application.user.name}}</span><br/>
-            <span style="color:#f16989">CUMPLEAÑOS: {{dateStringMX($store.state.application.user.birthday)}}</span><br/>
+            <span class="active">CUMPLEAÑOS: {{dateStringMX($store.state.application.user.birthday)}}</span><br/>
         </f7-block>
         <f7-block>
             <f7-list form style="
@@ -78,12 +80,12 @@
                     <option value="F">Femenino</option>
                 </f7-list-input>
             </f7-list>
-            <f7-list style="padding-top: 20px;">
+            <!--<f7-list style="padding-top: 20px;">
                 <f7-button class="btn-primary" style="margin-left:15px; width: calc(100% - 30px)" large>
                     <f7-icon style="margin-top: -4px" material="person"></f7-icon>
                     VINCULAR CON FACEBOOK
                 </f7-button>
-            </f7-list>
+            </f7-list>-->
         </f7-block>
         <f7-block>
             <p style="text-align: center">CLIENTE DESDE: {{dateStringMX($store.state.application.user.created_at)}}</p>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "881825572359",
+    "firebase_url": "https://kingans-d651f.firebaseio.com",
+    "project_id": "kingans-d651f",
+    "storage_bucket": "kingans-d651f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881825572359:android:be99bedbd04479b082aca2",
+        "android_client_info": {
+          "package_name": "com.kingans"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881825572359-t7jiqcm9j1ao7v3vs3m8q2s264mu2dfp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGATAA0QvE95FYVJd4ipP8lE5YV40eMzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881825572359-t7jiqcm9j1ao7v3vs3m8q2s264mu2dfp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

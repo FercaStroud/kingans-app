@@ -21,6 +21,7 @@ Class Branch extends Model
         'phone',
         'scheduling',
         'facebook',
+        'instagram',
         'map',
         'svg',
     ];

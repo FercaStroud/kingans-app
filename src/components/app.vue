@@ -38,8 +38,8 @@
                             ">Sucursales</span>
                         </f7-list-item>
                         <f7-list-item class="custom-btn" flat v-ripple
-                                   link="/profile/" view=".view-main"
-                                   panel-close>
+                                      link="/profile/" view=".view-main"
+                                      panel-close>
                             <f7-icon style="" material="person"></f7-icon>
                             <span style="
                                     font-size: 1.2em;
@@ -47,7 +47,7 @@
                         </f7-list-item>
                     </f7-list>
 
-                    <f7-list style="
+                    <f7-list style=" cursor:pointer;
                             position: absolute;
                             bottom: 0;
                             width: 100%;
@@ -97,12 +97,7 @@
                     theme: 'ios', // Automatic theme detection
                     // App root data
                     data: function () {
-                        return {
-                            user: {
-                                firstName: 'John',
-                                lastName: 'Doe',
-                            },
-                        };
+                        return {};
                     },
                     // App routes
                     routes: routes,
@@ -117,17 +112,13 @@
                     },
                     // Cordova Statusbar settings
                     statusbar: {
-                        iosBackgroundColor: '#f16989',
-                        androidBackgroundColor: '#f16989',
+                        iosBackgroundColor: '#f18a30',
+                        androidBackgroundColor: '#f18a30',
                         overlay: this.$device.cordova && this.$device.ios || 'auto',
-                        iosOverlaysWebView: true,
+                        iosOverlaysWebView: false,
                         androidOverlaysWebView: false,
                     },
                 },
-
-                // Login screen data
-                username: '',
-                password: '',
             }
         },
         created() {
@@ -147,51 +138,58 @@
             }
         },
         mounted() {
+            let vm = this;
+
             this.$f7ready((f7) => {
                 // Init cordova APIs (see cordova-app.js)
                 if (f7.device.cordova) {
                     cordovaApp.init(f7);
-                    //cordova.plugins.firebase.messaging.requestPermission().then(function() {
-                    //    vm.$f7.dialog.alert("Permisos Otorgados", "Éxito");
-                    //});
+
+                    cordova.plugins.firebase.messaging.requestPermission().then(function () {
+                        console.log("Push messaging is allowed");
+                    });
+                    cordova.plugins.firebase.messaging.requestPermission({forceShow: true}).then(function () {
+                        console.log("You'll get foreground notifications when a push message arrives");
+                    });
+                    cordova.plugins.firebase.messaging.onMessage(function (payload) {
+                        console.log("New foreground FCM message: ", payload);
+                    });
+                    cordova.plugins.firebase.messaging.onBackgroundMessage(function (payload) {
+                        console.log("New background FCM message: ", payload);
+                    });
                 }
                 // Call F7 APIs here
+                let fetchCallback = function () {
+                    console.log('[js] BackgroundFetch event received');
+
+                    vm.$http.post(vm.$store.state.application.config.api + 'users/app/visit/log', {
+                        user_id: vm.$store.state.application.user.id
+                    }).then(response => {
+                        if (response.data.user_id !== undefined) {
+                            cordova.plugins.notification.local.schedule({
+                                title: '¡Gracias por tu visita!',
+                                text: '¿Nos ayudas contestando una encuesta?',
+                                foreground: true
+                            });
+                            vm.$store.state.application.survey = true;
+                        } else {
+                            vm.$store.state.application.survey = false;
+                        }
+                    }, response => {
+                        console.log(response, 'error on checkVisitLog users/app/visit/log');
+                    });
+
+                    BackgroundFetch.finish();
+                };
+
+                let failureCallback = function (error) {
+                    console.log('- BackgroundFetch failed', error);
+                };
+
+                BackgroundFetch.configure(fetchCallback, failureCallback, {
+                    minimumFetchInterval: 15
+                });
             });
         }
     }
 </script>
-
-<style scoped lang="scss">
-    .custom-btn{
-        margin: 0;
-        padding: 0;
-        text-align: left;
-        border-radius: 0;
-        width: 100%;
-        height: 40px;
-        i.icon{
-            margin-top: 5px;
-        }
-        span{
-            position: absolute;
-            margin-left: 34px;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-    }
-    .active{
-        color: #f16989;
-    }
-
-</style>
-<style>
-    .list ul:before, .list ul:after {
-        content: none !important;
-    }
-    .simple-list li:after, .links-list a:after, .list .item-inner:after{
-        content: none !important;
-    }
-    .list .item-link .item-inner:before, .links-list a:before, .media-list .item-link .item-title-row:before, li.media-item .item-link .item-title-row:before, .media-list.chevron-center .item-link .item-inner:before, .media-list .chevron-center .item-link .item-inner:before, .media-list .item-link.chevron-center .item-inner:before, li.media-item.chevron-center .item-link .item-inner:before, li.media-item .chevron-center .item-link .item-inner:before, li.media-item .item-link.chevron-center .item-inner:before{
-        content: none !important;
-    }
-</style>
