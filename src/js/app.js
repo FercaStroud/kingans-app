@@ -30,16 +30,17 @@ const store = new Vuex.Store({
         application: {
             //namespaced: true,
             state: {
-                title: 'Grupo K',
+                title: 'Grupo Kingans',
                 drawer: {
                     left: false,
                     right: false,
                     login: true,
                 },
                 config: {
-                    //api: 'http://kingans.com/api/',
-                    api: 'http://localhost:8000/',
+                    api: 'http://kingans.com/api/',
+                    //api: 'http://localhost:8000/',
                 },
+                survey: false,
                 visits: null,
                 user: {
                     created_at: null,
@@ -58,6 +59,8 @@ const store = new Vuex.Store({
                 },
                 resetLogin: state => {
                     state.drawer.login = true;
+                    state.survey = false;
+
                     state.user = {
                         created_at: null,
                         updated_at: null,

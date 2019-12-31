@@ -5,18 +5,17 @@
                 <f7-link icon-ios="f7:menu" color="#bc203e" icon-md="material:menu" panel-open="left"></f7-link>
             </f7-nav-left>
             <f7-nav-title>
-                <img style="height: 47px" src="../assets/logoKingans.svg">
+                <img style="height: 25px" src="../assets/kingansWhite.svg">
             </f7-nav-title>
             <f7-nav-right>
                 <f7-link @click="checkVisits" href="/promotions/">
                     <span>Mis Premios</span>
-                    <f7-icon style="padding-left: 5px" material="new_releases"></f7-icon>
                 </f7-link>
             </f7-nav-right>
         </f7-navbar>
 
         <f7-fab @click="checkVisits" position="right-bottom" slot="fixed">
-            <div  slot="text" v-if="$store.state.application.visits === null">
+            <div slot="text" v-if="$store.state.application.visits === null">
                 <strong style="font-size:1.2em">Consultar Visitas</strong>
             </div>
 
@@ -52,7 +51,7 @@
                     :text="$store.state.application.user.phone"></vue-qr>
         </f7-block>
 
-        <f7-block v-if="$store.state.application.survey = true">
+        <f7-block v-if="$store.state.application.survey === true">
             <div>
                 <f7-card v-ripple>
                     <f7-card-header style="border: none;color:white" class="bg-primary">
@@ -62,7 +61,7 @@
                         </strong>
                     </f7-card-header>
                     <f7-card-content>
-                        <p style="text-align:justify">
+                        <p style="text-align:left">
                             Tienes una (o más) encuesta(s) disponible(s) por tu(s) visita
                             a una de nuestras sucursales.
                         </p>
@@ -71,7 +70,7 @@
             </div>
         </f7-block>
 
-        <f7-block v-if="$store.state.application.survey = true">
+        <f7-block v-if="$store.state.application.survey === true">
             <f7-button class="bg-primary" large v-for="(survey, index) in surveys" :key="index"
                        @click="getSurveyItemById(survey.id)">
                 <img style="height: 44px" src="../assets/logoKingans.svg">
@@ -81,8 +80,9 @@
             </f7-button>
         </f7-block>
 
-        <f7-popup v-if="$store.state.application.survey = true" :opened="surveyPopupOpened" @popup:closed="surveyPopupOpened = false">
-            <survey @onSendSurvey = "onSendSurvey"
+        <f7-popup v-if="$store.state.application.survey === true" :opened="surveyPopupOpened"
+                  @popup:closed="surveyPopupOpened = false">
+            <survey @onSendSurvey="onSendSurvey"
                     :survey="tempAnswers"/>
         </f7-popup>
 
@@ -97,7 +97,7 @@
     export default {
         data() {
             return {
-                surveys:[],
+                surveys: [],
                 surveyPopupOpened: false,
                 tempAnswers: {
                     title: '',
@@ -107,16 +107,17 @@
             };
         },
         mounted: function () {
-
-            this.getSurveys();
+            if (this.$store.state.application.survey === true) {
+                this.getSurveys();
+            }
         },
         methods: {
-            onSendSurvey(){
-                this.surveyPopupOpened =  false
+            onSendSurvey() {
+                this.surveyPopupOpened = false
                 this.tempAnswers = {
                     title: '',
-                        description: '',
-                        questions: []
+                    description: '',
+                    questions: []
                 }
             },
             getSurveyItemById(id) {
@@ -129,7 +130,7 @@
                     if (this.tempAnswers.length === 0) {
                         this.$f7.dialog.alert(' ', 'Sin datos disponibles');
                     } else {
-                        this.surveyPopupOpened =  true
+                        this.surveyPopupOpened = true
                     }
                 }, response => {
                     // error callback

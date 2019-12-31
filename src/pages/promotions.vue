@@ -2,7 +2,7 @@
     <f7-page>
         <f7-navbar no-shadow no-hairline back-link="Atrás">
             <f7-nav-title>
-                <img style="height: 47px" src="../assets/logoKingans.svg">
+                <img style="height: 25px" src="../assets/kingansWhite.svg">
             </f7-nav-title>
             <f7-nav-right>
                 <f7-link @click="getCoupons">

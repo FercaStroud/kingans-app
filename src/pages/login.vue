@@ -35,12 +35,13 @@
                         :value="password"
                         @input="password = $event.target.value"
                 ></f7-list-input>
-                <f7-link style="color: darkgrey;
+                <f7-link @click="resetPasswordPupopOpened = true"
+                         style="color: darkgrey;
                     text-align: center;
                     font-size: 0.8em;
                     margin-top: -23px;
-                    position: absolute;"
-                >¿Olvidaste la Contraseña?
+                    position: absolute;">
+                    ¿Olvidaste la Contraseña?
                 </f7-link>
             </f7-list>
         </f7-block>
@@ -196,6 +197,66 @@
                 </f7-block>-->
             </f7-page>
         </f7-popup>
+
+        <f7-popup class="reset-password" :opened="resetPasswordPupopOpened"
+                  @popup:closed="resetPasswordPupopOpened = false">
+            <f7-page>
+                <f7-navbar no-shadow no-hairline>
+                    <f7-nav-left>
+                        <f7-link popup-close>Cerrar</f7-link>
+                    </f7-nav-left>
+                    <f7-nav-title>
+                        <img style="height: 25px" src="../assets/kingansWhite.svg">
+                    </f7-nav-title>
+                </f7-navbar>
+                <f7-block>
+                    <f7-block>
+                        <p style="text-align:center">
+                            <strong>¡Hola!</strong>,
+                            lamentamos que hayas olvidado tus accesos &#x1F614;.
+                        </p>
+                        <p style="text-align:center">
+                            Te enviaremos una contraseña temporal al correo con el cual te registraste.
+                            <strong>Recuerda cambiarla</strong> en la sección de
+                            <span style="font-weight: bold" class="active">"Mi Perfil"</span>
+                            una vez hayas iniciado sesión.
+                        </p>
+                        <p style="text-align:center">
+                            Si tienes algún problema, visita cualquiera de nuestras sucursales
+                            para reiniciar la contraseña.
+                        </p>
+                    </f7-block>
+                    <f7-list form style="
+                background-color: rgba(255,255,255,1);
+                margin: 15px;">
+                        <f7-list-input
+                                class="kingans-border"
+                                label="Teléfono de recuperación"
+                                type="number"
+                                placeholder="XXX XXX XX XX"
+                                :value="resetPasswordForm.phone"
+                                clear-button
+                                @input="resetPasswordForm.phone = $event.target.value"
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                        ></f7-list-input>
+                    </f7-list>
+                </f7-block>
+                <f7-block>
+                    <p style="text-align:center">
+                        Si tienes algún problema, visita cualquiera de nuestras sucursales
+                        para reiniciar tu contraseña.
+                    </p>
+                </f7-block>
+                <f7-button @click="sendResetForm" style="
+                color:white; position: fixed; bottom: 0;width: 100%; border-radius: 0; margin: 0;padding: 0; font-weight: bold
+                " large class="bg-primary">
+                    Enviar
+                </f7-button>
+            </f7-page>
+        </f7-popup>
+
     </f7-page>
 </template>
 
@@ -204,12 +265,16 @@
         name: 'login',
         data() {
             return {
+                resetPasswordPupopOpened: false,
                 signInPupopOpened: false,
                 calendarParams: {
                     closeOnSelect: true,
                     header: true,
                     footer: false,
                     dateFormat: 'dd MM yyyy',
+                },
+                resetPasswordForm: {
+                    phone: '',
                 },
                 addUserForm: {
                     phone: '',
@@ -227,6 +292,24 @@
         mounted: function () {
         },
         methods: {
+            sendResetForm() {
+                if (this.resetPasswordForm.phone !== '') {
+                    let vm = this;
+                    this.$f7.dialog.preloader('Enviando datos')
+                    this.$http.post(vm.$store.state.application.config.api + 'users/app/reset', {
+                        phone: this.phone,
+                    }).then(response => {
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert(' ', '¡Correo enviado!')
+                    }, response => {
+                        console.log(response, 'error sendResetForm login.vue')
+                        this.$f7.dialog.alert('Intente más tarde', 'Servidor no disponible')
+                        this.$f7.dialog.close();
+                    });
+                } else {
+                    this.$f7.dialog.alert(' ', 'Revisa tu número de celular')
+                }
+            },
             checkForm() {
                 let vm = this;
                 let isValid = true;

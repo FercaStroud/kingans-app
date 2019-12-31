@@ -12,6 +12,11 @@ use App\Visit;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use \Illuminate\Support\Str;
+
+$app->get('/', function (Request $request) {
+    //echo \Illuminate\Support\Str::random(8);
+});
 
 $app->group(['prefix' => 'branches'], function () use ($app) {
 
@@ -171,6 +176,43 @@ $app->group(['prefix' => 'users'], function () use ($app) {
 
     });
     $app->group(['prefix' => 'app'], function () use ($app) {
+        $app->post('/reset', function (Request $request) {
+            $sanitizeEmail = function ($field) {
+                $field = filter_var($field, FILTER_SANITIZE_EMAIL);
+                if (filter_var($field, FILTER_VALIDATE_EMAIL)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+
+            $user = User::where(
+                'phone', '=', $request->get('phone')
+            )->first();
+            $pwd = Str::random(8);
+            $to_email = $user->email;
+
+            $subject = 'Kingans App- Restablecer Contraseña';
+            $message = 'Hola, tu contraseña temporal es: ' . $pwd;
+            $headers = 'From: noreply@kingans.com';
+
+            $secure_check = $sanitizeEmail($to_email);
+            if ($secure_check == false) {
+                return response()->json(['success' => false]);
+
+            } else { //send email
+                if (mail($to_email, $subject, $message, $headers)) {
+                    $user->password = Hash::make($pwd);
+                    $user->save();
+
+                    return response()->json(['success' => true]);
+                } else {
+                    return response()->json(['success' => false]);
+                }
+            }
+
+
+        });
         $app->post('/login', function (Request $request) {
             $user = User::where(
                 'phone', '=', $request->get('phone')

@@ -172,14 +172,12 @@
                                 foreground: true
                             });
                             vm.$store.state.application.survey = true;
-                        } else {
-                            vm.$store.state.application.survey = false;
                         }
                     }, response => {
                         console.log(response, 'error on checkVisitLog users/app/visit/log');
                     });
 
-                    BackgroundFetch.finish();
+                    //BackgroundFetch.finish();
                 };
 
                 let failureCallback = function (error) {
