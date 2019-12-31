@@ -106,6 +106,63 @@
                 <f7-toggle @toggle:change="requestPermission" checked color=""></f7-toggle>
             </f7-list-item>
         </f7-list>-->
+        <f7-block>
+            <f7-button class="active"
+                       style="margin-left:15px; width: calc(100% - 30px)"
+                       large @click="resetPopupOpened = true">
+                Cambiar contraseña
+            </f7-button>
+        </f7-block>
+        <f7-popup class="reset-password-popup-profile" :opened="resetPopupOpened" @popup:closed="resetPopupOpened = false">
+            <f7-page>
+                <f7-navbar no-shadow no-hairline>
+                    <f7-nav-left>
+                        <f7-link popup-close>Cerrar</f7-link>
+                    </f7-nav-left>
+                    <f7-nav-title>
+                        <img style="height: 25px" src="../assets/kingansWhite.svg">
+                    </f7-nav-title>
+                    <f7-nav-right>
+                        <f7-link class="active" @click="sendResetPasswordForm">
+                            Guardar
+                        </f7-link>
+                    </f7-nav-right>
+                </f7-navbar>
+
+                <f7-block>
+                    <f7-list form style="
+                background-color: rgba(255,255,255,1);
+                margin: 15px;">
+                        <f7-list-input
+                                class="kingans-border"
+                                label="Nueva contraseña"
+                                type="text"
+                                placeholder="************"
+                                info="Obligatorio"
+                                :value="resetItems.newPassword"
+                                clear-button
+                                @input="resetItems.newPassword = $event.target.value"
+                                :error-message="'Campo Obligatorio'"
+                                validate
+                                required
+                        ></f7-list-input>
+                        <f7-list-input
+                                class="kingans-border"
+                                label="Confirmar contraseña"
+                                type="text"
+                                placeholder="************"
+                                info="Obligatorio"
+                                :value="resetItems.confirmPassword"
+                                clear-button
+                                @input="resetItems.confirmPassword = $event.target.value"
+                                :error-message="'Campo Obligatorio'"
+                                validate
+                                required
+                        ></f7-list-input>
+                    </f7-list>
+                </f7-block>
+            </f7-page>
+        </f7-popup>
     </f7-page>
 </template>
 
@@ -114,6 +171,11 @@
         name: "profile",
         data() {
             return {
+                resetPopupOpened: false,
+                resetItems: {
+                    newPassword: '',
+                    confirmPassword: ''
+                },
                 calendarParams: {
                     closeOnSelect: true,
                     header: true,
@@ -141,9 +203,33 @@
             this.items.gender = this.$store.state.application.user.gender;
             this.items.created_at = this.$store.state.application.user.created_at;
             this.items.birthday = this.$store.state.application.user.birthday;
+
+            console.log(this.items.birthday, "this.items.birthday")
+            console.log(this.items.created_at, "created_at")
         },
         methods: {
-            requestPermission: function (successPermission) {
+            sendResetPasswordForm: function () {
+                if (this.resetItems.confirmPassword === this.resetItems.newPassword && this.resetItems.confirmPassword != '') {
+                    this.$f7.dialog.preloader('Actualizando datos...');
+
+                    this.$http.post(this.$store.state.application.config.api + 'users/app/edit/pasword', {
+                        id: this.$store.state.application.user.id,
+                        password: this.resetItems.confirmPassword,
+                        updated_by: this.$store.state.application.user.id
+                    }).then(response => {
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Datos actualizados", "Éxito");
+
+                    }, response => {
+                        console.log(response, 'error on sendForm users/app/edit/password');
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                    });
+                } else {
+                    this.$f7.dialog.alert(" ", 'Las contraseñas no coinciden');
+                }
+            },
+            /*requestPermission: function (successPermission) {
                 let vm = this
                 if(successPermission) {
                     cordova.plugins.notification.local.requestPermission(function (granted) {
@@ -157,7 +243,7 @@
                     });
                 }
 
-            },
+            },*/
             sendForm: function () {
                 let vm = this
                 if (this.checkForm()) {
@@ -206,29 +292,33 @@
             },
             dateStringMX: function (arg) {
                 let months = [
-                    "ENERO",
-                    "FEBRERO",
-                    "MARZO",
-                    "ABRIL",
-                    "MAYO",
-                    "JUNIO",
-                    "JULIO",
-                    "AGOSTO",
-                    "SEPTIEMBRE",
-                    "OCTUBRE",
-                    "NOVIEMBRE",
-                    "DICIEMBRE",
+                    "Enero",
+                    "Febrero",
+                    "Marzo",
+                    "Abril",
+                    "Mayo",
+                    "Junio",
+                    "Julio",
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre",
+                    "Noviembre",
+                    "Diciembre",
                 ];
-                let date = new Date(arg);
+
+                let date = new Date(
+                    String(arg).replace(/-/g, "/")
+                );
+
                 let day = date.getDate();
                 let month = months[date.getMonth()];
                 let year = date.getFullYear();
 
                 if (day.length < 2) {
-                    day = '0' + day;
+                    day = '0' + day.toString();
                 }
 
-                return month + " " + day + " DEL " + year;
+                return String(month) + " " + String(day) + " del " + String(year);
             }
         },
         computed: {}

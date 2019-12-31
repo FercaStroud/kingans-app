@@ -41,6 +41,7 @@ const store = new Vuex.Store({
                     //api: 'http://localhost:8000/',
                 },
                 survey: false,
+                surveys: [],
                 visits: null,
                 user: {
                     created_at: null,
@@ -58,8 +59,14 @@ const store = new Vuex.Store({
                     state.drawer.login = payload
                 },
                 resetLogin: state => {
-                    state.drawer.login = true;
+                    state.drawer = {
+                        left: false,
+                        right: false,
+                        login: true,
+                    };
                     state.survey = false;
+                    state.surveys = [];
+                    state.visits = null;
 
                     state.user = {
                         created_at: null,
@@ -70,10 +77,16 @@ const store = new Vuex.Store({
                         city: '',
                         gender: '',
                         birthday: '',
-                    }
+                    };
                 },
                 setUser: (state, payload) => {
                     state.user = payload
+                },
+                setSurvey: (state, payload) => {
+                    state.survey = payload
+                },
+                setSurveys: (state, payload) => {
+                    state.surveys = payload
                 },
             },
             getters: {}

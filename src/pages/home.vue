@@ -42,11 +42,17 @@
             CÓDIGO
         </f7-block>
 
-        <f7-block style="margin: 0;">
-            <!--    colorDark="#000000"
-                    colorLight="000000"
-                    bgSrc="http://kingans.com/imgs/logo-para-dentro.png"-->
+        <f7-block v-if="this.$device.ios"
+                  style="margin: 0;">
             <vue-qr id="img-qr"
+                    style="width: 100%" :size="600"
+                    :text="$store.state.application.user.phone"></vue-qr>
+        </f7-block>
+        <f7-block v-else style="margin: 0;">
+            <vue-qr id="img-qr"
+                    colorDark="#000000"
+                    colorLight=""
+                    bgSrc="http://kingans.com/imgs/logo-para-dentro.png"
                     style="width: 100%" :size="600"
                     :text="$store.state.application.user.phone"></vue-qr>
         </f7-block>
@@ -71,7 +77,7 @@
         </f7-block>
 
         <f7-block v-if="$store.state.application.survey === true">
-            <f7-button class="bg-primary" large v-for="(survey, index) in surveys" :key="index"
+            <f7-button class="bg-primary" large v-for="(survey, index) in $store.state.application.surveys" :key="index"
                        @click="getSurveyItemById(survey.id)">
                 <img style="height: 44px" src="../assets/logoKingans.svg">
                 <span style="top:-14px; position:relative; color:white;">
@@ -97,7 +103,6 @@
     export default {
         data() {
             return {
-                surveys: [],
                 surveyPopupOpened: false,
                 tempAnswers: {
                     title: '',
@@ -107,9 +112,7 @@
             };
         },
         mounted: function () {
-            if (this.$store.state.application.survey === true) {
-                this.getSurveys();
-            }
+
         },
         methods: {
             onSendSurvey() {
@@ -137,14 +140,6 @@
                     this.$f7.dialog.alert(' ', 'Servidor no disponible');
                     console.log(response, 'error on getSurveys');
                     this.$f7.dialog.close();
-                });
-            },
-            getSurveys: function () {
-                this.$http.post(this.$store.state.application.config.api + 'surveys/get').then(response => {
-                    this.surveys = response.body;
-                }, response => {
-                    // error callback
-                    console.log(response, 'error on getSurveys');
                 });
             },
             dateStringMX: function (arg) {

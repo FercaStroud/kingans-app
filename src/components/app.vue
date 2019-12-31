@@ -135,7 +135,16 @@
             handleResize() {
                 this.window.width = window.innerWidth;
                 this.window.height = window.innerHeight;
-            }
+            },
+            getSurveys: function () {
+                let vm = this
+                this.$http.post(this.$store.state.application.config.api + 'surveys/get').then(response => {
+                    vm.$store.commit('setSurveys', response.body);
+                }, response => {
+                    // error callback
+                    console.log(response, 'error on getSurveys');
+                });
+            },
         },
         mounted() {
             let vm = this;
@@ -171,7 +180,8 @@
                                 text: '¿Nos ayudas contestando una encuesta?',
                                 foreground: true
                             });
-                            vm.$store.state.application.survey = true;
+                            vm.$store.commit('setSurvey', true);
+                            vm.getSurveys();
                         }
                     }, response => {
                         console.log(response, 'error on checkVisitLog users/app/visit/log');

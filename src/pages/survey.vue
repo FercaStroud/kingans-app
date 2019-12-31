@@ -96,7 +96,8 @@
                         "¡Muchas gracias!",
                         'Encuesta enviada'
                     )
-                    self.$store.state.application.survey = false
+                    self.$store.commit('setSurvey', false);
+
                 }, response => {
                     app.dialog.close();
                     app.dialog.alert(

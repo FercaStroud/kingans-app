@@ -253,6 +253,13 @@ $app->group(['prefix' => 'users'], function () use ($app) {
 
             return $user;
         });
+        $app->post('/edit/password', function (Request $request) {
+            $user = User::find($request->get("id"));
+
+            $user->password = Hash::make($request->get('password'));
+            $user->save();
+            return $user;
+        });
         $app->post('/get', function () {
             $users = User::all();
             foreach ($users as $key => $value) {

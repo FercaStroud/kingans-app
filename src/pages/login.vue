@@ -249,7 +249,13 @@
                         para reiniciar tu contraseña.
                     </p>
                 </f7-block>
-                <f7-button @click="sendResetForm" style="
+                <f7-block v-if="this.$device.ios">
+                    <f7-button @click="sendResetForm"
+                               style="color:white;  font-weight: bold" large class="bg-primary">
+                        Enviar
+                    </f7-button>
+                </f7-block>
+                <f7-button v-else @click="sendResetForm" style="
                 color:white; position: fixed; bottom: 0;width: 100%; border-radius: 0; margin: 0;padding: 0; font-weight: bold
                 " large class="bg-primary">
                     Enviar
@@ -268,9 +274,10 @@
                 resetPasswordPupopOpened: false,
                 signInPupopOpened: false,
                 calendarParams: {
-                    closeOnSelect: true,
+                    openIn: 'customModal',
+                    closeOnSelect: false,
                     header: true,
-                    footer: false,
+                    footer: true,
                     dateFormat: 'dd MM yyyy',
                 },
                 resetPasswordForm: {
