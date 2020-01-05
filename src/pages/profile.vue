@@ -113,7 +113,9 @@
                 Cambiar contraseña
             </f7-button>
         </f7-block>
-        <f7-popup class="reset-password-popup-profile" :opened="resetPopupOpened" @popup:closed="resetPopupOpened = false">
+        <f7-popup
+                :tablet-fullscreen="true"
+                class="reset-password-popup-profile" :opened="resetPopupOpened" @popup:closed="resetPopupOpened = false">
             <f7-page>
                 <f7-navbar no-shadow no-hairline>
                     <f7-nav-left>
@@ -204,8 +206,12 @@
             this.items.created_at = this.$store.state.application.user.created_at;
             this.items.birthday = this.$store.state.application.user.birthday;
 
-            console.log(this.items.birthday, "this.items.birthday")
-            console.log(this.items.created_at, "created_at")
+            //console.log(this.items.birthday, "this.items.birthday")
+            //console.log(this.items.created_at, "created_at")
+            let vm = this;
+            document.addEventListener('backbutton', function (e) {
+                vm.$f7router.navigate('/')
+            }, false);
         },
         methods: {
             sendResetPasswordForm: function () {

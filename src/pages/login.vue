@@ -69,7 +69,8 @@
                 FACEBOOK
             </f7-button>-->
         </f7-list>
-        <f7-popup class="signin-popup" :opened="signInPupopOpened" @popup:closed="signInPupopOpened = false">
+        <f7-popup class="signin-popup" :tablet-fullscreen="true"
+                  :opened="signInPupopOpened" @popup:closed="signInPupopOpened = false">
             <f7-page>
                 <f7-navbar no-shadow no-hairline>
                     <f7-nav-left>
@@ -198,7 +199,8 @@
             </f7-page>
         </f7-popup>
 
-        <f7-popup class="reset-password" :opened="resetPasswordPupopOpened"
+        <f7-popup :tablet-fullscreen="true"
+                  class="reset-password" :opened="resetPasswordPupopOpened"
                   @popup:closed="resetPasswordPupopOpened = false">
             <f7-page>
                 <f7-navbar no-shadow no-hairline>
@@ -274,8 +276,12 @@
                 resetPasswordPupopOpened: false,
                 signInPupopOpened: false,
                 calendarParams: {
-                    openIn: 'customModal',
+                    //openIn: 'customModal',
+                    //minDate: new Date(1920,1,1),
+                    //maxDate: new Date(2010, 12, 31),
+                    //yearPickerMax: 2010,
                     closeOnSelect: false,
+                    direction: "vertical",
                     header: true,
                     footer: true,
                     dateFormat: 'dd MM yyyy',

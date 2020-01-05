@@ -78,7 +78,12 @@
             }
         },
         mounted: function () {
-            this.getBranches()
+            this.getBranches();
+
+            let vm = this;
+            document.addEventListener('backbutton', function (e) {
+                vm.$f7router.navigate('/')
+            }, false);
         },
         methods: {
             openBrowser(url) {

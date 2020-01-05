@@ -66,7 +66,11 @@
             }
         },
         mounted: function () {
-            this.getCoupons()
+            this.getCoupons();
+            let vm = this;
+            document.addEventListener('backbutton', function (e) {
+                vm.$f7router.navigate('/')
+            }, false);
         },
         methods: {
             getCoupons: function () {

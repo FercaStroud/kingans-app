@@ -8,6 +8,7 @@ import NotFoundPage from '../pages/404.vue';
 var routes = [
   {
     path: '/',
+    name: 'home',
     component: HomePage,
   },{
     path: '/branches',

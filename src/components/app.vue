@@ -30,6 +30,14 @@
                             ">Home</span>
                         </f7-list-item>
                         <f7-list-item class="custom-btn" flat v-ripple
+                                      link="/promotions/" view=".view-main"
+                                      panel-close>
+                            <f7-icon style="" material="stars"></f7-icon>
+                            <span style="
+                                    font-size: 1.2em;
+                            ">Mis Premios</span>
+                        </f7-list-item>
+                        <f7-list-item class="custom-btn" flat v-ripple
                                       link="/branches/" view=".view-main"
                                       panel-close>
                             <f7-icon style="" material="place"></f7-icon>
@@ -99,11 +107,12 @@
                     data: function () {
                         return {};
                     },
+                    pushState: true,
                     // App routes
                     routes: routes,
                     // Enable panel left visibility breakpoint
                     panel: {
-                        leftBreakpoint: 960,
+                        leftBreakpoint: 768,
                     },
                     // Input settings
                     input: {
@@ -148,7 +157,6 @@
         },
         mounted() {
             let vm = this;
-
             this.$f7ready((f7) => {
                 // Init cordova APIs (see cordova-app.js)
                 if (f7.device.cordova) {
@@ -166,37 +174,38 @@
                     cordova.plugins.firebase.messaging.onBackgroundMessage(function (payload) {
                         console.log("New background FCM message: ", payload);
                     });
-                }
-                // Call F7 APIs here
-                let fetchCallback = function () {
-                    console.log('[js] BackgroundFetch event received');
 
-                    vm.$http.post(vm.$store.state.application.config.api + 'users/app/visit/log', {
-                        user_id: vm.$store.state.application.user.id
-                    }).then(response => {
-                        if (response.data.user_id !== undefined) {
-                            cordova.plugins.notification.local.schedule({
-                                title: '¡Gracias por tu visita!',
-                                text: '¿Nos ayudas contestando una encuesta?',
-                                foreground: true
-                            });
-                            vm.$store.commit('setSurvey', true);
-                            vm.getSurveys();
-                        }
-                    }, response => {
-                        console.log(response, 'error on checkVisitLog users/app/visit/log');
+                    // Call F7 APIs here
+                    let fetchCallback = function () {
+                        console.log('[js] BackgroundFetch event received');
+
+                        vm.$http.post(vm.$store.state.application.config.api + 'users/app/visit/log', {
+                            user_id: vm.$store.state.application.user.id
+                        }).then(response => {
+                            if (response.data.user_id !== undefined) {
+                                cordova.plugins.notification.local.schedule({
+                                    title: '¡Gracias por tu visita!',
+                                    text: '¿Nos ayudas contestando una encuesta?',
+                                    foreground: true
+                                });
+                                vm.$store.commit('setSurvey', true);
+                                vm.getSurveys();
+                            }
+                        }, response => {
+                            console.log(response, 'error on checkVisitLog users/app/visit/log');
+                        });
+
+                        BackgroundFetch.finish();
+                    };
+
+                    let failureCallback = function (error) {
+                        console.log('- BackgroundFetch failed', error);
+                    };
+
+                    BackgroundFetch.configure(fetchCallback, failureCallback, {
+                        minimumFetchInterval: 15
                     });
-
-                    //BackgroundFetch.finish();
-                };
-
-                let failureCallback = function (error) {
-                    console.log('- BackgroundFetch failed', error);
-                };
-
-                BackgroundFetch.configure(fetchCallback, failureCallback, {
-                    minimumFetchInterval: 15
-                });
+                }
             });
         }
     }
