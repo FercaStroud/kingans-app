@@ -324,7 +324,12 @@
                     day = '0' + day.toString();
                 }
 
-                return String(month) + " " + String(day) + " del " + String(year);
+                if(month !== undefined){
+                    return String(month) + " " + String(day) + " del " + String(year);
+                }
+                else {
+                    return "Sin registro."
+                }
             }
         },
         computed: {}

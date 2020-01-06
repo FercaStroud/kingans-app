@@ -145,6 +145,19 @@
                             <option value="Torreón">Torreón</option>
                         </f7-list-input>
                         <f7-list-input
+                                v-if="this.$device.ios"
+                                class="kingans-border"
+                                label="Sexo"
+                                type="select"
+                                placeholder="Seleccione una opción"
+                                :value="addUserForm.gender"
+                                @input="addUserForm.gender = $event.target.value"
+                        >
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </f7-list-input>
+                        <f7-list-input
+                                v-else
                                 class="kingans-border"
                                 label="Sexo"
                                 type="select"
@@ -159,6 +172,18 @@
                             <option value="Femenino">Femenino</option>
                         </f7-list-input>
                         <f7-list-input
+                                v-if="this.$device.ios"
+                                class="kingans-border"
+                                label="Fecha de nacimiento"
+                                type="datepicker"
+                                placeholder="Selecciona una Fecha"
+                                clear-button
+                                @calendar:change="setCalendarSubscriberDate"
+                                readonly
+                                :calendar-params="calendarParams">
+                        </f7-list-input>
+                        <f7-list-input
+                                v-else
                                 class="kingans-border"
                                 label="Fecha de nacimiento"
                                 type="datepicker"
@@ -294,8 +319,8 @@
                     name: '',
                     email: '',
                     city: 'Torreón',
-                    gender: '',
-                    birthday: '',
+                    gender: 'N',
+                    birthday: '0000,00,00',
                     password: '',
                 },
                 phone: '',
@@ -326,11 +351,13 @@
             checkForm() {
                 let vm = this;
                 let isValid = true;
+
                 Object.keys(this.addUserForm).forEach(function (index, item) {
                     if (vm.addUserForm[index] === "") {
                         isValid = false
                     }
                 });
+
                 return isValid;
             },
             setCalendarSubscriberDate: function (e) {
