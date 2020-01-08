@@ -95,7 +95,7 @@
                 margin: 15px;">
                         <f7-list-input
                                 class="kingans-border"
-                                label="Teléfono"
+                                label="* Teléfono"
                                 type="number"
                                 placeholder="XXX XXX XX XX"
                                 info="Código de usuario"
@@ -108,7 +108,7 @@
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
-                                label="Nombre"
+                                label="* Nombre"
                                 placeholder="Nombre"
                                 type="text"
                                 :value="addUserForm.name"
@@ -120,7 +120,7 @@
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
-                                label="Correo"
+                                label="* Correo"
                                 placeholder="Correo Electrónico"
                                 type="email"
                                 :value="addUserForm.email"
@@ -153,6 +153,7 @@
                                 :value="addUserForm.gender"
                                 @input="addUserForm.gender = $event.target.value"
                         >
+                            <option value="N">Seleccione una opción</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                         </f7-list-input>
@@ -198,7 +199,7 @@
                         </f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
-                                label="Contraseña"
+                                label="* Contraseña"
                                 type="password"
                                 placeholder="**********"
                                 info="Contraseña"
@@ -211,6 +212,14 @@
                         ></f7-list-input>
 
                     </f7-list>
+                    <f7-block>
+                        Nos interesa saber tu <strong>fecha de cumpleaños</strong> y tu
+                        <strong>sexo</strong> para mandarte cupones de promoción personalizados.
+                    </f7-block>
+                    <f7-block>
+                        Aunque estás en tu derecho de no compartirlos con nosotros. Para más información visita <strong
+                            class="active">www.kingans.com</strong>
+                    </f7-block>
                 </f7-block>
                 <!--<f7-block>
                     <f7-button
@@ -446,7 +455,7 @@
                     });
 
                 } else {
-                    this.$f7.dialog.alert("Todos los campos son requeridos.");
+                    this.$f7.dialog.alert("Nombre, Teléfono, Contraseña y Email son requeridos.", '¡Hola, revisa tus datos!');
                 }
             },
         },
