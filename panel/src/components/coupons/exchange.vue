@@ -95,6 +95,13 @@
                 } else {
                     this.$f7.dialog.alert("Todos los campos son requeridos.");
                 }
+            },
+            sendCouponCode: function () {
+                if (this.phone !== '' && this.coupon !== '') {
+
+                } else {
+                    this.$f7.dialog.alert("Todos los campos son requeridos.");
+                }
             }
         }
     }
