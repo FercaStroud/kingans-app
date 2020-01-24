@@ -30,12 +30,20 @@
                             ">Home</span>
                         </f7-list-item>
                         <f7-list-item class="custom-btn" flat v-ripple
-                                      link="/promotions/" view=".view-main"
+                                      link="/promotions/true" view=".view-main"
                                       panel-close>
                             <f7-icon style="" material="stars"></f7-icon>
                             <span style="
                                     font-size: 1.2em;
                             ">Mis Premios</span>
+                        </f7-list-item>
+                        <f7-list-item class="custom-btn" flat v-ripple
+                                      link="/howToUse/" view=".view-main"
+                                      panel-close>
+                            <f7-icon style="" material="smartphone"></f7-icon>
+                            <span style="
+                                    font-size: 1.2em;
+                            ">¿Cómo funciona?</span>
                         </f7-list-item>
                         <f7-list-item class="custom-btn" flat v-ripple
                                       link="/branches/" view=".view-main"

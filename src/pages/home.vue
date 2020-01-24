@@ -8,9 +8,10 @@
                 <img style="height: 25px" src="../assets/kingansWhite.svg">
             </f7-nav-title>
             <f7-nav-right>
-                <!--<f7-link @click="checkVisits" href="/promotions/">
-                    <span>Mis Premios</span>
-                </f7-link>-->
+                <f7-link @click="checkVisits" href="/promotions/false">
+                    <f7-icon style="" material="stars"></f7-icon>
+                    <span>Premios</span>
+                </f7-link>
             </f7-nav-right>
         </f7-navbar>
 

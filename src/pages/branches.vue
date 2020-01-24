@@ -47,7 +47,13 @@
                 <f7-link @click="scheduling = item.scheduling" popover-open=".popover-menu">
                     <f7-icon style="font-size: 1.5em" material="access_time"></f7-icon>
                 </f7-link>
-                <f7-link @click="phone = item.phone" popover-open=".popover-menu-phone">
+                <f7-link @click="openBrowser(item.map)" >
+                    <f7-icon style="font-size: 1.5em" material="room"></f7-icon>
+                </f7-link>
+                <f7-link v-if="this.$device.ios" @click="phone = item.phone" popover-open=".popover-menu-phone">
+                    <f7-icon style="font-size: 1.5em" material="phone"></f7-icon>
+                </f7-link>
+                <f7-link v-else @click="openBrowser('tel:' + item.phone)">
                     <f7-icon style="font-size: 1.5em" material="phone"></f7-icon>
                 </f7-link>
             </f7-card-footer>
@@ -87,6 +93,7 @@
         },
         methods: {
             openBrowser(url) {
+                console.log(url)
                 let options = "location=no,clearcache=yes,clearsessioncache=yes,zoom=yes,EnableViewPortScale=yes"
                 let ref = cordova.InAppBrowser.open(url, '_system', options);
                 const self = this;

@@ -1,4 +1,5 @@
 import HomePage from '../pages/home.vue';
+import HowToUsePage from '../pages/howToUse.vue';
 import BranchOfficesPage from '../pages/branches.vue';
 import PromotionsPage from '../pages/promotions.vue';
 import ProfilePage from '../pages/profile.vue';
@@ -15,7 +16,11 @@ var routes = [
     name: 'branchOffices',
     component: BranchOfficesPage
   },{
-    path: '/promotions',
+    path: '/howToUse',
+    name: 'howToUse',
+    component: HowToUsePage
+  },{
+    path: '/promotions/:filter',
     name: 'promotions',
     component: PromotionsPage
   },{
