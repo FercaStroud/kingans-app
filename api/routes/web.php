@@ -16,6 +16,7 @@ use \Illuminate\Support\Str;
 
 $app->get('/', function (Request $request) {
     //echo \Illuminate\Support\Str::random(8);
+    //return Hash::make('DEMO');
 });
 
 $app->group(['prefix' => 'branches'], function () use ($app) {
@@ -373,9 +374,9 @@ $app->group(['prefix' => 'visits'], function () use ($app) {
                     "users.gender as user_gender",
                     "users.birthday as user_birthday",
                 ]
-            )->join("users", "users.id", "=", "visits.user_id")
-                ->join("panel_users", "panel_users.id", "=", "visits.created_by")
-                ->join("branches", "branches.id", "=", "panel_users.branch_id")->get();
+            )->leftJoin("users", "users.id", "=", "visits.user_id")
+                ->leftJoin("panel_users", "panel_users.id", "=", "visits.created_by")
+                ->leftJoin("branches", "branches.id", "=", "panel_users.branch_id")->get();
         }
     });
     $app->post('/add', function (Request $request) {

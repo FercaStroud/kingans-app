@@ -146,15 +146,8 @@
                     theme: 'auto', // Automatic theme detection
                     // App root data
                     data: function () {
-                        return {
-                            user: {
-                                firstName: 'John',
-                                lastName: 'Doe',
-                            },
 
-                        };
                     },
-
                     // App routes
                     routes: routes,
                     // Enable panel left visibility breakpoint
@@ -167,9 +160,7 @@
             }
         },
         methods: {
-            alertLoginData() {
-                this.$f7.dialog.alert('Username: ' + this.username + '<br>Password: ' + this.password);
-            }
+
         },
         mounted() {
             this.$f7ready((f7) => {

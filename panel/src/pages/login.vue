@@ -1,9 +1,9 @@
 <template>
     <f7-page no-toolbar no-navbar no-swipeback login-screen>
-        <f7-statusbar></f7-statusbar>
+        <f7-statusbar/>
         <f7-login-screen-title style="color: white;max-width: 350px">
             <div style="width: 100%">
-                <img class="circle-image" style="width: 50%; margin-top: 40px" src="../assets/logoKingans.svg"/>
+                <img class="circle-image" style="width: 50%; margin-top: 40px" src="../assets/logoKingans.svg" alt="LOGO"/>
             </div>
         </f7-login-screen-title>
         <f7-list form style="max-width: 350px">
@@ -15,8 +15,8 @@
                     info="Código de usuario"
                     :value="username"
                     clear-button
-                    @input="username = $event.target.value"
-            ></f7-list-input>
+                    @input="username = $event.target.value">
+            </f7-list-input>
             <f7-list-input
                     class="kingans-border"
                     label="Contraseña"
@@ -24,22 +24,16 @@
                     placeholder="Contraseña"
                     clear-button
                     :value="password"
-                    @input="password = $event.target.value"
-            ></f7-list-input>
-            <f7-link style="color: darkgrey;
-                    text-align: center;
-                    font-size: 0.8em;
-                    margin-top: -23px;
-                    position: absolute;"
-            >¿Olvidaste la Contraseña?
-            </f7-link>
+                    @input="password = $event.target.value">
+
+            </f7-list-input>
         </f7-list>
         <f7-list style="padding-top: 20px;">
             <f7-button
                     class="btn-primary"
                     style="width: 50%; margin-left: 25%;"
                     large @click="logIn">
-                <f7-icon style="margin-top: -4px" material="person"></f7-icon>
+                <f7-icon style="margin-top: -4px" material="person"/>
                 INICIA SESIÓN
             </f7-button>
         </f7-list>
@@ -51,8 +45,8 @@
         name: 'login',
         data() {
             return {
-                username: 'admin',
-                password: '1',
+                username: '',
+                password: '',
             };
         },
         methods: {

@@ -54,7 +54,7 @@
                 <f7-button
                         class="btn-primary"
                         style="height: 74px;border-left: none;border-top-left-radius: 0px;border-bottom-left-radius: 0px;margin-left: -4px;"
-                        large @click="">
+                        large @click="sendCouponCode">
                     <f7-icon style="margin-top: 20px;font-size: 1.1em;" material="play_arrow"></f7-icon>
                 </f7-button>
             </f7-list-item>

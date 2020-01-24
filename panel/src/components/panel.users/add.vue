@@ -28,7 +28,7 @@
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
-                                label="Nombre del usuario"
+                                label="Nombre completo"
                                 placeholder="EJ: Lucas K."
                                 type="text"
                                 info="Obligatorio"
