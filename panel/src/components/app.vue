@@ -24,11 +24,13 @@
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
+                                            v-if="$store.state.application.user.type === 'A'"
                                             link="/coupons/exchange/list" view=".view-main" panel-close
                                             title="Cupones Canjeados"
                                             subtitle="Catálogo">
                                     </f7-list-item>
                                     <f7-list-item
+                                            v-if="$store.state.application.user.type === 'A'"
                                             link="/coupons/add" view=".view-main" panel-close
                                             title="Añadir Cupón"
                                             subtitle="Catálogo">
@@ -52,7 +54,8 @@
                                 </f7-list>
                             </f7-accordion-content>
                         </f7-list-item>
-                        <f7-list-item accordion-item title="Encuestas">
+                        <f7-list-item accordion-item title="Encuestas"
+                                      v-if="$store.state.application.user.type === 'A'">
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
@@ -61,6 +64,7 @@
                                             subtitle="Catálogo">
                                     </f7-list-item>
                                     <f7-list-item
+
                                             link="/surveys/list" view=".view-main" panel-close
                                             title="Listar Encuestas"
                                             subtitle="Catálogo">
@@ -68,7 +72,8 @@
                                 </f7-list>
                             </f7-accordion-content>
                         </f7-list-item>
-                        <f7-list-item accordion-item title="Usuarios Panel Kingans">
+                        <f7-list-item accordion-item title="Usuarios Panel Kingans"
+                                      v-if="$store.state.application.user.type === 'A'">
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
@@ -84,15 +89,20 @@
                                 </f7-list>
                             </f7-accordion-content>
                         </f7-list-item>
-                        <f7-list-item accordion-item title="Usuarios Aplicación Kingans">
+                        <f7-list-item accordion-item title="Usuarios Aplicación Kingans"
+                                      v-if="$store.state.application.user.type === 'A'||
+                                                 $store.state.application.user.type === 'G'">
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
+                                            v-if="$store.state.application.user.type === 'A'"
                                             link="/users/app/add" view=".view-main" panel-close
                                             title="Añadir Usuario"
                                             subtitle="Catálogo">
                                     </f7-list-item>
                                     <f7-list-item
+                                            v-if="$store.state.application.user.type === 'A'||
+                                                 $store.state.application.user.type === 'G'"
                                             link="/users/app/list" view=".view-main" panel-close
                                             title="Listar Usuarios"
                                             subtitle="Catálogo">
@@ -100,7 +110,8 @@
                                 </f7-list>
                             </f7-accordion-content>
                         </f7-list-item>
-                        <f7-list-item accordion-item title="Sucursales">
+                        <f7-list-item accordion-item title="Sucursales"
+                                      v-if="$store.state.application.user.type === 'A'">
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
@@ -116,7 +127,8 @@
                                 </f7-list>
                             </f7-accordion-content>
                         </f7-list-item>
-                        <f7-list-item link="/logout/" view=".view-main" panel-close title="Cerrar Sesión"></f7-list-item>
+                        <f7-list-item link="/logout/" view=".view-main" panel-close
+                                      title="Cerrar Sesión"></f7-list-item>
                     </f7-list>
                 </f7-page>
             </f7-view>
@@ -159,9 +171,7 @@
                 password: '',
             }
         },
-        methods: {
-
-        },
+        methods: {},
         mounted() {
             this.$f7ready((f7) => {
 

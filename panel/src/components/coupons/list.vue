@@ -26,10 +26,14 @@
                                     :search-options="{enabled: true}">
                                 <template slot="table-row" slot-scope="props">
                                     <span v-if="props.column.field == 'actions'">
-                                        <f7-link @click="editItem(props.row)">
+                                        <f7-link v-if="$store.state.application.user.type === 'A' ||
+                                                 $store.state.application.user.type === 'G'"
+                                                 @click="editItem(props.row)">
                                             <f7-icon class="icon-btn" material="edit"></f7-icon>
                                         </f7-link>
-                                        <f7-link @click="deleteItem(props.row.id)">
+                                        <f7-link v-if="$store.state.application.user.type === 'A' ||
+                                                 $store.state.application.user.type === 'G'"
+                                                 @click="deleteItem(props.row.id)">
                                             <f7-icon class="icon-btn" material="delete"></f7-icon>
                                         </f7-link>
                                     </span>
@@ -153,7 +157,8 @@
 
                             </f7-list>
 
-                            <f7-button style="margin: 15px"
+                            <f7-button
+                                    style="margin: 15px"
                                        class="btn-primary"
                                        large @click="sendForm">
                                 EDITAR CUPÓN

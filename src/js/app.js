@@ -20,7 +20,7 @@ Framework7.use(Framework7Vue);
 Vue.use(Vuex)
 Vue.use(vueResource)
 
-Ripple.color = 'rgba(241, 105, 137, .35)';
+Ripple.color = 'rgba(241, 138, 0, .03)';
 Ripple.zIndex = 55;
 Vue.directive('ripple', Ripple);
 
@@ -30,8 +30,10 @@ const store = new Vuex.Store({
         application: {
             //namespaced: true,
             state: {
+                counter: 0,
                 title: 'Grupo Kingans',
                 drawer: {
+                    surveys: false,
                     left: false,
                     right: false,
                     login: true,
@@ -60,10 +62,12 @@ const store = new Vuex.Store({
                 },
                 resetLogin: state => {
                     state.drawer = {
+                        surveys: false,
                         left: false,
                         right: false,
                         login: true,
                     };
+                    state.counter = 0;
                     state.survey = false;
                     state.surveys = [];
                     state.visits = null;

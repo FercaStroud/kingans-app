@@ -52,13 +52,13 @@
                                         <strong style="font-size: .7em">YYYY/MM/DD:</strong><br/>
                                         <strong>Cumpleaños: </strong>
                                         <span>
-                                            {{(item.birthday)}}
+                                            {{dateStringMX(item.birthday)}}
                                         </span><br/>
                                         <strong>Creado por: </strong>
                                         <span v-if="item.created_by != null">
                                             {{item.created_by.username}}
                                             / {{item.created_by.name}}
-                                        </span>
+                                        </span><br/>
                                         <strong>Actualizado por: </strong>
                                         <span v-if="item.updated_by != null">
                                             {{item.updated_by.username}}
@@ -68,6 +68,12 @@
                                     <f7-card-footer>
                                         <f7-link @click="editItem(item)">
                                             <f7-icon class="icon-btn" material="edit"></f7-icon>
+                                        </f7-link>
+                                        <f7-link @click="openPasswordDialog">
+                                            <f7-icon class="icon-btn" material="lock"></f7-icon>
+                                        </f7-link>
+                                        <f7-link @click="openBirthdayDialog">
+                                            <f7-icon class="icon-btn" material="event"></f7-icon>
                                         </f7-link>
                                         <f7-link @click="deleteItem(item.id)">
                                             <f7-icon class="icon-btn" material="delete"></f7-icon>
@@ -104,20 +110,6 @@
                                         :error-message="'Campo Obligatorio'"
                                         @input="itemToEdit.name = $event.target.value"
                                 ></f7-list-input>
-                                <f7-list-input
-                                        ref="calendar"
-                                        label="Fecha de nacimiento"
-                                        type="datepicker"
-                                        placeholder="Selecciona una Fecha"
-                                        clear-button
-                                        :value="setBirthday"
-                                        @calendar:change="setCalendarDate"
-                                        validate
-                                        required
-                                        readonly
-                                        :error-message="'Campo Obligatorio'"
-                                        :calendar-params="calendarParams">
-                                </f7-list-input>
                                 <f7-list-input
                                         class="kingans-border"
                                         label="Teléfono del usuario"
@@ -184,6 +176,77 @@
                 </f7-block>
             </f7-page>
         </f7-popup>
+        <f7-popup class="" :opened="passwordDialog" @popup:closed="passwordDialog = false">
+            <f7-page>
+                <f7-navbar title="Editar Contraseña">
+                    <f7-nav-right>
+                        <f7-link popup-close>Cancelar</f7-link>
+                    </f7-nav-right>
+                </f7-navbar>
+                <f7-block>
+                    <f7-card>
+                        <f7-card-content>
+                            <f7-list form style="margin: 15px;">
+                                <f7-list-input
+                                        class="kingans-border"
+                                        label="Nueva Contraseña"
+                                        placeholder="Pass51w00rd1"
+                                        type="text"
+                                        info="Obligatorio"
+                                        :value="tempItem.password"
+                                        clear-button
+                                        validate
+                                        required
+                                        :error-message="'Campo Obligatorio'"
+                                        @input="tempItem.password = $event.target.value"
+                                ></f7-list-input>
+                            </f7-list>
+                        </f7-card-content>
+                    </f7-card>
+                    <f7-button
+                            class="btn-primary"
+                            style="width: 50%; margin-left: 25%;"
+                            large @click="updatePassword">
+                        Guardar
+                    </f7-button>
+                </f7-block>
+            </f7-page>
+        </f7-popup>
+        <f7-popup class="" :opened="birthdayDialog" @popup:closed="birthdayDialog = false">
+            <f7-page>
+                <f7-navbar title="Editar Cumpleaños">
+                    <f7-nav-right>
+                        <f7-link popup-close>Cancelar</f7-link>
+                    </f7-nav-right>
+                </f7-navbar>
+                <f7-block>
+                    <f7-card>
+                        <f7-card-content>
+                            <f7-list form style="margin: 15px;">
+                                <f7-list-input
+                                        label="Fecha de nacimiento"
+                                        type="datepicker"
+                                        placeholder="Selecciona una Fecha"
+                                        clear-button
+                                        @calendar:change="setCalendarDate"
+                                        validate
+                                        required
+                                        readonly
+                                        :error-message="'Campo Obligatorio'"
+                                        :calendar-params="calendarParams">
+                                </f7-list-input>
+                            </f7-list>
+                        </f7-card-content>
+                    </f7-card>
+                    <f7-button
+                            class="btn-primary"
+                            style="width: 50%; margin-left: 25%;"
+                            large @click="updateBirthday">
+                        Guardar
+                    </f7-button>
+                </f7-block>
+            </f7-page>
+        </f7-popup>
 
     </f7-page>
 </template>
@@ -193,6 +256,9 @@
         name: "appUsersList",
         data() {
             return {
+                tempItem: { password: '', id: '', birthday: ''},
+                passwordDialog: false,
+                birthdayDialog: false,
                 setBirthday: null,
                 calendarParams: {
                     closeOnSelect: true,
@@ -209,7 +275,6 @@
                     email: '',
                     city: '',
                     gender: '',
-                    birthday: [],
                     password: '',
                 },
             }
@@ -225,6 +290,41 @@
             this.getList()
         },
         methods: {
+            dateStringMX: function (arg) {
+                let months = [
+                    "Enero",
+                    "Febrero",
+                    "Marzo",
+                    "Abril",
+                    "Mayo",
+                    "Junio",
+                    "Julio",
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre",
+                    "Noviembre",
+                    "Diciembre",
+                ];
+
+                let date = new Date(
+                    String(arg).replace(/-/g, "/")
+                );
+
+                let day = date.getDate();
+                let month = months[date.getMonth()];
+                let year = date.getFullYear();
+
+                if (day.length < 2) {
+                    day = '0' + day.toString();
+                }
+
+                if(month !== undefined){
+                    return String(month) + " " + String(day) + " del " + String(year);
+                }
+                else {
+                    return "Sin registro."
+                }
+            },
             getDateSQLFormat(e) {
                 let d = new Date(e);
                 let month = '' + (d.getMonth()+1);
@@ -240,7 +340,7 @@
                 return [year, month, day].join('-');
             },
             setCalendarDate: function (e) {
-                this.itemToEdit.birthday = this.getDateSQLFormat(e);
+                this.tempItem.birthday = this.getDateSQLFormat(e);
             },
             checkForm() {
                 let vm = this;
@@ -264,7 +364,7 @@
                         email: this.itemToEdit.email,
                         city: this.itemToEdit.city,
                         gender: this.itemToEdit.gender,
-                        birthday: this.itemToEdit.birthday,
+                        //birthday: this.itemToEdit.birthday,
                         password: this.itemToEdit.password,
                         updated_by: this.$store.state.application.user.id
                     }).then(response => {
@@ -276,7 +376,6 @@
                             email: '',
                             city: '',
                             gender: '',
-                            birthday: '',
                             password: '',
                         }
                         vm.popupEditOpened = false;
@@ -307,10 +406,7 @@
             },
             editItem(item) {
                 this.itemToEdit = item;
-                let date = this.itemToEdit.birthday.split("-");
-                this.setBirthday = [new Date(
-                    date[0], (date[1] - 1), date[2]
-                )];
+
                 this.popupEditOpened = true;
             },
             deleteItem(id) {
@@ -337,6 +433,72 @@
                     this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                 });
             },
+            openPasswordDialog(id){
+                this.tempItem.id = id;
+                this.passwordDialog = true;
+            },
+            openBirthdayDialog(id){
+                this.tempItem.id = id;
+                this.birthdayDialog = true;
+            },
+            updatePassword() {
+                let vm = this;
+                if(vm.tempItem.password === ''){
+                    vm.$f7.dialog.alert("", 'Todos los campos son requeridos.');
+                }else {
+                    vm.$f7.dialog.preloader('Enviando datos...');
+                    this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
+                        id: id,
+                    }).then(response => {
+                        vm.$f7.dialog.close();
+                        if (response.data.success) {
+                            vm.$f7.dialog.alert("Elemento Eliminado", 'Éxito');
+                        } else {
+                            vm.$f7.dialog.alert("Error desconocido", 'Intente más tarde');
+                        }
+                        vm.tempItem = {
+                            id: '', password: '',
+                        }
+                        vm.$f7.dialog.close();
+
+                        //this.items = response.data
+                    }, response => {
+                        console.log(response, 'error on checkForm branches/add');
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                    });
+                }
+            },
+            updateBirthday() {
+                let vm = this;
+                if(vm.tempItem.birthday === ''){
+                    vm.$f7.dialog.alert("", 'Todos los campos son requeridos.');
+                }else {
+                    vm.$f7.dialog.preloader('Enviando datos...');
+                    this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/birthday', {
+                        id: id,
+                        birthday: this.tempItem.birthday
+                    }).then(response => {
+                        vm.$f7.dialog.close();
+                        if (response.data.success) {
+                            vm.$f7.dialog.alert("", 'Cumpleaños, Actualizado');
+                        } else {
+                            vm.$f7.dialog.alert("Error desconocido", 'Intente más tarde');
+                        }
+                        vm.tempItem = {
+                            id: '', password: '', birthday: ''
+                        }
+                        vm.$f7.dialog.close();
+
+                        //this.items = response.data
+                    }, response => {
+                        console.log(response, 'error on checkForm branches/add');
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                    });
+                }
+            },
+
         },
     }
 </script>

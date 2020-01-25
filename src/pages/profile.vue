@@ -218,14 +218,17 @@
                 if (this.resetItems.confirmPassword === this.resetItems.newPassword && this.resetItems.confirmPassword != '') {
                     this.$f7.dialog.preloader('Actualizando datos...');
 
-                    this.$http.post(this.$store.state.application.config.api + 'users/app/edit/pasword', {
+                    this.$http.post(this.$store.state.application.config.api + 'users/app/edit/password', {
                         id: this.$store.state.application.user.id,
                         password: this.resetItems.confirmPassword,
                         updated_by: this.$store.state.application.user.id
                     }).then(response => {
                         this.$f7.dialog.close();
                         this.$f7.dialog.alert("Datos actualizados", "Éxito");
-
+                        this.resetItems = {
+                            newPassword: '',
+                            confirmPassword: ''
+                        }
                     }, response => {
                         console.log(response, 'error on sendForm users/app/edit/password');
                         this.$f7.dialog.close();

@@ -3,7 +3,10 @@
         <f7-statusbar/>
         <f7-login-screen-title style="color: white;max-width: 350px">
             <div style="width: 100%">
-                <img class="circle-image" style="width: 50%; margin-top: 40px" src="../assets/logoKingans.svg" alt="LOGO"/>
+                <img class="circle-image"
+                     style="width: 50%; margin-top: 40px"
+                     src="../assets/logoKingans.svg"
+                     alt="LOGO"/>
             </div>
         </f7-login-screen-title>
         <f7-list form style="max-width: 350px">

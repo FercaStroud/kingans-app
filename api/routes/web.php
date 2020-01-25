@@ -155,6 +155,15 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             return $user;
         });
 
+        $app->post('/edit/password', function (Request $request) {
+            $user = PanelUser::find($request->get("id"));
+
+            $user->password = Hash::make($request->get('password'));
+            $user->save();
+
+            return $user;
+        });
+
         $app->post('/get', function () {
             $users = PanelUser::all();
             foreach ($users as $key => $value) {
@@ -248,7 +257,6 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             $user->email = $request->get('email', $user->email);
             $user->city = $request->get('city', $user->city);
             $user->gender = $request->get('gender', $user->gender);
-            $user->birthday = $request->get('birthday', $user->birthday);
             $user->updated_by = $request->get("updated_by");
             $user->save();
 
@@ -258,6 +266,13 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             $user = User::find($request->get("id"));
 
             $user->password = Hash::make($request->get('password'));
+            $user->save();
+            return $user;
+        });
+        $app->post('/edit/birthday', function (Request $request) {
+            $user = User::find($request->get("id"));
+
+            $user->birthday = Hash::make($request->get('birthday'));
             $user->save();
             return $user;
         });
@@ -278,7 +293,6 @@ $app->group(['prefix' => 'users'], function () use ($app) {
                 "success" => User::find($request->get("id"))->delete()
             ]);
         });
-
         $app->post('/visit/log', function (Request $request) {
             $user = User::find($request->get("user_id"));
 
@@ -300,12 +314,10 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             return $visit;
 
         });
-
     });
 });
 
 $app->group(['prefix' => 'surveys'], function () use ($app) {
-
     $app->post('/add', function (Request $request) {
         $object = new Survey();
 
@@ -328,7 +340,11 @@ $app->group(['prefix' => 'surveys'], function () use ($app) {
 
         return $object;
     });
+
     $app->post('/get', function () {
+        return Survey::where("is_active", "=", "1");
+    });
+    $app->post('/get/all', function () {
         return Survey::all();
     });
     $app->post('/status', function (Request $request) {
@@ -412,8 +428,7 @@ $app->group(['prefix' => 'questions'], function () use ($app) {
         $surveyId = $request->get('id');
         $survey = \Illuminate\Support\Facades\DB::table('surveys')
             ->where([
-                'id' => $surveyId,
-                "is_active" => 1
+                'id' => $surveyId
             ])->get();
 
         $response = [

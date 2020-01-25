@@ -3,7 +3,7 @@
         <f7-statusbar></f7-statusbar>
         <f7-block>
             <f7-row>
-                <f7-col style="text-align:center">
+                <f7-col v-ripple style="text-align:center" @click="startCounter">
                     <img class="circle-image" style="width: 50%; margin-top: 40px"
                          src="../assets/logoKingans.svg"
                     />
@@ -232,7 +232,6 @@
                 </f7-block>-->
             </f7-page>
         </f7-popup>
-
         <f7-popup :tablet-fullscreen="true"
                   class="reset-password" :opened="resetPasswordPupopOpened"
                   @popup:closed="resetPasswordPupopOpened = false">
@@ -298,15 +297,117 @@
                 </f7-button>
             </f7-page>
         </f7-popup>
+        <f7-popup :tablet-fullscreen="true"
+                  :opened="$store.state.application.drawer.surveys"
+                  @popup:closed="$store.state.application.drawer.surveys = false">
+            <f7-page>
+                <f7-navbar no-shadow no-hairline>
+                    <f7-nav-left>
+                        <f7-link popup-close>Cerrar</f7-link>
+                    </f7-nav-left>
+                    <f7-nav-title>
+                        <img style="height: 25px" src="../assets/kingansWhite.svg">
+                    </f7-nav-title>
+                    <f7-nav-right></f7-nav-right>
+                </f7-navbar>
+                <f7-block>
+                    <f7-block>
+                        <p style="text-align:center">
+                            <strong>¡Hola!</strong>,
+                            El siguiente formulario es para uso exclusivo de los administradores.
+                        </p>
+                    </f7-block>
+                    <f7-block>
+                        <f7-list form style="
+                background-color: rgba(255,255,255,1);
 
+                margin: 15px;
+                ">
+                            <f7-list-input
+                                    class="kingans-border"
+                                    label="Nombre de Usuario"
+                                    type="text"
+                                    placeholder="XXX XXX XX XX"
+                                    info="Código de usuario"
+                                    :value="survey.username"
+                                    clear-button
+                                    @input="survey.username = $event.target.value"
+                            ></f7-list-input>
+                            <f7-list-input
+                                    class="kingans-border"
+                                    label="Contraseña"
+                                    type="password"
+                                    placeholder="Contraseña"
+                                    clear-button
+                                    :value="survey.password"
+                                    @input="survey.password = $event.target.value"
+                            ></f7-list-input>
+                        </f7-list>
+                    </f7-block>
+                </f7-block>
+                <f7-block v-if="this.$device.ios">
+                    <f7-button @click="loginForSurvey"
+                               style="color:white;  font-weight: bold" large class="bg-primary">
+                        Enviar
+                    </f7-button>
+                </f7-block>
+                <f7-button v-else @click="loginForSurvey" style="
+                color:white; position: fixed; bottom: 0;width: 100%; border-radius: 0; margin: 0;padding: 0; font-weight: bold
+                " large class="bg-primary">
+                    Enviar
+                </f7-button>
+            </f7-page>
+        </f7-popup>
+        <f7-popup :tablet-fullscreen="true"
+                  :opened="surveyPagePopupOpened"
+                  @popup:closed="surveyPagePopupOpened = false">
+            <f7-page>
+                <f7-navbar no-shadow no-hairline>
+                    <f7-nav-left>
+                    </f7-nav-left>
+                    <f7-nav-title>
+                        <img style="height: 25px" src="../assets/kingansWhite.svg">
+                    </f7-nav-title>
+                    <f7-nav-right></f7-nav-right>
+                </f7-navbar>
+                <f7-block>
+                    <f7-button class="bg-primary" large v-for="(survey, index) in surveys" :key="index"
+                               @click="getSurveyItemById(survey.id)">
+                        <img style="height: 44px" src="../assets/logoKingans.svg">
+                        <span style="top:-14px; position:relative; color:white;">
+                            {{survey.name}}
+                        </span>
+                    </f7-button>
+                </f7-block>
+
+                <f7-popup :opened="surveyPopupOpened"
+                          @popup:closed="surveyPopupOpened = false">
+                    <survey @onSendSurvey="onSendSurvey"
+                            :survey="tempAnswers"/>
+                </f7-popup>
+
+                <div style="height: 65px"></div>
+            </f7-page>
+        </f7-popup>
     </f7-page>
 </template>
 
 <script>
+    import Survey from "./survey";
     export default {
         name: 'login',
+        components: {Survey},
         data() {
             return {
+                tempAnswers: {
+                    title: '',
+                    description: '',
+                    questions: []
+                },
+                surveys: [],
+                counter: 0,
+                surveyPagePopupOpened: false,
+                surveyPopupOpened: false,
                 resetPasswordPupopOpened: false,
                 signInPupopOpened: false,
                 calendarParams: {
@@ -332,13 +433,60 @@
                     birthday: '0000,00,00',
                     password: '',
                 },
+                survey: {
+                    username: '',
+                    password: ''
+                },
                 phone: '',
                 password: '',
             };
         },
         mounted: function () {
+            this.getSurveys();
         },
         methods: {
+            getSurveys: function () {
+                let vm = this
+                this.$http.post(this.$store.state.application.config.api + 'surveys/get/all').then(response => {
+                    vm.surveys = response.body;
+                }, response => {
+                    // error callback
+                    console.log(response, 'error on getSurveys');
+                });
+            },
+            onSendSurvey() {
+                this.surveyPopupOpened = false
+                this.tempAnswers = {
+                    title: '',
+                    description: '',
+                    questions: []
+                }
+            },
+            getSurveyItemById(id) {
+                this.$f7.dialog.preloader('Obteniendo encuesta...');
+                this.$http.post(this.$store.state.application.config.api + 'questions/withAnswers', {
+                    id: id,
+                }).then(response => {
+                    this.tempAnswers = response.body;
+                    this.$f7.dialog.close();
+                    if (this.tempAnswers.length === 0) {
+                        this.$f7.dialog.alert(' ', 'Sin datos disponibles');
+                    } else {
+                        this.surveyPopupOpened = true
+                    }
+                }, response => {
+                    // error callback
+                    this.$f7.dialog.alert(' ', 'Servidor no disponible');
+                    console.log(response, 'error on getSurveys');
+                    this.$f7.dialog.close();
+                });
+            },
+            startCounter() {
+                this.$store.state.application.counter++;
+                if (this.$store.state.application.counter > 9) {
+                    this.$store.state.application.drawer.surveys = true
+                }
+            },
             sendResetForm() {
                 if (this.resetPasswordForm.phone !== '') {
                     let vm = this;
@@ -398,6 +546,28 @@
                     } else {
                         vm.$store.commit('setLogin', false);
                         vm.$store.commit('setUser', response.data);
+                    }
+                }, response => {
+                    console.log(response, 'error signIn login.vue')
+                    this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
+                    this.$f7.dialog.close();
+                });
+            },
+            loginForSurvey() {
+                let vm = this;
+                this.$f7.dialog.preloader('Iniciando Sesión')
+                this.$http.post(vm.$store.state.application.config.api + 'users/panel/login', {
+                    username: this.survey.username,
+                    password: this.survey.password,
+                }).then(response => {
+                    this.$f7.dialog.close();
+                    if (response.data.success === false || response.data === '') {
+                        this.$f7.dialog.alert(' ', 'Nombre y/o Contraseña incorrecta(s)')
+                        this.$f7.dialog.close();
+                    } else {
+                        //vm.$store.commit('setLogin', false);
+                        vm.$store.commit('setUser', response.data);
+                        vm.surveyPagePopupOpened = true
                     }
                 }, response => {
                     console.log(response, 'error signIn login.vue')

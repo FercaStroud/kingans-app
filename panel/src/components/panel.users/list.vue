@@ -38,7 +38,7 @@
                                         <span style="font-weight: bold">{{item.username}}</span>
                                         / <span>{{item.name}}</span>
                                     </f7-card-header>
-                                    <f7-card-content>
+                                    <f7-card-content style="height: 165px;">
                                         <strong>Tipo: </strong>
                                         <span v-if="item.type === 'A'">Administrador</span>
                                         <span v-if="item.type === 'G'">Gerente</span>
@@ -55,7 +55,7 @@
                                         <span v-if="item.created_by != null">
                                             {{item.created_by.username}}
                                             / {{item.created_by.name}}
-                                        </span>
+                                        </span><br/>
                                         <strong>Actualizado por: </strong>
                                         <span v-if="item.updated_by != null">
                                             {{item.updated_by.username}}
@@ -65,6 +65,9 @@
                                     <f7-card-footer>
                                         <f7-link @click="editItem(item)">
                                             <f7-icon class="icon-btn" material="edit"></f7-icon>
+                                        </f7-link>
+                                        <f7-link @click="openPasswordDialog">
+                                            <f7-icon class="icon-btn" material="lock"></f7-icon>
                                         </f7-link>
                                         <f7-link @click="deleteItem(item.id)">
                                             <f7-icon class="icon-btn" material="delete"></f7-icon>
@@ -159,7 +162,42 @@
                 </f7-block>
             </f7-page>
         </f7-popup>
-
+        <f7-popup class="" :opened="passwordDialog" @popup:closed="passwordDialog = false">
+            <f7-page>
+                <f7-navbar title="Editar Contraseña">
+                    <f7-nav-right>
+                        <f7-link popup-close>Cancelar</f7-link>
+                    </f7-nav-right>
+                </f7-navbar>
+                <f7-block>
+                    <f7-card>
+                        <f7-card-content>
+                            <f7-list form style="margin: 15px;">
+                                <f7-list-input
+                                        class="kingans-border"
+                                        label="Nueva Contraseña"
+                                        placeholder="Pass51w00rd1"
+                                        type="text"
+                                        info="Obligatorio"
+                                        :value="tempItem.password"
+                                        clear-button
+                                        validate
+                                        required
+                                        :error-message="'Campo Obligatorio'"
+                                        @input="tempItem.password = $event.target.value"
+                                ></f7-list-input>
+                            </f7-list>
+                        </f7-card-content>
+                    </f7-card>
+                    <f7-button
+                            class="btn-primary"
+                            style="width: 50%; margin-left: 25%;"
+                            large @click="updatePassword">
+                        Guardar
+                    </f7-button>
+                </f7-block>
+            </f7-page>
+        </f7-popup>
     </f7-page>
 </template>
 
@@ -168,6 +206,9 @@
         name: "panelUsersList",
         data() {
             return {
+                tempItem: { password: '', id: ''},
+                passwordDialog: false,
+                birthdayDialog: false,
                 branches: [],
                 popupEditOpened: false,
                 search: '',
@@ -187,6 +228,10 @@
             this.getBranches()
         },
         methods: {
+            openPasswordDialog(id){
+                this.tempItem.id = id;
+                this.passwordDialog = true;
+            },
             checkForm() {
                 let vm = this;
                 let isValid = true;
@@ -280,6 +325,34 @@
                     this.$f7.dialog.close();
                     this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                 });
+            },
+            updatePassword() {
+                let vm = this;
+                if(vm.tempItem.password === ''){
+                    vm.$f7.dialog.alert("", 'Todos los campos son requeridos.');
+                }else {
+                    vm.$f7.dialog.preloader('Enviando datos...');
+                    this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
+                        id: id,
+                    }).then(response => {
+                        vm.$f7.dialog.close();
+                        if (response.data.success) {
+                            vm.$f7.dialog.alert("Elemento Eliminado", 'Éxito');
+                        } else {
+                            vm.$f7.dialog.alert("Error desconocido", 'Intente más tarde');
+                        }
+                        vm.tempItem = {
+                            id: '', password: '',
+                        }
+                        vm.$f7.dialog.close();
+
+                        //this.items = response.data
+                    }, response => {
+                        console.log(response, 'error on checkForm branches/add');
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                    });
+                }
             },
         },
     }

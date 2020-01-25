@@ -8,7 +8,7 @@
                         src="../assets/logoKingans.svg">
             </f7-nav-left>
             <f7-nav-right>
-                <f7-link popup-close>Cerrar</f7-link>
+                <!--<f7-link popup-close>Cerrar</f7-link>-->
             </f7-nav-right>
         </f7-navbar>
         <f7-block strong style="margin:0 ">
