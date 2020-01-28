@@ -222,17 +222,17 @@
                     {
                         label: 'Fecha de Inicio',
                         field: 'start',
-                        type: 'date',
-                        dateInputFormat: 'yyyy-mm-dd',
-                        dateOutputFormat: 'MMM Do yy',
+                        //type: 'date',
+                        //dateInputFormat: 'yyyy-mm-dd',
+                        //dateOutputFormat: 'MMM Do yy',
                         filterTextInput: true
                     },
                     {
                         label: 'Fecha de Fin',
                         field: 'end',
-                        type: 'date',
-                        dateInputFormat: 'yyyy-mm-dd',
-                        dateOutputFormat: 'MMM Do yy',
+                        //type: 'date',
+                        //dateInputFormat: 'yyyy-mm-dd',
+                        //dateOutputFormat: 'MMM Do yy',
                         filterTextInput: true
                     },
                     {

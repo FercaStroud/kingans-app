@@ -12,7 +12,7 @@
         <f7-list form style="max-width: 350px">
             <f7-list-input
                     class="kingans-border"
-                    label="Móvil"
+                    label="Usuario"
                     type="text"
                     placeholder="XXX XXX XX XX"
                     info="Código de usuario"

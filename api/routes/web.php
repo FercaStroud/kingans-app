@@ -6,6 +6,7 @@ use App\Branch;
 use App\Survey;
 use App\Question;
 use App\QuestionAnswer;
+use App\UserCoupon;
 use App\Answer;
 use App\Coupon;
 use App\Visit;
@@ -340,7 +341,6 @@ $app->group(['prefix' => 'surveys'], function () use ($app) {
 
         return $object;
     });
-
     $app->post('/get', function () {
         return Survey::where("is_active", "=", "1");
     });
@@ -545,8 +545,88 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
 });
 
 $app->group(['prefix' => 'coupons'], function () use ($app) {
+    $app->post('/exchange', function (Request $request) {
+        $betweenDates = function ($cmpDate, $startDate, $endDate) {
+            return (date($cmpDate) >= date($startDate)) && (date($cmpDate) < date($endDate));
+        };
 
-    $app->post('/get', function (Request $request) {
+        $user = User::where("phone", "=", $request->get("phone"))->first();
+        $coupon = Coupon::where("code", "=", $request->get("code"))->first();
+
+        //is a correct branch?
+        /*if($coupon->branch_id !== 0){
+            $panelUser = PanelUser::find($request->get("created_by"));
+            if($panelUser->branch_id !== $coupon->branch_id){
+                return response()->json([
+                    "text" => "Código no válido en ésta sucursal.",
+                    "title" => "Código no válido."
+                ]);
+            }
+        }*/
+
+        //is date valid?
+        $now = new DateTime('now');
+        if ($betweenDates($now->format("Y-m-d"), $coupon->start, $coupon->end)) {
+            $userCoupons = UserCoupon::where([
+                "user_id" => $user->id,
+                "coupon_id" => $coupon->id
+            ])->whereDate(
+                'created_at',
+                \Carbon\Carbon::today()
+            )->first();
+            //one at day
+            if (is_object($userCoupons)) {
+                return response()->json([
+                    "text" => "Un canje al día por usuario.",
+                    "title" => "Código canjeado con anterioridad."
+                ]);
+            } else {
+                //can user get a gift?
+                $counter = Visit::where('user_id', '=', $user->id)->count();
+                if ($counter >= $coupon->required_number) {
+                    $object = new UserCoupon();
+                    $object->user_id = $user->id;
+                    $object->coupon_id = $coupon->id;
+                    $object->created_by = $request->get("created_by");
+                    $object->save();
+
+                    return $coupon;
+                } else { //false
+                    return response()->json([
+                        "text" => "El usuario no cuenta con los puntos requeridos.",
+                        "title" => "Sin puntaje necesario."
+                    ]);
+                }
+            }
+        } else {
+            return response()->json([
+                "text" => "Error al canjear, cupón no válido.",
+                "title" => "Cupón expirado."
+            ]);
+        }
+
+    });
+    $app->post('/exchanges', function () {
+        return UserCoupon::select([
+            "users.id as user_id",
+            "users.name as user_name",
+            "users.phone as user_phone",
+            "users.email as user_email",
+            "users.city as user_city",
+            "users.gender as user_gender",
+            "users.birthday as user_birthday",
+            "coupons.code as coupon_code",
+            "panel_users.name as created_by",
+            "user_coupons.created_at"
+        ])->leftJoin(
+            "users", "users.id", "=", "user_coupons.user_id"
+        )->join(
+            "coupons", "coupons.id", "=", "user_coupons.coupon_id"
+        )->join(
+            "panel_users", "panel_users.id", "=", "user_coupons.created_by"
+        )->get();
+    });
+    $app->post('/get', function () {
         return Coupon::select(
             [
                 'coupons.id',
@@ -564,13 +644,11 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
             "branches.id", "=", "coupons.branch_id")
             ->get();
     });
-
     $app->post('/delete', function (Request $request) {
         return response()->json([
             "success" => Coupon::find($request->get("id"))->delete()
         ]);
     });
-
     $app->post('/add', function (Request $request) {
         $object = new Coupon();
 

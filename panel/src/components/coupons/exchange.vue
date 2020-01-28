@@ -59,6 +59,20 @@
                 </f7-button>
             </f7-list-item>
         </f7-list>
+        <f7-popup :closeByBackdropClick="false" :opened="popupOpened" @popup:closed="popupOpened = false">
+            <f7-page>
+                <f7-navbar :title="details.code">
+                    <f7-nav-right>
+                        <f7-link popup-close>Cerrar</f7-link>
+                    </f7-nav-right>
+                </f7-navbar>
+                <f7-block>
+                    <p>Leer antes de cerrar.</p>
+                    <p>El siguiente código contiene:</p>
+                    <p>{{details.description}}</p>
+                </f7-block>
+            </f7-page>
+        </f7-popup>
     </f7-page>
 </template>
 
@@ -69,6 +83,8 @@
             return {
                 phone: '',
                 coupon: '',
+                popupOpened: false,
+                details: {name:'', code: '', description:''},
             };
         },
         methods: {
@@ -98,6 +114,27 @@
             },
             sendCouponCode: function () {
                 if (this.phone !== '' && this.coupon !== '') {
+                    this.$f7.dialog.preloader('Enviando datos...');
+                    this.$http.post(this.$store.state.application.config.api + 'coupons/exchange', {
+                        created_by: this.$store.state.application.user.id,
+                        phone: this.phone,
+                        code: this.coupon,
+                    }).then(response => {
+                        this.$f7.dialog.close();
+                        if (response.data.id === undefined) {
+                            this.$f7.dialog.alert(response.data.text, response.data.title);
+                        } else {
+                            this.$f7.dialog.alert("¡Código canjeado!", "Éxito");
+                            this.details = response.data;
+                            this.popupOpened = true;
+                            this.phone = '';
+                            this.coupon = '';
+                        }
+                    }, response => {
+                        console.log(response, 'error on checkForm coupons/exchange');
+                        this.$f7.dialog.close();
+                        this.$f7.dialog.alert("Servidor no disponible y/o Datos duplicados", 'Intente más tarde');
+                    });
 
                 } else {
                     this.$f7.dialog.alert("Todos los campos son requeridos.");

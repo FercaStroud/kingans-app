@@ -364,11 +364,13 @@
             <f7-page>
                 <f7-navbar no-shadow no-hairline>
                     <f7-nav-left>
+                        <f7-link @click="surveyPagePopupOpened=false">Cerrar</f7-link>
                     </f7-nav-left>
                     <f7-nav-title>
                         <img style="height: 25px" src="../assets/kingansWhite.svg">
                     </f7-nav-title>
-                    <f7-nav-right></f7-nav-right>
+                    <f7-nav-right>
+                    </f7-nav-right>
                 </f7-navbar>
                 <f7-block>
                     <f7-button class="bg-primary" large v-for="(survey, index) in surveys" :key="index"

@@ -1,6 +1,6 @@
 <template>
     <f7-page name="surveys">
-        <f7-navbar :sliding="true" back-link="Atrás" title="Visitantes">
+        <f7-navbar :sliding="true" back-link="Atrás" title="Lista de cupones canjeados">
             <f7-nav-right>
                 <f7-link @click="getList">
                     <f7-icon material="cached"></f7-icon>
@@ -18,7 +18,7 @@
                     <f7-row>
                         <f7-col>
                             <vue-good-table
-                                    title="Visitas"
+                                    title="Cupones Canjeados"
                                     :columns="columns"
                                     :fixed-header="true"
                                     :rows="rows"
@@ -45,32 +45,23 @@
                         filterTextInput: true
                     },
                     {
-                        label: 'Sucursal',
-                        field: 'branch_name',
-                        filterTextInput: true
-                    },
-                    {
-                        label: 'Día de Visita',
-                        field: 'created_at',
-                        //type: 'date',
-                        //dateInputFormat: 'yyyy-mm-dd',
-                        //dateOutputFormat: 'MMM Do yy',
+                        label: 'Código',
+                        field: 'coupon_code',
                         filterTextInput: true
                     },
                     {
                         label: 'Teléfono',
-                        field: 'user_phone',
+                        field: 'user_name',
                         filterTextInput: true
                     },
                     {
-                        label: 'Email',
+                        label: 'E-mail',
                         field: 'user_email',
                         filterTextInput: true
                     },
                     {
                         label: 'Ciudad',
                         field: 'user_city',
-                        filterable: true,
                         filterTextInput: true
                     },
                     {
@@ -80,11 +71,17 @@
                     },
                     {
                         label: 'Cumpleaños',
-                        type: 'date',
-                        dateInputFormat: 'yyyy-mm-dd',
-                        dateOutputFormat: 'MMMM Do yy',
                         field: 'user_birthday',
-
+                        filterTextInput: true
+                    },
+                    {
+                        label: 'Día de Canje',
+                        field: 'created_at',
+                        filterTextInput: true
+                    },
+                    {
+                        label: 'Canjeado por',
+                        field: 'created_by',
                         filterTextInput: true
                     },
 
@@ -97,7 +94,7 @@
         computed: {
             filteredList() {
                 return this.rows.filter(item => {
-                    return item.name.toLowerCase().includes(this.search.toLowerCase())
+                    return item.user_name.toLowerCase().includes(this.search.toLowerCase())
                 })
             },
         },
@@ -111,11 +108,11 @@
             getList() {
                 let vm = this
                 vm.$f7.dialog.preloader('Obteniendo datos...');
-                this.$http.post(this.$store.state.application.config.api + 'visits/get').then(response => {
+                this.$http.post(this.$store.state.application.config.api + 'coupons/exchanges').then(response => {
                     vm.$f7.dialog.close();
                     vm.rows = response.data
                 }, response => {
-                    console.log(response, 'error on getList visits/get');
+                    console.log(response, 'error on getList coupons/exchanges');
                     this.$f7.dialog.close();
                     this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                 });
