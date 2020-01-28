@@ -51,7 +51,7 @@
                     },
                     {
                         label: 'Teléfono',
-                        field: 'user_name',
+                        field: 'user_phone',
                         filterTextInput: true
                     },
                     {
