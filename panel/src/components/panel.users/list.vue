@@ -154,7 +154,7 @@
                             <f7-button style="margin: 15px"
                                        class="btn-primary"
                                        large @click="sendForm">
-                                EDITAR SUCURSAL
+                                EDITAR USUARIO
                             </f7-button>
                         </f7-card-content>
                     </f7-card>
@@ -193,7 +193,7 @@
                             class="btn-primary"
                             style="width: 50%; margin-left: 25%;"
                             large @click="updatePassword">
-                        Guardar
+                        GUARDAR CONTRASEÑA
                     </f7-button>
                 </f7-block>
             </f7-page>

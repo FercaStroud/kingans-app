@@ -342,7 +342,7 @@ $app->group(['prefix' => 'surveys'], function () use ($app) {
         return $object;
     });
     $app->post('/get', function () {
-        return Survey::where("is_active", "=", "1");
+        return Survey::where("is_active", "=", "1")->get();
     });
     $app->post('/get/all', function () {
         return Survey::all();

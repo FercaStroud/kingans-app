@@ -69,7 +69,7 @@
                                         <f7-link @click="editItem(item)">
                                             <f7-icon class="icon-btn" material="edit"></f7-icon>
                                         </f7-link>
-                                        <f7-link @click="openPasswordDialog">
+                                        <f7-link @click="openPasswordDialog(item)">
                                             <f7-icon class="icon-btn" material="lock"></f7-icon>
                                         </f7-link>
                                         <f7-link @click="openBirthdayDialog">
@@ -168,7 +168,7 @@
                             <f7-button style="margin: 15px"
                                        class="btn-primary"
                                        large @click="sendForm">
-                                EDITAR SUCURSAL
+                                EDITAR USUARIO
                             </f7-button>
                         </f7-card-content>
                     </f7-card>
@@ -207,7 +207,7 @@
                             class="btn-primary"
                             style="width: 50%; margin-left: 25%;"
                             large @click="updatePassword">
-                        Guardar
+                        GUARDAR CONTRASEÑA
                     </f7-button>
                 </f7-block>
             </f7-page>
@@ -242,7 +242,7 @@
                             class="btn-primary"
                             style="width: 50%; margin-left: 25%;"
                             large @click="updateBirthday">
-                        Guardar
+                        GUARDAR FECHA DE NACIMIENTO
                     </f7-button>
                 </f7-block>
             </f7-page>
@@ -448,7 +448,7 @@
                 }else {
                     vm.$f7.dialog.preloader('Enviando datos...');
                     this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
-                        id: id,
+                        id: this.tempItem.id,
                     }).then(response => {
                         vm.$f7.dialog.close();
                         if (response.data.success) {
@@ -476,7 +476,7 @@
                 }else {
                     vm.$f7.dialog.preloader('Enviando datos...');
                     this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/birthday', {
-                        id: id,
+                        id: this.tempItem.id,
                         birthday: this.tempItem.birthday
                     }).then(response => {
                         vm.$f7.dialog.close();

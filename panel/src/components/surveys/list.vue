@@ -319,7 +319,7 @@
             getList() {
                 let vm = this
                 vm.$f7.dialog.preloader('Obteniendo datos...');
-                this.$http.post(this.$store.state.application.config.api + 'surveys/get').then(response => {
+                this.$http.post(this.$store.state.application.config.api + 'surveys/get/all').then(response => {
                     vm.$f7.dialog.close();
                     vm.surveys = response.data
                 }, response => {
