@@ -50,7 +50,7 @@
                 <f7-link @click="openBrowser(item.map)" >
                     <f7-icon style="font-size: 1.5em" material="room"></f7-icon>
                 </f7-link>
-                <f7-link v-if="this.$device.ios" @click="phone = item.phone" popover-open=".popover-menu-phone">
+                <f7-link v-if="$device.ios" @click="phone = item.phone" popover-open=".popover-menu-phone">
                     <f7-icon style="font-size: 1.5em" material="phone"></f7-icon>
                 </f7-link>
                 <f7-link v-else @click="openBrowser('tel:' + item.phone)">
