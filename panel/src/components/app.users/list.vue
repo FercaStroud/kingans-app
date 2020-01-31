@@ -69,10 +69,10 @@
                                         <f7-link @click="editItem(item)">
                                             <f7-icon class="icon-btn" material="edit"></f7-icon>
                                         </f7-link>
-                                        <f7-link @click="openPasswordDialog(item)">
+                                        <f7-link @click="openPasswordDialog(item.id)">
                                             <f7-icon class="icon-btn" material="lock"></f7-icon>
                                         </f7-link>
-                                        <f7-link @click="openBirthdayDialog">
+                                        <f7-link @click="openBirthdayDialog(item.id)">
                                             <f7-icon class="icon-btn" material="event"></f7-icon>
                                         </f7-link>
                                         <f7-link @click="deleteItem(item.id)">
@@ -256,7 +256,7 @@
         name: "appUsersList",
         data() {
             return {
-                tempItem: { password: '', id: '', birthday: ''},
+                tempItem: {password: '', id: '', birthday: ''},
                 passwordDialog: false,
                 birthdayDialog: false,
                 setBirthday: null,
@@ -318,16 +318,15 @@
                     day = '0' + day.toString();
                 }
 
-                if(month !== undefined){
+                if (month !== undefined) {
                     return String(month) + " " + String(day) + " del " + String(year);
-                }
-                else {
+                } else {
                     return "Sin registro."
                 }
             },
             getDateSQLFormat(e) {
                 let d = new Date(e);
-                let month = '' + (d.getMonth()+1);
+                let month = '' + (d.getMonth() + 1);
                 let day = '' + d.getDate();
                 let year = d.getFullYear();
 
@@ -433,37 +432,38 @@
                     this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                 });
             },
-            openPasswordDialog(id){
+            openPasswordDialog(id) {
                 this.tempItem.id = id;
                 this.passwordDialog = true;
             },
-            openBirthdayDialog(id){
+            openBirthdayDialog(id) {
                 this.tempItem.id = id;
                 this.birthdayDialog = true;
             },
             updatePassword() {
                 let vm = this;
-                if(vm.tempItem.password === ''){
+                if (vm.tempItem.password === '') {
                     vm.$f7.dialog.alert("", 'Todos los campos son requeridos.');
-                }else {
+                } else {
                     vm.$f7.dialog.preloader('Enviando datos...');
-                    this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
+                    this.$http.post(this.$store.state.application.config.api + 'users/app/edit/password', {
                         id: this.tempItem.id,
+                        password: this.tempItem.password,
                     }).then(response => {
                         vm.$f7.dialog.close();
-                        if (response.data.success) {
-                            vm.$f7.dialog.alert("Elemento Eliminado", 'Éxito');
+                        vm.passwordDialog = false;
+                        if (response.data.id !== undefined) {
+                            vm.$f7.dialog.alert("Usuario modificado", 'Éxito');
                         } else {
                             vm.$f7.dialog.alert("Error desconocido", 'Intente más tarde');
                         }
                         vm.tempItem = {
-                            id: '', password: '',
+                            id: '', password: '', birthday: ''
                         }
-                        vm.$f7.dialog.close();
 
                         //this.items = response.data
                     }, response => {
-                        console.log(response, 'error on checkForm branches/add');
+                        console.log(response, 'error on checkForm users/app/edit/password');
                         this.$f7.dialog.close();
                         this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                     });
@@ -471,24 +471,24 @@
             },
             updateBirthday() {
                 let vm = this;
-                if(vm.tempItem.birthday === ''){
+                if (vm.tempItem.birthday === '') {
                     vm.$f7.dialog.alert("", 'Todos los campos son requeridos.');
-                }else {
+                } else {
                     vm.$f7.dialog.preloader('Enviando datos...');
-                    this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/birthday', {
+                    this.$http.post(this.$store.state.application.config.api + 'users/app/edit/birthday', {
                         id: this.tempItem.id,
                         birthday: this.tempItem.birthday
                     }).then(response => {
                         vm.$f7.dialog.close();
-                        if (response.data.success) {
-                            vm.$f7.dialog.alert("", 'Cumpleaños, Actualizado');
+                        vm.birthdayDialog = false;
+                        if (response.data.id !== undefined) {
+                            vm.$f7.dialog.alert("Usuario modificado", 'Éxito');
                         } else {
                             vm.$f7.dialog.alert("Error desconocido", 'Intente más tarde');
                         }
                         vm.tempItem = {
                             id: '', password: '', birthday: ''
                         }
-                        vm.$f7.dialog.close();
 
                         //this.items = response.data
                     }, response => {

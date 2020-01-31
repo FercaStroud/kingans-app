@@ -273,7 +273,7 @@ $app->group(['prefix' => 'users'], function () use ($app) {
         $app->post('/edit/birthday', function (Request $request) {
             $user = User::find($request->get("id"));
 
-            $user->birthday = Hash::make($request->get('birthday'));
+            $user->birthday = $request->get('birthday');
             $user->save();
             return $user;
         });

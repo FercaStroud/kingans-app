@@ -66,7 +66,7 @@
                                         <f7-link @click="editItem(item)">
                                             <f7-icon class="icon-btn" material="edit"></f7-icon>
                                         </f7-link>
-                                        <f7-link @click="openPasswordDialog">
+                                        <f7-link @click="openPasswordDialog(item.id)">
                                             <f7-icon class="icon-btn" material="lock"></f7-icon>
                                         </f7-link>
                                         <f7-link @click="deleteItem(item.id)">
@@ -93,7 +93,7 @@
                             <f7-list form style="margin: 15px;">
                                 <f7-list-input
                                         class="kingans-border"
-                                        label="Nombre de usuario"
+                                        label="Nombre completo"
                                         placeholder="EJ: ADMIN001"
                                         type="text"
                                         info="Obligatorio"
@@ -106,7 +106,7 @@
                                 ></f7-list-input>
                                 <f7-list-input
                                         class="kingans-border"
-                                        label="Nombre completo"
+                                        label="Nombre de usuario"
                                         placeholder="EJ: Lucas K."
                                         type="text"
                                         info="Obligatorio"
@@ -206,7 +206,7 @@
         name: "panelUsersList",
         data() {
             return {
-                tempItem: { password: '', id: ''},
+                tempItem: {password: '', id: ''},
                 passwordDialog: false,
                 birthdayDialog: false,
                 branches: [],
@@ -228,7 +228,7 @@
             this.getBranches()
         },
         methods: {
-            openPasswordDialog(id){
+            openPasswordDialog(id) {
                 this.tempItem.id = id;
                 this.passwordDialog = true;
             },
@@ -328,23 +328,25 @@
             },
             updatePassword() {
                 let vm = this;
-                if(vm.tempItem.password === ''){
+                if (vm.tempItem.password === '') {
                     vm.$f7.dialog.alert("", 'Todos los campos son requeridos.');
-                }else {
+                } else {
                     vm.$f7.dialog.preloader('Enviando datos...');
                     this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
-                        id: id,
+                        id: this.tempItem.id,
+                        password: this.tempItem.password,
                     }).then(response => {
                         vm.$f7.dialog.close();
-                        if (response.data.success) {
-                            vm.$f7.dialog.alert("Elemento Eliminado", 'Éxito');
+                        vm.passwordDialog = false;
+                        if (response.data.id !== undefined) {
+                            vm.$f7.dialog.alert("Usuario modificado", 'Éxito');
                         } else {
                             vm.$f7.dialog.alert("Error desconocido", 'Intente más tarde');
                         }
                         vm.tempItem = {
-                            id: '', password: '',
+                            id: '', password: '', birthday: ''
                         }
-                        vm.$f7.dialog.close();
+
 
                         //this.items = response.data
                     }, response => {
