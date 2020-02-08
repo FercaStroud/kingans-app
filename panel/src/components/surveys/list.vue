@@ -2,8 +2,8 @@
     <f7-page name="surveys">
         <f7-navbar :sliding="true" back-link="Atrás" title="Encuestas">
             <f7-nav-right>
-                <f7-link @click="getList">
-                    <f7-icon material="cached"></f7-icon>
+                <f7-link @click="$f7router.refreshPage()">
+                    <f7-icon material="cached"/>
                 </f7-link>
                 <f7-link icon-ios="f7:menu"
                          icon-aurora="f7:menu"
@@ -25,8 +25,8 @@
                                         type="text"
                                         :value="search"
                                         clear-button
-                                        @input="search = $event.target.value"
-                                ></f7-list-input>
+                                        @input="search = $event.target.value">
+                                </f7-list-input>
                             </f7-list>
                         </f7-col>
                     </f7-row>
@@ -38,7 +38,7 @@
                 <f7-card-header>
                     <strong>{{item.name}}</strong>
                     <f7-button @click="deleteSurvey(item.id)">
-                        <f7-icon style="margin-right: 10px;" material="delete"></f7-icon>
+                        <f7-icon style="margin-right: 10px;" material="delete"/>
                         Eliminar Encuesta
                     </f7-button>
                 </f7-card-header>
@@ -50,7 +50,7 @@
                         <f7-card-header>
                             <strong>Pregunta: {{ question.title }}</strong>
                             <f7-button @click="deleteQuestion(question.id, item.id)">
-                                <f7-icon style="margin-right: 10px;" material="delete"></f7-icon>
+                                <f7-icon style="margin-right: 10px;" material="delete"/>
                                 Eliminar Pregunta
                             </f7-button>
                         </f7-card-header>
@@ -71,7 +71,7 @@
                         </f7-card-content>
                         <f7-card-footer>
                             <f7-button @click="getAnswersByQuestionId(question.id)" v-show="question.type !== 'TEXT'">
-                                <f7-icon style="margin-right: 10px;" material="visibility"></f7-icon>
+                                <f7-icon style="margin-right: 10px;" material="visibility"/>
                                 Ver Respuestas de la Pregunta
                             </f7-button>
                         </f7-card-footer>
@@ -79,11 +79,11 @@
                 </f7-card-content>
                 <f7-card-footer class="no-border">
                     <f7-button @click="selectedQuestion = item; answerAddDialog = true;">
-                        <f7-icon style="margin-right: 10px;" material="playlist_add"></f7-icon>
-                        Añadir Respuesta
+                        <f7-icon style="margin-right: 10px;" material="playlist_add"/>
+                        Añadir Pregunta
                     </f7-button>
                     <f7-button @click="getQuestionsBySurveyId(item.id)">
-                        <f7-icon style="margin-right: 10px;" material="visibility"></f7-icon>
+                        <f7-icon style="margin-right: 10px;" material="visibility"/>
                         Ver Preguntas
                     </f7-button>
                     <!--<f7-button>
@@ -91,17 +91,17 @@
                         Obtener Resultados
                     </f7-button>-->
                     <f7-button @click="changeSurveyStatus(item.id, 1)" v-if="item.is_active === 0">
-                        <f7-icon style="margin-right: 10px;" material="play_circle_filled"></f7-icon>
+                        <f7-icon style="margin-right: 10px;" material="play_circle_filled"/>
                         Habilitar
                     </f7-button>
                     <f7-button @click="changeSurveyStatus(item.id, 0)" v-else>
-                        <f7-icon style="margin-right: 10px;" material="pause_circle_filled"></f7-icon>
+                        <f7-icon style="margin-right: 10px;" material="pause_circle_filled"/>
                         Deshabilitar
                     </f7-button>
                     <f7-button
                             @click="openUrl($store.state.application.config.api + 'question-answers/excel?survey_id='+item.id)"
                             target="_blank">
-                        <f7-icon style="margin-right: 10px;" material="cloud_download"></f7-icon>
+                        <f7-icon style="margin-right: 10px;" material="cloud_download"/>
                         Descargar Excel
                     </f7-button>
                 </f7-card-footer>
@@ -308,16 +308,19 @@
                     vm.answerAddDialog = false
                     vm.$f7.dialog.close();
                     vm.$f7.dialog.alert("Pregunta y Respuestas agregadas", 'Éxito');
+                    this.$f7router.refreshPage()
                 }, response => {
                     // error callback
                     vm.answerAddDialog = false
                     vm.$f7.dialog.close();
                     vm.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                     console.log(response, 'error on sendAnswerForm');
+                    vm.$f7router.refreshPage()
                 });
             },
             getList() {
                 let vm = this
+                vm.$f7.dialog.close();
                 vm.$f7.dialog.preloader('Obteniendo datos...');
                 this.$http.post(this.$store.state.application.config.api + 'surveys/get/all').then(response => {
                     vm.$f7.dialog.close();
