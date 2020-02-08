@@ -210,6 +210,11 @@
                         filterTextInput: true
                     },
                     {
+                        label: 'Descripción',
+                        field: 'description',
+                        filterTextInput: true
+                    },
+                    {
                         label: 'Código',
                         field: 'code',
                         filterTextInput: true
