@@ -140,6 +140,19 @@
                                 ></f7-list-input>
                                 <f7-list-input
                                         class="kingans-border"
+                                        label="Instagram URL"
+                                        placeholder="EJ: https://..."
+                                        type="text"
+                                        info="Obligatorio"
+                                        :value="itemToEdit.instagram"
+                                        clear-button
+                                        validate
+                                        required
+                                        :error-message="'Campo Obligatorio'"
+                                        @input="itemToEdit.instagram = $event.target.value"
+                                ></f7-list-input>
+                                <f7-list-input
+                                        class="kingans-border"
                                         label="GMaps URL"
                                         placeholder="EJ: https://..."
                                         type="text"
@@ -186,6 +199,7 @@
                     address: '',
                     phone: '',
                     scheduling: '',
+                    instagram: '',
                     map: '',
                     facebook: '',
                     svg: ''
@@ -264,9 +278,10 @@
                     formData.append('city', this.itemToEdit.city);
                     formData.append('address', this.itemToEdit.address);
                     formData.append('phone', this.itemToEdit.phone);
-                    formData.append('scheduling', this.itemToEdit.end);
+                    formData.append('scheduling', this.itemToEdit.scheduling);
                     formData.append('map', this.itemToEdit.map);
                     formData.append('facebook', this.itemToEdit.facebook);
+                    formData.append('instagram', this.itemToEdit.instagram);
                     formData.append('svg', this.itemToEdit.svg);
                     formData.append('updated_by', this.$store.state.application.user.id);
 
@@ -275,7 +290,7 @@
                         vm.$f7.dialog.alert("Datos enviados", "Éxito");
                         vm.itemToEdit = {
                             name: '', city: '', address: '',
-                            phone: '', start: '', end: '',
+                            phone: '', scheduling: '', instagram: '',
                             map: '', facebook: '', svg: ''
                         }
                         vm.popupEditOpened = false;
