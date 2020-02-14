@@ -313,7 +313,25 @@ $app->group(['prefix' => 'users'], function () use ($app) {
             }
 
             return $visit;
+        });
+        $app->post('/visit-coupon', function (Request $request) {
+            $user = User::find($request->get("user_id"));
 
+            $visitCount = Visit::where(
+                "user_id", "=", $request->get("user_id")
+            )->get()->count();
+
+            $coupon = null;
+            $temp = 0;
+            foreach (Coupon::where("required_number", "<=", $visitCount)->get() as $item){
+                if($item->required_number > $temp){
+                    $coupon = $item;
+                } else {
+                    $temp = $item->required_number;
+                }
+            }
+
+            return $coupon;
         });
     });
 });
@@ -398,15 +416,28 @@ $app->group(['prefix' => 'visits'], function () use ($app) {
     $app->post('/add', function (Request $request) {
 
         $user = User::where(
-            'phone', '=', $request->get('phone')
+            'phone', '=',
+            $request->get('phone')
         )->first();
 
-        $object = new Visit();
-        $object->user_id = $user->id;
-        $object->created_by = $request->get("created_by");
-        $object->save();
+        $visit = Visit::where(
+            "user_id",
+            "=", $user->id
+        )->whereDate(
+            'created_at',
+            \Carbon\Carbon::today()
+        )->first();
 
-        return $object;
+        if (!is_object($visit)) {
+            $visit = new Visit();
+            $visit->user_id = $user->id;
+            $visit->created_by = $request->get("created_by");
+            $visit->save();
+        } else{
+            $visit = null;
+        }
+
+        return $visit;
     });
 });
 

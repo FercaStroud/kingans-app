@@ -2,14 +2,14 @@
     <f7-page name="home">
         <f7-navbar no-shadow no-hairline>
             <f7-nav-left>
-                <f7-link icon-ios="f7:menu" color="#bc203e" icon-md="material:menu" panel-open="left"></f7-link>
+                <f7-link icon-ios="f7:menu" color="#bc203e" icon-md="material:menu" panel-open="left"/>
             </f7-nav-left>
             <f7-nav-title>
-                <img style="height: 25px" src="../assets/kingansWhite.svg">
+                <img style="height: 25px" src="../assets/kingansWhite.svg" alt="logo">
             </f7-nav-title>
             <f7-nav-right>
                 <f7-link @click="checkVisits" href="/promotions/false">
-                    <f7-icon style="" material="stars"></f7-icon>
+                    <f7-icon style="" material="stars"/>
                     <span>Premios</span>
                 </f7-link>
             </f7-nav-right>
@@ -24,7 +24,7 @@
                 <strong style="font-size:1.2em">{{$store.state.application.visits}}</strong> Visita(s)
             </div>
 
-            <f7-icon material="account_balance_wallet"></f7-icon>
+            <f7-icon material="account_balance_wallet"/>
         </f7-fab>
 
         <f7-block>
@@ -47,7 +47,7 @@
                   style="margin: 0;">
             <vue-qr id="img-qr"
                     style="width: 100%" :size="600"
-                    :text="$store.state.application.user.phone"></vue-qr>
+                    :text="$store.state.application.user.phone"/>
         </f7-block>
         <f7-block v-else style="margin: 0;">
             <vue-qr id="img-qr"
@@ -55,7 +55,7 @@
                     colorLight=""
                     bgSrc="http://kingans.com/imgs/logo-para-dentro.png"
                     style="width: 100%" :size="600"
-                    :text="$store.state.application.user.phone"></vue-qr>
+                    :text="$store.state.application.user.phone"/>
         </f7-block>
 
         <f7-block v-if="$store.state.application.survey === true">
