@@ -457,9 +457,8 @@ $app->group(['prefix' => 'questions'], function () use ($app) {
 
     $app->post('/withAnswers', function (Request $request) {
         $surveyId = $request->get('id');
-        $survey = \Illuminate\Support\Facades\DB::table('surveys')
-            ->where([
-                'id' => $surveyId
+        $survey = Survey::where([
+                'id' => $surveyId,
             ])->get();
 
         $response = [
@@ -469,7 +468,7 @@ $app->group(['prefix' => 'questions'], function () use ($app) {
             'questions' => []
         ];
         foreach (
-            \Illuminate\Support\Facades\DB::table('questions')->where(
+            Question::where(
                 'questions.survey_id', '=', $surveyId
             )->get() as $question
         ) {
@@ -533,6 +532,7 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
         return $question;
     });
     $app->get('/excel', function (Request $request) {
+
         try {
             $results = \Illuminate\Support\Facades\DB::table('question_answer')
                 ->select(
@@ -548,10 +548,16 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
                 ->orderBy('question_answer.id', 'DESC')->get();
             $filename = $results[0]->Encuesta;
             $i = 0;
-            header("Content-Type: application/xls;charset=utf-8");
-            header("Content-Disposition: attachment; filename=$filename.xls");
+
+            header ( 'HTTP/1.1 200 OK' );
+            header ( 'Date: ' . date ( 'D M j G:i:s T Y' ) );
+            header ( 'Last-Modified: ' . date ( 'D M j G:i:s T Y' ) );
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header("Content-Disposition: attachment; filename=$filename");
+
             header("Pragma: no-cache");
             header("Expires: 0");
+
             foreach ($results as $result) {
                 if ($i > 0) {
                     break;
@@ -564,7 +570,7 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
             print("\n");
             foreach ($results as $row) {
                 foreach ($row as $key => $item) {
-                    echo $item . "\t";
+                    echo $item. "\t";
                 }
                 print("\n");
             }

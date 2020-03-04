@@ -448,7 +448,8 @@
                 }else {
                     vm.$f7.dialog.preloader('Enviando datos...');
                     this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
-                        id: this.tempItem.id,
+                        id: vm.tempItem.id,
+                        password: vm.tempItem.password,
                     }).then(response => {
                         vm.$f7.dialog.close();
                         if (response.data.success) {
@@ -460,6 +461,7 @@
                             id: '', password: '',
                         }
                         vm.$f7.dialog.close();
+                        vm.passwordDialog = false;
 
                         //this.items = response.data
                     }, response => {

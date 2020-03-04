@@ -66,7 +66,7 @@
                                         <f7-link @click="editItem(item)">
                                             <f7-icon class="icon-btn" material="edit"></f7-icon>
                                         </f7-link>
-                                        <f7-link @click="openPasswordDialog">
+                                        <f7-link @click="openPasswordDialog(item.id)">
                                             <f7-icon class="icon-btn" material="lock"></f7-icon>
                                         </f7-link>
                                         <f7-link @click="deleteItem(item.id)">
@@ -93,7 +93,7 @@
                             <f7-list form style="margin: 15px;">
                                 <f7-list-input
                                         class="kingans-border"
-                                        label="Nombre de usuario"
+                                        label="Nombre completo"
                                         placeholder="EJ: ADMIN001"
                                         type="text"
                                         info="Obligatorio"
@@ -106,7 +106,7 @@
                                 ></f7-list-input>
                                 <f7-list-input
                                         class="kingans-border"
-                                        label="Nombre completo"
+                                        label="Nombre de usuario"
                                         placeholder="EJ: Lucas K."
                                         type="text"
                                         info="Obligatorio"
@@ -333,7 +333,8 @@
                 }else {
                     vm.$f7.dialog.preloader('Enviando datos...');
                     this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
-                        id: id,
+                        id: vm.tempItem.id,
+                        password: vm.tempItem.password
                     }).then(response => {
                         vm.$f7.dialog.close();
                         if (response.data.success) {
@@ -345,6 +346,7 @@
                             id: '', password: '',
                         }
                         vm.$f7.dialog.close();
+                        vm.passwordDialog = false;
 
                         //this.items = response.data
                     }, response => {
