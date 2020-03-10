@@ -323,8 +323,8 @@ $app->group(['prefix' => 'users'], function () use ($app) {
 
             $coupon = null;
             $temp = 0;
-            foreach (Coupon::where("required_number", "<=", $visitCount)->get() as $item){
-                if($item->required_number > $temp){
+            foreach (Coupon::where("required_number", "<=", $visitCount)->get() as $item) {
+                if ($item->required_number > $temp) {
                     $coupon = $item;
                 } else {
                     $temp = $item->required_number;
@@ -433,7 +433,7 @@ $app->group(['prefix' => 'visits'], function () use ($app) {
             $visit->user_id = $user->id;
             $visit->created_by = $request->get("created_by");
             $visit->save();
-        } else{
+        } else {
             $visit = null;
         }
 
@@ -458,8 +458,8 @@ $app->group(['prefix' => 'questions'], function () use ($app) {
     $app->post('/withAnswers', function (Request $request) {
         $surveyId = $request->get('id');
         $survey = Survey::where([
-                'id' => $surveyId,
-            ])->get();
+            'id' => $surveyId,
+        ])->get();
 
         $response = [
             'survey_id' => $survey[0]->id,
@@ -549,9 +549,9 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
             $filename = $results[0]->Encuesta;
             $i = 0;
 
-            header ( 'HTTP/1.1 200 OK' );
-            header ( 'Date: ' . date ( 'D M j G:i:s T Y' ) );
-            header ( 'Last-Modified: ' . date ( 'D M j G:i:s T Y' ) );
+            header('HTTP/1.1 200 OK');
+            header('Date: ' . date('D M j G:i:s T Y'));
+            header('Last-Modified: ' . date('D M j G:i:s T Y'));
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
             header("Content-Disposition: attachment; filename=$filename");
 
@@ -570,7 +570,7 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
             print("\n");
             foreach ($results as $row) {
                 foreach ($row as $key => $item) {
-                    echo $item. "\t";
+                    echo $item . "\t";
                 }
                 print("\n");
             }
@@ -590,49 +590,49 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
         $user = User::where("phone", "=", $request->get("phone"))->first();
         $coupon = Coupon::where("code", "=", $request->get("code"))->first();
 
-        //is a correct branch?
-        /*if($coupon->branch_id !== 0){
-            $panelUser = PanelUser::find($request->get("created_by"));
-            if($panelUser->branch_id !== $coupon->branch_id){
-                return response()->json([
-                    "text" => "Código no válido en ésta sucursal.",
-                    "title" => "Código no válido."
-                ]);
-            }
-        }*/
-
         //is date valid?
         $now = new DateTime('now');
         if ($betweenDates($now->format("Y-m-d"), $coupon->start, $coupon->end)) {
-            $userCoupons = UserCoupon::where([
-                "user_id" => $user->id,
-                "coupon_id" => $coupon->id
-            ])->whereDate(
-                'created_at',
-                \Carbon\Carbon::today()
-            )->first();
-            //one at day
-            if (is_object($userCoupons)) {
+            //use cant repeat coupon
+            if (is_object(
+                UserCoupon::where([
+                    "user_id" => $user->id, "coupon_id" => $coupon->id
+                ])->first()
+            )) {
                 return response()->json([
-                    "text" => "Un canje al día por usuario.",
+                    "text" => "Un canje de código por usuario.",
                     "title" => "Código canjeado con anterioridad."
                 ]);
             } else {
-                //can user get a gift?
-                $counter = Visit::where('user_id', '=', $user->id)->count();
-                if ($counter >= $coupon->required_number) {
-                    $object = new UserCoupon();
-                    $object->user_id = $user->id;
-                    $object->coupon_id = $coupon->id;
-                    $object->created_by = $request->get("created_by");
-                    $object->save();
-
-                    return $coupon;
-                } else { //false
+                //one at day
+                if (is_object(
+                    UserCoupon::where([
+                        "user_id" => $user->id
+                    ])->whereDate(
+                        'created_at', \Carbon\Carbon::today()
+                    )->first()
+                )) {
                     return response()->json([
-                        "text" => "El usuario no cuenta con los puntos requeridos.",
-                        "title" => "Sin puntaje necesario."
+                        "text" => "Un canje al día por usuario.",
+                        "title" => "El usuario ya ha canjeado con anterioridad."
                     ]);
+                } else {
+                    //can user get a gift?
+                    $counter = Visit::where('user_id', '=', $user->id)->count();
+                    if ($counter >= $coupon->required_number) {
+                        $object = new UserCoupon();
+                        $object->user_id = $user->id;
+                        $object->coupon_id = $coupon->id;
+                        $object->created_by = $request->get("created_by");
+                        $object->save();
+
+                        return $coupon;
+                    } else { //false
+                        return response()->json([
+                            "text" => "El usuario no cuenta con los puntos requeridos.",
+                            "title" => "Sin puntaje necesario."
+                        ]);
+                    }
                 }
             }
         } else {

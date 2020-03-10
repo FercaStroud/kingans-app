@@ -37,7 +37,7 @@
                         </p>
                     </f7-row>
                 </f7-block>
-                <div v-if="question.type !== 'TEXT'">
+                <div v-if="question.type !== 'TEXT' && question.type !== 'DEFAULT'">
                     <f7-list inline-labels>
                         <f7-list-input
                                 type="select"

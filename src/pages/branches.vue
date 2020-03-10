@@ -58,7 +58,7 @@
         <f7-popover class="popover-menu">
             <f7-block>
                 <f7-block-title style="font-weight: bold; text-transform: capitalize">Horarios</f7-block-title>
-                <p>{{scheduling}}</p>
+                <f7-block v-html="scheduling"/>
             </f7-block>
         </f7-popover>
         <f7-popover class="popover-menu-phone">

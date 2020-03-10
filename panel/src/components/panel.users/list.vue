@@ -94,7 +94,7 @@
                                 <f7-list-input
                                         class="kingans-border"
                                         label="Nombre completo"
-                                        placeholder="EJ: ADMIN001"
+                                        placeholder="EJ: Lucas K."
                                         type="text"
                                         info="Obligatorio"
                                         :value="itemToEdit.name"
@@ -107,7 +107,7 @@
                                 <f7-list-input
                                         class="kingans-border"
                                         label="Nombre de usuario"
-                                        placeholder="EJ: Lucas K."
+                                        placeholder="EJ: ADMIN001"
                                         type="text"
                                         info="Obligatorio"
                                         :value="itemToEdit.username"
@@ -184,8 +184,7 @@
                                         validate
                                         required
                                         :error-message="'Campo Obligatorio'"
-                                        @input="tempItem.password = $event.target.value"
-                                ></f7-list-input>
+                                        @input="tempItem.password = $event.target.value"/>
                             </f7-list>
                         </f7-card-content>
                     </f7-card>

@@ -15,8 +15,8 @@
                     <f7-list form style="margin: 15px;max-width: 100%;">
                         <f7-list-input
                                 class="kingans-border"
-                                label="Nombre de usuario"
-                                placeholder="EJ: USER001"
+                                label="Nombre del usuario"
+                                placeholder="EJ: Lucas K."
                                 type="text"
                                 info="Obligatorio"
                                 :value="items.name"
@@ -24,8 +24,7 @@
                                 validate
                                 required
                                 :error-message="'Campo Obligatorio'"
-                                @input="items.name = $event.target.value"
-                        ></f7-list-input>
+                                @input="items.name = $event.target.value"/>
                         <f7-list-input
                                 label="Fecha de nacimiento"
                                 type="datepicker"
