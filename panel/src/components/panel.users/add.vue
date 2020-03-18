@@ -19,12 +19,12 @@
                                 placeholder="EJ: ADMIN001"
                                 type="text"
                                 info="Obligatorio"
-                                :value="items.name"
+                                :value="items.username"
                                 clear-button
                                 validate
                                 required
                                 :error-message="'Campo Obligatorio'"
-                                @input="items.name = $event.target.value"
+                                @input="items.username = $event.target.value"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
@@ -32,12 +32,12 @@
                                 placeholder="EJ: Lucas K."
                                 type="text"
                                 info="Obligatorio"
-                                :value="items.username"
+                                :value="items.name"
                                 clear-button
                                 validate
                                 required
                                 :error-message="'Campo Obligatorio'"
-                                @input="items.username = $event.target.value"
+                                @input="items.name = $event.target.value"
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"

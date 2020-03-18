@@ -139,6 +139,8 @@
             }
         },
         created() {
+            //let today = new Date()
+            //this.$store.commit('setNotificationDate', new today);
             window.addEventListener('resize', this.handleResize)
             this.handleResize();
         },
@@ -146,8 +148,58 @@
             window.removeEventListener('resize', this.handleResize)
         },
         methods: {
-            alertLoginData() {
-                this.$f7.dialog.alert('Username: ' + this.username + '<br>Password: ' + this.password);
+            fetchCallback: function () {
+                let today = new Date();
+                if (today > this.$store.state.application.lastNotificationDate) {
+                   this.checkVisits();
+                }
+                this.getVisitLog();
+                // Required: Signal completion of your task to native code
+                // If you fail to do this, the OS can terminate your app
+                // or assign battery-blame for consuming too much background-time
+                //wait 8s or kill BackgroundFetch )=
+                setTimeout(function(){ BackgroundFetch.finish(); }, 8000);
+            },
+            checkVisits: function () {
+                let vm = this
+                console.log('[js - checkVisits] BackgroundFetch event received');
+
+                this.$http.post(this.$store.state.application.config.api + 'users/app/visit-coupon', {
+                    user_id: this.$store.state.application.user.id
+                }).then(response => {
+
+                    if (response.data.name !== undefined) {
+                        cordova.plugins.notification.local.schedule({
+                            title: '¡Felicidades, desbloqueaste un cupón!',
+                            text: response.data.description + " Código: " + response.data.code,
+                            foreground: true
+                        });
+                    }
+                    let today = new Date();
+                    vm.$store.commit('setNotificationDate', today);
+                }, response => {
+                    console.log(response, 'error on checkVisits users/app/visit-coupon');
+                });
+            },
+            getVisitLog: function () {
+                let vm = this;
+                console.log('[js - getVisitLog] BackgroundFetch event received');
+
+                vm.$http.post(vm.$store.state.application.config.api + 'users/app/visit/log', {
+                    user_id: vm.$store.state.application.user.id
+                }).then(response => {
+                    if (response.data.user_id !== undefined) {
+                        cordova.plugins.notification.local.schedule({
+                            title: '¡Gracias por tu visita!',
+                            text: '¿Nos ayudas contestando una encuesta?',
+                            foreground: true
+                        });
+                        vm.$store.commit('setSurvey', true);
+                        vm.getSurveys();
+                    }
+                }, response => {
+                    console.log(response, 'error on checkVisitLog users/app/visit/log');
+                });
             },
             handleResize() {
                 this.window.width = window.innerWidth;
@@ -169,7 +221,9 @@
                 // Init cordova APIs (see cordova-app.js)
                 if (f7.device.cordova) {
                     cordovaApp.init(f7);
+                    // Call F7 APIs here
 
+                    //Firebase - Request Permission
                     cordova.plugins.firebase.messaging.requestPermission().then(function () {
                         console.log("Push messaging is allowed");
                     });
@@ -183,36 +237,16 @@
                         console.log("New background FCM message: ", payload);
                     });
 
-                    // Call F7 APIs here
-                    let fetchCallback = function () {
-                        console.log('[js] BackgroundFetch event received');
-
-                        vm.$http.post(vm.$store.state.application.config.api + 'users/app/visit/log', {
-                            user_id: vm.$store.state.application.user.id
-                        }).then(response => {
-                            if (response.data.user_id !== undefined) {
-                                cordova.plugins.notification.local.schedule({
-                                    title: '¡Gracias por tu visita!',
-                                    text: '¿Nos ayudas contestando una encuesta?',
-                                    foreground: true
-                                });
-                                vm.$store.commit('setSurvey', true);
-                                vm.getSurveys();
-                            }
-                        }, response => {
-                            console.log(response, 'error on checkVisitLog users/app/visit/log');
-                        });
-
-                        BackgroundFetch.finish();
-                    };
-
-                    let failureCallback = function (error) {
-                        console.log('- BackgroundFetch failed', error);
-                    };
-
-                    BackgroundFetch.configure(fetchCallback, failureCallback, {
-                        minimumFetchInterval: 15
-                    });
+                    //Check on Background
+                    BackgroundFetch.configure(
+                        vm.fetchCallback(), //BackgroundFetch support one instance
+                        function () {
+                            console.log('- BackgroundFetch failed', error);
+                        },
+                        {
+                            minimumFetchInterval: 15
+                        }
+                    );
                 }
             });
         }

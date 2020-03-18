@@ -80,11 +80,10 @@
                     },
                     {
                         label: 'Cumpleaños',
-                        type: 'date',
-                        dateInputFormat: 'yyyy-mm-dd',
-                        dateOutputFormat: 'MMMM Do yy',
+                        //type: 'date',
+                        //dateInputFormat: 'yyyy-mm-dd',
+                        //dateOutputFormat: 'MMMM Do yy',
                         field: 'user_birthday',
-
                         filterTextInput: true
                     },
 

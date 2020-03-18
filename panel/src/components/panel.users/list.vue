@@ -94,7 +94,11 @@
                                 <f7-list-input
                                         class="kingans-border"
                                         label="Nombre completo"
+<<<<<<< HEAD
                                         placeholder="EJ: ADMIN001"
+=======
+                                        placeholder="EJ: Lucas K."
+>>>>>>> 4d15502a0078bc5206728a5a4cbe31f7fe9dcbe7
                                         type="text"
                                         info="Obligatorio"
                                         :value="itemToEdit.name"
@@ -107,7 +111,11 @@
                                 <f7-list-input
                                         class="kingans-border"
                                         label="Nombre de usuario"
+<<<<<<< HEAD
                                         placeholder="EJ: Lucas K."
+=======
+                                        placeholder="EJ: ADMIN001"
+>>>>>>> 4d15502a0078bc5206728a5a4cbe31f7fe9dcbe7
                                         type="text"
                                         info="Obligatorio"
                                         :value="itemToEdit.username"
@@ -184,8 +192,7 @@
                                         validate
                                         required
                                         :error-message="'Campo Obligatorio'"
-                                        @input="tempItem.password = $event.target.value"
-                                ></f7-list-input>
+                                        @input="tempItem.password = $event.target.value"/>
                             </f7-list>
                         </f7-card-content>
                     </f7-card>
@@ -333,8 +340,8 @@
                 } else {
                     vm.$f7.dialog.preloader('Enviando datos...');
                     this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
-                        id: this.tempItem.id,
-                        password: this.tempItem.password,
+                        id: vm.tempItem.id,
+                        password: vm.tempItem.password
                     }).then(response => {
                         vm.$f7.dialog.close();
                         vm.passwordDialog = false;
@@ -347,7 +354,8 @@
                             id: '', password: '', birthday: ''
                         }
 
-
+                        vm.$f7.dialog.close();
+                        vm.passwordDialog = false;
                         //this.items = response.data
                     }, response => {
                         console.log(response, 'error on checkForm branches/add');

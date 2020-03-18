@@ -1,11 +1,11 @@
 <template>
     <f7-page no-toolbar no-navbar no-swipeback>
-        <f7-statusbar></f7-statusbar>
+        <f7-statusbar/>
         <f7-block>
             <f7-row>
                 <f7-col v-ripple style="text-align:center" @click="startCounter">
                     <img class="circle-image" style="width: 50%; margin-top: 40px"
-                         src="../assets/logoKingans.svg"
+                         src="../assets/logoKingans.svg" alt="logo"
                     />
                 </f7-col>
             </f7-row>
@@ -24,8 +24,7 @@
                         info="Código de usuario"
                         :value="phone"
                         clear-button
-                        @input="phone = $event.target.value"
-                ></f7-list-input>
+                        @input="phone = $event.target.value"/>
                 <f7-list-input
                         class="kingans-border"
                         label="Contraseña"
@@ -33,8 +32,7 @@
                         placeholder="Contraseña"
                         clear-button
                         :value="password"
-                        @input="password = $event.target.value"
-                ></f7-list-input>
+                        @input="password = $event.target.value"/>
                 <f7-link @click="resetPasswordPupopOpened = true"
                          style="color: darkgrey;
                     text-align: center;
@@ -50,7 +48,7 @@
                     class="btn-primary"
                     style="width: 50%; margin-left: 25%;"
                     large @click="logIn">
-                <f7-icon style="margin-top: -4px" material="person"></f7-icon>
+                <f7-icon style="margin-top: -4px" material="person"/>
                 Inicia Sesión
             </f7-button>
             <f7-button
@@ -58,7 +56,7 @@
                     style="width: 50%; margin-left: 25%;margin-top: 10px"
                     large
                     fill @click="signInPupopOpened = true">
-                <f7-icon style="margin-top: -4px" material="add"></f7-icon>
+                <f7-icon style="margin-top: -4px" material="add"/>
                 Regístrate
             </f7-button>
             <!--<f7-button
@@ -104,8 +102,7 @@
                                 @input="addUserForm.phone = $event.target.value"
                                 validate
                                 required
-                                :error-message="'Campo Obligatorio'"
-                        ></f7-list-input>
+                                :error-message="'Campo Obligatorio'"/>
                         <f7-list-input
                                 class="kingans-border"
                                 label="* Nombre"
@@ -116,8 +113,7 @@
                                 @input="addUserForm.name = $event.target.value"
                                 validate
                                 required
-                                :error-message="'Campo Obligatorio'"
-                        ></f7-list-input>
+                                :error-message="'Campo Obligatorio'"/>
                         <f7-list-input
                                 class="kingans-border"
                                 label="* Correo"
@@ -128,8 +124,7 @@
                                 @input="addUserForm.email = $event.target.value"
                                 validate
                                 required
-                                :error-message="'Campo Obligatorio'"
-                        ></f7-list-input>
+                                :error-message="'Campo Obligatorio'"/>
                         <f7-list-input
                                 class="kingans-border"
                                 label="Ciudad"
@@ -181,8 +176,7 @@
                                 clear-button
                                 @calendar:change="setCalendarSubscriberDate"
                                 readonly
-                                :calendar-params="calendarParams">
-                        </f7-list-input>
+                                :calendar-params="calendarParams"/>
                         <f7-list-input
                                 v-else
                                 class="kingans-border"
@@ -195,8 +189,7 @@
                                 required
                                 readonly
                                 :error-message="'Campo Obligatorio'"
-                                :calendar-params="calendarParams">
-                        </f7-list-input>
+                                :calendar-params="calendarParams"/>
                         <f7-list-input
                                 class="kingans-border"
                                 label="* Contraseña"
@@ -208,9 +201,7 @@
                                 @input="addUserForm.password = $event.target.value"
                                 validate
                                 required
-                                :error-message="'Campo Obligatorio'"
-                        ></f7-list-input>
-
+                                :error-message="'Campo Obligatorio'"/>
                     </f7-list>
                     <f7-block>
                         Nos interesa saber tu <strong>fecha de cumpleaños</strong> y tu
@@ -232,6 +223,7 @@
                 </f7-block>-->
             </f7-page>
         </f7-popup>
+        <!-- Reset Password -->
         <f7-popup :tablet-fullscreen="true"
                   class="reset-password" :opened="resetPasswordPupopOpened"
                   @popup:closed="resetPasswordPupopOpened = false">
@@ -251,8 +243,11 @@
                             lamentamos que hayas olvidado tus accesos &#x1F614;.
                         </p>
                         <p style="text-align:center">
-                            Te enviaremos una contraseña temporal al correo con el cual te registraste.
-                            <strong>Recuerda cambiarla</strong> en la sección de
+                            Te enviaremos una contraseña temporal al correo con el cual te registraste. Es (muy)
+                            probable que tengas que revisar en tu carpeta de <strong>SPAM</strong>.
+                        </p>
+                        <p style="text-align:center">
+                            <strong> Recuerda cambiarla</strong> en la sección de
                             <span style="font-weight: bold" class="active">"Mi Perfil"</span>
                             una vez hayas iniciado sesión.
                         </p>
@@ -297,6 +292,7 @@
                 </f7-button>
             </f7-page>
         </f7-popup>
+        <!-- Admin -->
         <f7-popup :tablet-fullscreen="true"
                   :opened="$store.state.application.drawer.surveys"
                   @popup:closed="$store.state.application.drawer.surveys = false">
@@ -306,9 +302,9 @@
                         <f7-link popup-close>Cerrar</f7-link>
                     </f7-nav-left>
                     <f7-nav-title>
-                        <img style="height: 25px" src="../assets/kingansWhite.svg">
+                        <img style="height: 25px" src="../assets/kingansWhite.svg" alt="logo" />
                     </f7-nav-title>
-                    <f7-nav-right></f7-nav-right>
+                    <f7-nav-right/>
                 </f7-navbar>
                 <f7-block>
                     <f7-block>
@@ -331,8 +327,7 @@
                                     info="Código de usuario"
                                     :value="survey.username"
                                     clear-button
-                                    @input="survey.username = $event.target.value"
-                            ></f7-list-input>
+                                    @input="survey.username = $event.target.value"/>
                             <f7-list-input
                                     class="kingans-border"
                                     label="Contraseña"
@@ -340,8 +335,7 @@
                                     placeholder="Contraseña"
                                     clear-button
                                     :value="survey.password"
-                                    @input="survey.password = $event.target.value"
-                            ></f7-list-input>
+                                    @input="survey.password = $event.target.value"/>
                         </f7-list>
                     </f7-block>
                 </f7-block>
@@ -358,6 +352,7 @@
                 </f7-button>
             </f7-page>
         </f7-popup>
+        <!--Survey-->
         <f7-popup :tablet-fullscreen="true"
                   :opened="surveyPagePopupOpened"
                   @popup:closed="surveyPagePopupOpened = false">
@@ -374,18 +369,16 @@
                 </f7-navbar>
                 <f7-block>
                     <f7-button class="bg-primary" large v-for="(survey, index) in surveys" :key="index"
-                               @click="getSurveyItemById(survey.id)">
-                        <img style="height: 44px" src="../assets/logoKingans.svg">
+                               @click="getSurveyItemById(survey.id)" style="margin-top:10px">
+                        <img style="height: 44px" src="../assets/logoKingans.svg" alt="logo"/>
                         <span style="top:-14px; position:relative; color:white;">
                             {{survey.name}}
                         </span>
                     </f7-button>
                 </f7-block>
 
-                <f7-popup :opened="surveyPopupOpened"
-                          @popup:closed="surveyPopupOpened = false">
-                    <survey @onSendSurvey="onSendSurvey"
-                            :survey="tempAnswers"/>
+                <f7-popup :opened="surveyPopupOpened" @popup:closed="surveyPopupOpened = false">
+                    <survey @onSendSurvey="onSendSurvey" :survey="tempAnswers"/>
                 </f7-popup>
 
                 <div style="height: 65px"></div>

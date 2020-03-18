@@ -446,9 +446,10 @@
                     vm.$f7.dialog.alert("", 'Todos los campos son requeridos.');
                 } else {
                     vm.$f7.dialog.preloader('Enviando datos...');
-                    this.$http.post(this.$store.state.application.config.api + 'users/app/edit/password', {
-                        id: this.tempItem.id,
-                        password: this.tempItem.password,
+
+                    this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
+                        id: vm.tempItem.id,
+                        password: vm.tempItem.password,
                     }).then(response => {
                         vm.$f7.dialog.close();
                         vm.passwordDialog = false;
@@ -460,6 +461,9 @@
                         vm.tempItem = {
                             id: '', password: '', birthday: ''
                         }
+
+                        vm.$f7.dialog.close();
+                        vm.passwordDialog = false;
 
                         //this.items = response.data
                     }, response => {

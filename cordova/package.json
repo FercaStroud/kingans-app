@@ -24,6 +24,7 @@
     "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-plugin-keyboard": "^1.2.0",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
+    "cordova-plugin-phone-call": "git+https://github.com/lakshmansha/cordova-plugin-phone-call.git",
     "cordova-plugin-splashscreen": "^5.0.3",
     "cordova-plugin-statusbar": "^2.4.3",
     "cordova-plugin-wkwebview-engine": "^1.2.1",
@@ -52,7 +53,8 @@
         "FIREBASE_MESSAGING_VERSION": "20.0.+",
         "ANDROIDX_CORE_VERSION": "1.0.+"
       },
-      "cordova-plugin-background-fetch": {}
+      "cordova-plugin-background-fetch": {},
+      "cordova-plugin-phone-call": {}
     },
     "platforms": [
       "android",

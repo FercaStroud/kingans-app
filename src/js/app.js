@@ -31,6 +31,7 @@ const store = new Vuex.Store({
             //namespaced: true,
             state: {
                 counter: 0,
+                lastNotificationDate: null,
                 title: 'Grupo Kingans',
                 drawer: {
                     surveys: false,
@@ -71,6 +72,7 @@ const store = new Vuex.Store({
                     state.survey = false;
                     state.surveys = [];
                     state.visits = null;
+                    state.lastNotificationDate = null;
 
                     state.user = {
                         created_at: null,
@@ -88,6 +90,9 @@ const store = new Vuex.Store({
                 },
                 setSurvey: (state, payload) => {
                     state.survey = payload
+                },
+                setNotificationDate: (state, payload) => {
+                    state.lastNotificationDate = payload
                 },
                 setSurveys: (state, payload) => {
                     state.surveys = payload

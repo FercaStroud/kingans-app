@@ -37,7 +37,7 @@
                         </p>
                     </f7-row>
                 </f7-block>
-                <div v-if="question.type !== 'TEXT'">
+                <div v-if="question.type !== 'TEXT' && question.type !== 'DEFAULT'">
                     <f7-list inline-labels>
                         <f7-list-input
                                 type="select"
@@ -64,11 +64,16 @@
             <f7-block>
                 <f7-button class="bg-primary" style="height: 60px; font-size: 1.2em;" @click="sendForm">
                     <p style="font-weight: bold;color:white;">
-                        <f7-icon style="margin-top: -4px" material="done"></f7-icon>
-
+                        <f7-icon style="margin-top: -4px" material="done"/>
                         Enviar
                     </p>
                 </f7-button>
+                <!--<f7-button style="height: 60px; font-size: 1.2em; margin-top:15px"
+                           @click="closeForm">
+                    <p style="font-weight: bold;color:gray;">
+                        Cancelar
+                    </p>
+                </f7-button>-->
             </f7-block>
         </f7-block>
     </f7-page>
@@ -81,6 +86,10 @@
             survey: {}
         },
         methods: {
+            closeForm(){
+                this.$emit('onSendSurvey')
+                this.$store.commit('setSurvey', false);
+            },
             sendForm() {
                 const self = this;
                 const app = self.$f7;

@@ -95,9 +95,10 @@
                         created_by: this.$store.state.application.user.id,
                         phone: this.phone
                     }).then(response => {
+                        console.log(response.data)
                         this.$f7.dialog.close();
                         if (response.data.user_id === undefined) {
-                            this.$f7.dialog.alert("Error desconocido", "Intente más tarde");
+                            this.$f7.dialog.alert("Una visita al día por usuario.", "Datos duplicados");
                         } else {
                             this.$f7.dialog.alert("¡Visita registrada!", "Éxito");
                             this.phone = '';

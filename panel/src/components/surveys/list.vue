@@ -90,7 +90,7 @@
                         <f7-icon style="margin-right: 10px;" material="equalizer"></f7-icon>
                         Obtener Resultados
                     </f7-button>-->
-                    <f7-button @click="changeSurveyStatus(item.id, 1)" v-if="item.is_active === 0">
+                    <f7-button v-if="item.is_active === '0'" @click="changeSurveyStatus(item.id, 1)">
                         <f7-icon style="margin-right: 10px;" material="play_circle_filled"/>
                         Habilitar
                     </f7-button>
@@ -325,6 +325,7 @@
                 this.$http.post(this.$store.state.application.config.api + 'surveys/get/all').then(response => {
                     vm.$f7.dialog.close();
                     vm.surveys = response.data
+                    console.log(vm.surveys)
                 }, response => {
                     console.log(response, 'error on getList sueveys/get');
                     this.$f7.dialog.close();
