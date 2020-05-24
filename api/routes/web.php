@@ -5,6 +5,7 @@ use App\User;
 use App\Branch;
 use App\Survey;
 use App\Question;
+use App\News;
 use App\QuestionAnswer;
 use App\UserCoupon;
 use App\Answer;
@@ -715,5 +716,51 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
         $object->save();
 
         return $object;
+    });
+});
+
+$app->group(['prefix' => 'news'], function () use ($app) {
+    $app->post('/get', function (Request $request) {
+
+        return News::where(function($q) use ($request){
+            $q->where('branch_id', $request->get("branch_id"))
+                ->orWhere('branch_id', 0);
+        })->orderBy("created_at", "desc")->get();
+    });
+    $app->post('/add', function (Request $request) {
+
+        $random_string = function ($length, $directory = '', $extension = '') {
+            $dir = !empty($directory) && is_dir($directory) ? $directory : dirname(__FILE__);
+            do {
+                $key = '';
+                $keys = array_merge(range(0, 9), range('a', 'z'));
+                for ($i = 0; $i < $length; $i++) {
+                    $key .= $keys[array_rand($keys)];
+                }
+            } while (file_exists($dir . '/' . $key . (!empty($extension) ? '.' . $extension : '')));
+            return $key . (!empty($extension) ? '.' . $extension : '');
+        };
+        $fileName = $random_string(40, '', $request->file('src')->getClientOriginalExtension());
+        $destinationPath = "images/news/";
+        if ($request->file('src') != null) {
+            $request->file('src')->move($destinationPath, $fileName);
+        } else {
+            return response()->json(['success' => false]);
+        }
+
+
+        $item = new News();
+        $item->branch_id = $request->get("branch_id", 0);
+        $item->created_by = $request->get("user_id", 0);
+        $item->title = $request->get("title", "SIN TÍTULO");
+        $item->src = $fileName;
+        $item->save();
+
+        return $item;
+    });
+    $app->post('/delete', function (Request $request) {
+        return response()->json([
+            "success" => News::find($request->get("id"))->delete()
+        ]);
     });
 });

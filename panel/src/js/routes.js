@@ -27,6 +27,9 @@ import AppUsersList from '../components/app.users/list.vue';
 import BranchesAdd from '../components/branches/add.vue';
 import BranchesList from '../components/branches/list.vue';
 
+//News
+import NewsAddPage from '../components/news/add.vue';
+
 //Others
 import NotFoundPage from '../pages/404.vue';
 import LogoutPage from '../pages/logout.vue';
@@ -116,6 +119,11 @@ let routes = [
         path: '/branches/list',
         name: 'branchesList',
         component:  BranchesList
+    },
+    {
+        path: '/news/add',
+        name: 'NewsAdd',
+        component:  NewsAddPage
     },
     {
         path: '(.*)',

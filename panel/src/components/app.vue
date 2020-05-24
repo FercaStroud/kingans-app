@@ -4,7 +4,7 @@
         <f7-statusbar></f7-statusbar>
 
         <!-- Left panel with cover effect when hidden -->
-        <f7-panel left cover style="width: 280px">
+        <f7-panel left cover resizable style="width: 300px">
             <f7-view>
                 <f7-page>
                     <f7-block-title style="padding-bottom: 18px">
@@ -20,6 +20,23 @@
                     </f7-list>
                     <f7-block-title>Catálogos</f7-block-title>
                     <f7-list accordion-list>
+                        <f7-list-item accordion-item title="Noticias"
+                                      v-if="$store.state.application.user.type === 'A'">
+                            <f7-accordion-content>
+                                <f7-list inset>
+                                    <f7-list-item
+                                            link="/news/add" view=".view-main" panel-close
+                                            title="Añadir Noticia"
+                                            subtitle="Catálogo">
+                                    </f7-list-item>
+                                    <f7-list-item
+                                            link="/news/list" view=".view-main" panel-close
+                                            title="Listar Noticias"
+                                            subtitle="Catálogo">
+                                    </f7-list-item>
+                                </f7-list>
+                            </f7-accordion-content>
+                        </f7-list-item>
                         <f7-list-item accordion-item title="Cupones">
                             <f7-accordion-content>
                                 <f7-list inset>

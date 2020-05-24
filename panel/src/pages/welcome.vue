@@ -3,6 +3,11 @@
         <f7-navbar
                 style="background-color: white !important;
                    border:none !important; box-shadow: none !important;">
+            <f7-nav-left>
+                <f7-button panel-open="left">
+                    <f7-icon f7="bars"></f7-icon>
+                </f7-button>
+            </f7-nav-left>
             <f7-nav-right>
                 <f7-button panel-open="left">
                     <f7-icon f7="bars"></f7-icon>
