@@ -94,9 +94,15 @@
                 const self = this;
                 const app = self.$f7;
                 app.dialog.preloader('Enviando Encuesta');
+
+                let panel_user_created_by = this.$store.state.application.panelUser.id;
+                let user_created_by = this.$store.state.application.user.id;
+
                 this.$http.post(this.$store.state.application.config.api + 'question-answers/app/add', {
                     survey_id: this.survey.survey_id,
-                    questions: this.survey.questions
+                    questions: this.survey.questions,
+                    panel_user_created_by: panel_user_created_by,
+                    user_created_by: user_created_by,
                 }).then(response => {
                     app.dialog.close();
                     // get body data

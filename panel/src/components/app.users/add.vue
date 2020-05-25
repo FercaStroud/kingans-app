@@ -168,7 +168,7 @@
             sendForm: function () {
                 if (this.checkForm()) {
                     this.$f7.dialog.preloader('Enviando datos...');
-                    console.log(this.items)
+                    //console.log(this.items)
                     this.$http.post(this.$store.state.application.config.api + 'users/app/add', {
                         name: this.items.name,
                         phone: this.items.phone,

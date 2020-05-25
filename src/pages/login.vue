@@ -487,7 +487,7 @@
                     let vm = this;
                     this.$f7.dialog.preloader('Enviando datos')
                     this.$http.post(vm.$store.state.application.config.api + 'users/app/reset', {
-                        phone: this.phone,
+                        phone: this.resetPasswordForm.phone,
                     }).then(response => {
                         this.$f7.dialog.close();
                         this.$f7.dialog.alert(' ', '¡Correo enviado!')
@@ -561,7 +561,7 @@
                         this.$f7.dialog.close();
                     } else {
                         //vm.$store.commit('setLogin', false);
-                        vm.$store.commit('setUser', response.data);
+                        vm.$store.commit('setPanelUser', response.data);
                         vm.surveyPagePopupOpened = true
                     }
                 }, response => {

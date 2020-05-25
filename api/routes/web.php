@@ -188,6 +188,53 @@ $app->group(['prefix' => 'users'], function () use ($app) {
 
     });
     $app->group(['prefix' => 'app'], function () use ($app) {
+        $app->get('/excel', function (Request $request) {
+            $results = \Illuminate\Support\Facades\DB::table('users')
+                ->select(
+                    "users.id as ID",
+                    "users.name as NOMBRE",
+                    "users.phone as TEL",
+                    "users.email as EMAIL",
+                    "users.city as CIUDAD",
+                    "users.gender as GENERO",
+                    "users.birthday as CUMPLEANOS",
+                    "users.created_at as FECHACREACION"
+                )
+                ->orderBy('users.id', 'DESC')
+                ->get();
+
+
+            $filename = "Usuarios";
+            $i = 0;
+
+            header('HTTP/1.1 200 OK');
+            header('Date: ' . date('D M j G:i:s T Y'));
+            header('Last-Modified: ' . date('D M j G:i:s T Y'));
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header("Content-Disposition: attachment; filename=$filename.xls");
+
+            header("Pragma: no-cache");
+            header("Expires: 0");
+
+            foreach ($results as $result) {
+                if ($i > 0) {
+                    break;
+                }
+                foreach ($result as $key => $item) {
+                    echo $key . "\t";
+                    $i++;
+                }
+            }
+            print("\n");
+            foreach ($results as $row) {
+                foreach ($row as $key => $item) {
+                    echo $item . "\t";
+                }
+                print("\n");
+            }
+
+
+        });
         $app->post('/reset', function (Request $request) {
             $sanitizeEmail = function ($field) {
                 $field = filter_var($field, FILTER_SANITIZE_EMAIL);
@@ -502,6 +549,8 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
                     'question_id' => $question['question_id'],
                     'survey_id' => $surveyId,
                     'other' => $question['vModel'],
+                    'panel_user_created_by' => $request->get("panel_user_created_by", null),
+                    'user_created_by' => $request->get("user_created_by", null),
                 ]);
                 if ($ok === false) {
                     return response()->json(['success' => false]);
@@ -541,10 +590,17 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
                     "questions.title as Pregunta",
                     "answers.title as Respuesta",
                     "questions.type as Tipo",
-                    "question_answer.other as Otro"
+                    "question_answer.other as Otro",
+                    "question_answer.created_at as Fecha",
+                    "panel_users.username as 'Nombre Usuario Panel'",
+                    "panel_users.name as 'Nombre Completo Usuario Panel'",
+                    "users.name as 'Nombre Completo Usuario App'",
+                    "users.phone as 'Usuario App Tel'"
                 )->leftJoin("answers", "answers.id", "=", "question_answer.answer_id")
                 ->leftJoin("questions", "questions.id", "=", "question_answer.question_id")
                 ->leftJoin("surveys", "surveys.id", "=", "question_answer.survey_id")
+                ->leftJoin("users", "users.id", "=", "question_answer.user_created_by")
+                ->leftJoin("panel_users", "panel_users.id", "=", "question_answer.panel_user_created_by")
                 ->where("question_answer.survey_id", "=", $request->get("survey_id"))
                 ->orderBy('question_answer.id', 'DESC')->get();
             $filename = $results[0]->Encuesta;
@@ -554,7 +610,7 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
             header('Date: ' . date('D M j G:i:s T Y'));
             header('Last-Modified: ' . date('D M j G:i:s T Y'));
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header("Content-Disposition: attachment; filename=$filename");
+            header("Content-Disposition: attachment; filename=$filename.xls");
 
             header("Pragma: no-cache");
             header("Expires: 0");
@@ -564,14 +620,14 @@ $app->group(['prefix' => 'question-answers'], function () use ($app) {
                     break;
                 }
                 foreach ($result as $key => $item) {
-                    echo $key . "\t";
+                    echo preg_replace('/[^A-Za-z0-9 ]/', '', $key) . "\t";
                     $i++;
                 }
             }
             print("\n");
             foreach ($results as $row) {
                 foreach ($row as $key => $item) {
-                    echo $item . "\t";
+                    echo preg_replace('/[^A-Za-z0-9 ]/', '', $item) . "\t";
                 }
                 print("\n");
             }
@@ -664,8 +720,9 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
             "panel_users", "panel_users.id", "=", "user_coupons.created_by"
         )->get();
     });
-    $app->post('/get', function () {
-        return Coupon::select(
+    $app->post('/get', function (Request $request) {
+
+        $coupons = Coupon::select(
             [
                 'coupons.id',
                 'coupons.name',
@@ -673,14 +730,56 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
                 'branches.name as branch_name',
                 'branches.id as branch_id',
                 'coupons.code',
+                'coupons.src',
                 'coupons.required_number',
                 'coupons.start',
                 'coupons.end',
             ]
         )->leftJoin(
             "branches",
-            "branches.id", "=", "coupons.branch_id")
-            ->get();
+            "branches.id", "=", "coupons.branch_id")->get();
+
+        if ($request->has("user_id")) {
+            $userCoupons = UserCoupon::select([
+                    'coupons.id',
+                    'coupons.name',
+                    'coupons.description',
+                    'branches.name as branch_name',
+                    'branches.id as branch_id',
+                    'coupons.code',
+                    'coupons.src',
+                    'coupons.required_number',
+                    'coupons.start',
+                    'coupons.end',
+                ]
+            )->leftJoin("coupons", "coupons.id", "=", "user_coupons.coupon_id")
+                ->leftJoin(
+                    "branches",
+                    "branches.id", "=", "coupons.branch_id")
+                ->where([
+                    ["user_coupons.user_id", "=", $request->get("user_id")],
+                ])->whereNull("coupons.deleted_at")
+                ->get();
+
+            $i = 0;
+
+            $coupons = $coupons->toArray();
+            $userCoupons = $userCoupons->toArray();
+
+            foreach ($coupons as $coupon){
+                foreach ($userCoupons as $userCoupon) {
+                    if($coupon === $userCoupon){
+                        unset($coupons[$i]);
+                    }
+                }
+                $i++;
+            }
+
+
+            return $coupons;
+        } else {
+            return $coupons;
+        }
     });
     $app->post('/delete', function (Request $request) {
         return response()->json([
@@ -690,6 +789,25 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
     $app->post('/add', function (Request $request) {
         $object = new Coupon();
 
+        $random_string = function ($length, $directory = '', $extension = '') {
+            $dir = !empty($directory) && is_dir($directory) ? $directory : dirname(__FILE__);
+            do {
+                $key = '';
+                $keys = array_merge(range(0, 9), range('a', 'z'));
+                for ($i = 0; $i < $length; $i++) {
+                    $key .= $keys[array_rand($keys)];
+                }
+            } while (file_exists($dir . '/' . $key . (!empty($extension) ? '.' . $extension : '')));
+            return $key . (!empty($extension) ? '.' . $extension : '');
+        };
+        $fileName = $random_string(40, '', $request->file('src')->getClientOriginalExtension());
+        $destinationPath = "images/coupons/";
+        if ($request->file('src') != null) {
+            $request->file('src')->move($destinationPath, $fileName);
+        } else {
+            return response()->json(['success' => false]);
+        }
+
         $object->name = $request->get("name");
         $object->description = $request->get("description");
         $object->code = $request->get("code");
@@ -698,12 +816,32 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
         $object->end = $request->get("end");
         $object->created_by = $request->get("created_by");
         $object->branch_id = $request->get("branch_id");
+        $object->src = $fileName;
         $object->save();
 
         return $object;
     });
     $app->post('/edit', function (Request $request) {
+        $random_string = function ($length, $directory = '', $extension = '') {
+            $dir = !empty($directory) && is_dir($directory) ? $directory : dirname(__FILE__);
+            do {
+                $key = '';
+                $keys = array_merge(range(0, 9), range('a', 'z'));
+                for ($i = 0; $i < $length; $i++) {
+                    $key .= $keys[array_rand($keys)];
+                }
+            } while (file_exists($dir . '/' . $key . (!empty($extension) ? '.' . $extension : '')));
+            return $key . (!empty($extension) ? '.' . $extension : '');
+        };
+        $destinationPath = "images/coupons/";
+
         $object = Coupon::find($request->get("id"));
+        $fileName = $object->src;
+
+        if ($request->file('src') !== null) {
+            $fileName = $random_string(40, '', $request->file('src')->getClientOriginalExtension());
+            $request->file('src')->move($destinationPath, $fileName);
+        }
 
         $object->name = $request->get('name', $object->name);
         $object->branch_id = $request->get('branch_id', $object->branch_id);
@@ -713,6 +851,7 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
         $object->start = $request->get('start', $object->start);
         $object->end = $request->get('end', $object->end);
         $object->updated_by = $request->get("updated_by");
+        $object->src = $fileName;
         $object->save();
 
         return $object;
@@ -721,11 +860,16 @@ $app->group(['prefix' => 'coupons'], function () use ($app) {
 
 $app->group(['prefix' => 'news'], function () use ($app) {
     $app->post('/get', function (Request $request) {
-
-        return News::where(function($q) use ($request){
-            $q->where('branch_id', $request->get("branch_id"))
-                ->orWhere('branch_id', 0);
-        })->orderBy("created_at", "desc")->get();
+        if ($request->has("branch_id")) {
+            return News::where(function ($q) use ($request) {
+                $q->where('branch_id', $request->get("branch_id"))
+                    ->orWhere('branch_id', 0);
+            })->orderBy("created_at", "desc")
+                ->leftJoin('branches', 'branches.id', '=', 'news.branch_id')
+                ->get();
+        } else {
+            return News::leftJoin('branches', 'branches.id', '=', 'news.branch_id')->get();
+        }
     });
     $app->post('/add', function (Request $request) {
 

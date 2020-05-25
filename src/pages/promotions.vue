@@ -32,10 +32,11 @@
             <f7-card class="elevation-2" v-for="(item, index) in items" :key="index"
                      v-if="parseInt($store.state.application.visits) >= item.required_number">
                 <f7-card-header>
-                    <span style="font-size: 1.6em">#{{item.code}}</span>
-                    <span style="">Código</span>
+                    <img v-if="item.src !== null" style="width:100%" :src="$store.state.application.config.api + 'images/coupons/' + item.src" :alt="item.code">
                 </f7-card-header>
                 <f7-card-content>
+                    <span class="active" style="">Código: </span>
+                    <span style="font-size: 1.6em">#{{item.code}}</span>
                     <p style="color: #6e6e74">
                         {{item.description}}
                     </p>
@@ -59,10 +60,12 @@
         <f7-block v-else>
             <f7-card class="elevation-2" v-for="(item, index) in items" :key="index">
                 <f7-card-header>
-                    <span style="font-size: 1.6em">#{{item.code}}</span>
-                    <span style="">Código</span>
+                    <img v-if="item.src !== null" style="width:100%" :src="$store.state.application.config.api + 'images/coupons/' + item.src" :alt="item.code">
                 </f7-card-header>
+
                 <f7-card-content>
+                    <span class="active" style="">Código: </span>
+                    <span style="font-size: 1.6em">#{{item.code}}</span>
                     <p style="color: #6e6e74">
                         {{item.description}}
                     </p>
@@ -101,7 +104,7 @@
                 vm.$f7router.navigate('/')
             }, false);
 
-            console.log(this.$f7route.params.filter)
+            //console.log(this.$f7route.params.filter)
         },
         methods: {
             getCoupons: function () {
@@ -111,7 +114,7 @@
                 ).then(response => {
                     this.$f7.dialog.close();
                     this.items = response.data
-                    console.log(this.items)
+                    //console.log(this.items)
                 }, response => {
                     console.log(response, 'error on getCoupons coupons/get');
                     this.$f7.dialog.close();

@@ -13,6 +13,12 @@
             </f7-nav-right>
         </f7-navbar>
         <f7-block>
+            <f7-button
+                    @click="openUrl($store.state.application.config.api + 'users/app/excel')"
+                    target="_blank">
+                <f7-icon style="margin-right: 10px;" material="cloud_download"/>
+                Descargar Excel
+            </f7-button>
             <f7-card>
                 <f7-card-content>
                     <f7-block>
@@ -247,6 +253,41 @@
                 </f7-block>
             </f7-page>
         </f7-popup>
+        <f7-popup class="" :opened="passwordModal" @popup:closed="passwordModal = false">
+            <f7-page>
+                <f7-navbar title="Confirmar Contraseña">
+                    <f7-nav-right>
+                        <f7-link popup-close>Cancelar</f7-link>
+                    </f7-nav-right>
+                </f7-navbar>
+                <f7-block>
+                    <f7-card>
+                        <f7-card-content>
+                            <f7-list form style="margin: 15px;">
+                                <f7-list-input
+                                        class="kingans-border"
+                                        label="Contraseña"
+                                        type="password"
+                                        placeholder="**********"
+                                        :value="password"
+                                        clear-button
+                                        @input="password = $event.target.value"
+                                ></f7-list-input>
+                            </f7-list>
+                        </f7-card-content>
+                    </f7-card>
+                    <f7-button
+                            class="btn-primary"
+                            style="width: 50%; margin-left: 25%;"
+                            large @click="requestExcel">
+                        ENVIAR
+                    </f7-button>
+                </f7-block>
+            </f7-page>
+        </f7-popup>
+
+
+
 
     </f7-page>
 </template>
@@ -256,6 +297,8 @@
         name: "appUsersList",
         data() {
             return {
+                passwordModal: false,
+                password: '',
                 tempItem: {password: '', id: '', birthday: ''},
                 passwordDialog: false,
                 birthdayDialog: false,
@@ -290,6 +333,34 @@
             this.getList()
         },
         methods: {
+            requestExcel(){
+                let vm = this
+                if (this.password !== '') {
+                    this.$f7.dialog.preloader('Enviando datos...');
+                    this.$http.post(this.$store.state.application.config.api + 'users/app/excel', {
+                        password: this.password,
+                        id: this.$store.state.application.user.id
+                    }).then(response => {
+                        vm.$f7.dialog.close();
+                        vm.passwordModal = false;
+                        vm.$f7.dialog.close();
+
+                    }, response => {
+                        console.log(response, 'error on sendForm users/app/excel');
+                        vm.$f7.dialog.close();
+                        vm.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
+                    });
+
+                } else {
+                    this.$f7.dialog.alert("Todos los campos son requeridos.");
+                }
+            },
+            openPasswordModal(){
+                this.passwordModal = true;
+            },
+            openUrl(url) {
+                window.open(url);
+            },
             dateStringMX: function (arg) {
                 let months = [
                     "Enero",
@@ -447,7 +518,7 @@
                 } else {
                     vm.$f7.dialog.preloader('Enviando datos...');
 
-                    this.$http.post(this.$store.state.application.config.api + 'users/panel/edit/password', {
+                    this.$http.post(this.$store.state.application.config.api + 'users/app/edit/password', {
                         id: vm.tempItem.id,
                         password: vm.tempItem.password,
                     }).then(response => {

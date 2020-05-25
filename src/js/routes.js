@@ -4,6 +4,7 @@ import BranchOfficesPage from '../pages/branches.vue';
 import PromotionsPage from '../pages/promotions.vue';
 import ProfilePage from '../pages/profile.vue';
 import SurveyPage from '../pages/survey.vue';
+import NewsPage from '../pages/news.vue';
 import NotFoundPage from '../pages/404.vue';
 
 var routes = [
@@ -31,6 +32,10 @@ var routes = [
     path: '/survey',
     name: 'survey',
     component: SurveyPage
+  },{
+    path: '/news',
+    name: 'news',
+    component: NewsPage
   },
   {
     path: '(.*)',

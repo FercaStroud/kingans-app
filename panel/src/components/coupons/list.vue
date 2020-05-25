@@ -37,6 +37,15 @@
                                             <f7-icon class="icon-btn" material="delete"></f7-icon>
                                         </f7-link>
                                     </span>
+                                    <span v-if="props.column.field == 'src'">
+                                        <strong v-if="props.row.src === null">SIN IMAGEN</strong>
+                                        <img v-else
+                                             :src="$store.state.application.config.api + 'images/coupons/'+props.row.src"
+                                             alt=""
+                                             style="width:50px; cursor:pointer"
+                                             @click="windowsOpen(props.row.src)"
+                                        >
+                                    </span>
                                     <span v-else>
                                       {{props.formattedRow[props.column.field]}}
                                     </span>
@@ -154,13 +163,22 @@
                                         :error-message="'Campo Obligatorio'"
                                         :calendar-params="calendarParams">
                                 </f7-list-input>
-
                             </f7-list>
-
+                            <input type="file" ref="file"
+                                   accept="image/*"
+                                   required
+                                   @change="onChangeFileUpload"/>
+                            <f7-block>
+                                <p style="margin:15px; font-size:1.2em;">
+                                    <strong>NOTA:</strong> Asegúrese de que la imagen esté optimizada para
+                                    ser utilizada en una aplicación. <br/>
+                                    <strong>SE RECOMIENDA</strong> que su peso no exceda a 1Mb.
+                                </p>
+                            </f7-block>
                             <f7-button
                                     style="margin: 15px"
-                                       class="btn-primary"
-                                       large @click="sendForm">
+                                    class="btn-primary"
+                                    large @click="sendForm">
                                 EDITAR CUPÓN
                             </f7-button>
                         </f7-card-content>
@@ -189,6 +207,7 @@
                 },
                 itemToEdit: {
                     id: '',
+                    src: '',
                     branch_id: '',
                     name: '',
                     description: '',
@@ -199,6 +218,10 @@
                 },
                 search: '',
                 columns: [
+                    {
+                        label: 'Imagen',
+                        field: 'src',
+                    },
                     {
                         label: 'Nombre',
                         field: 'name',
@@ -265,12 +288,17 @@
             this.getList()
         },
         methods: {
+            windowsOpen(src) {
+                window.open(this.$store.state.application.config.api + 'images/coupons/' + src, '_blank');
+            },
             checkForm() {
                 let vm = this;
                 let isValid = true;
                 Object.keys(this.itemToEdit).forEach(function (index, item) {
-                    if (vm.itemToEdit[index] === "") {
-                        isValid = false
+                    if (index !== 'src') {
+                        if (vm.itemToEdit[index] === "") {
+                            isValid = false
+                        }
                     }
                 });
                 return isValid;
@@ -294,17 +322,20 @@
                 if (this.checkForm()) {
                     this.$f7.dialog.preloader('Enviando datos...');
 
-                    this.$http.post(this.$store.state.application.config.api + 'coupons/edit', {
-                        id: this.itemToEdit.id,
-                        branch_id: this.itemToEdit.branch_id,
-                        name: this.itemToEdit.name,
-                        description: this.itemToEdit.description,
-                        code: this.itemToEdit.code,
-                        required_number: this.itemToEdit.required_number,
-                        start: this.itemToEdit.start,
-                        end: this.itemToEdit.end,
-                        updated_by: this.$store.state.application.user.id
-                    }).then(response => {
+                    let formData = new FormData();
+                    formData.append('id', this.itemToEdit.id);
+                    formData.append('src', this.itemToEdit.src);
+                    formData.append('branch_id', this.itemToEdit.branch_id);
+                    formData.append('name', this.itemToEdit.name);
+                    formData.append('description', this.itemToEdit.description);
+                    formData.append('code', this.itemToEdit.code);
+                    formData.append('required_number', this.itemToEdit.required_number);
+                    formData.append('start', this.itemToEdit.start);
+                    formData.append('end', this.itemToEdit.end);
+                    formData.append('updated_by', this.$store.state.application.user.id);
+
+
+                    this.$http.post(this.$store.state.application.config.api + 'coupons/edit', formData).then(response => {
                         vm.$f7.dialog.close();
                         vm.$f7.dialog.alert("Datos enviados", "Éxito");
                         vm.itemToEdit = {
@@ -407,6 +438,9 @@
                     this.$f7.dialog.close();
                     this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                 });
+            },
+            onChangeFileUpload: function () {
+                this.itemToEdit.src = this.$refs.file.files[0];
             }
         }
     }

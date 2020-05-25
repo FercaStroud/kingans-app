@@ -30,6 +30,14 @@
                             ">Home</span>
                         </f7-list-item>
                         <f7-list-item class="custom-btn" flat v-ripple
+                                      link="/news/" view=".view-main"
+                                      panel-close>
+                            <f7-icon style="" material="view_day"></f7-icon>
+                            <span style="
+                                    font-size: 1.2em;
+                            ">Noticias</span>
+                        </f7-list-item>
+                        <f7-list-item class="custom-btn" flat v-ripple
                                       link="/promotions/true" view=".view-main"
                                       panel-close>
                             <f7-icon style="" material="stars"></f7-icon>

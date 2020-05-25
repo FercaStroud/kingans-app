@@ -40,13 +40,23 @@ const store = new Vuex.Store({
                     login: true,
                 },
                 config: {
-                    api: 'http://kingans.com/api/',
-                    //api: 'http://localhost:8000/',
+                    //api: 'http://kingans.com/api/',
+                    api: 'http://localhost:8000/',
                 },
                 survey: false,
                 surveys: [],
                 visits: null,
+                panelUser:{
+                    created_at: null,
+                    updated_at: null,
+                    username: '',
+                    branch_id: '',
+                    type: '',
+                    name: '',
+                    id:'',
+                },
                 user: {
+                    id: null,
                     created_at: null,
                     updated_at: null,
                     phone: '',
@@ -83,10 +93,24 @@ const store = new Vuex.Store({
                         city: '',
                         gender: '',
                         birthday: '',
+                        id:'',
+                    };
+
+                    state.panelUser = {
+                        created_at: null,
+                        updated_at: null,
+                        username: '',
+                        branch_id: '',
+                        type: '',
+                        name: '',
+                        id:'',
                     };
                 },
                 setUser: (state, payload) => {
                     state.user = payload
+                },
+                setPanelUser: (state, payload) => {
+                    state.panelUser = payload
                 },
                 setSurvey: (state, payload) => {
                     state.survey = payload

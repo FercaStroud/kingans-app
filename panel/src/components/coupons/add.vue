@@ -66,7 +66,8 @@
                         >
                             <option value="0">Todas</option>
                             <option v-for="(branch, index) in branches" :key="index"
-                                    :value="branch.id">{{branch.name}}</option>
+                                    :value="branch.id">{{branch.name}}
+                            </option>
                         </f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
@@ -106,14 +107,25 @@
                                 :error-message="'Campo Obligatorio'"
                                 :calendar-params="calendarParams">
                         </f7-list-input>
+                        <input type="file" ref="file"
+                               accept="image/*"
+                               required
+                               @change="onChangeFileUpload"/>
+                        <f7-block>
+                            <p style="margin:15px; font-size:1.2em;">
+                                <strong>NOTA:</strong> Asegúrese de que la imagen esté optimizada para
+                                ser utilizada en una aplicación. <br/>
+                                <strong>SE RECOMIENDA</strong> que su peso no exceda a 1Mb.
+                            </p>
+                        </f7-block>
                         <f7-button style="margin: 15px"
                                    class="btn-primary"
                                    large @click="sendForm">
                             REGISTRAR CÓDIGO
                         </f7-button>
                     </f7-list>
-            </f7-card-content>
-        </f7-card>
+                </f7-card-content>
+            </f7-card>
         </f7-block>
     </f7-page>
 </template>
@@ -128,25 +140,26 @@
                     footer: false,
                     dateFormat: 'dd MM yyyy',
                 },
-                branches:[],
-                items:{
-                    branch_id:'',
-                    name:'',
+                branches: [],
+                items: {
+                    branch_id: '',
+                    name: '',
                     description: '',
                     code: '',
                     required_number: '',
                     start: '',
-                    end: ''
+                    end: '',
+                    src: ''
                 }
             }
         },
-        created: function(){
+        created: function () {
             this.getBranches()
         },
         methods: {
             getDateSQLFormat(e) {
                 let d = new Date(e);
-                let month = '' + (d.getMonth()+1);
+                let month = '' + (d.getMonth() + 1);
                 let day = '' + d.getDate();
                 let year = d.getFullYear();
 
@@ -190,26 +203,29 @@
             sendForm: function () {
                 if (this.checkForm()) {
                     this.$f7.dialog.preloader('Enviando datos...');
-                    this.$http.post(this.$store.state.application.config.api + 'coupons/add', {
-                        branch_id: this.items.branch_id,
-                        name: this.items.name,
-                        description: this.items.description,
-                        code: this.items.code,
-                        required_number: this.items.required_number,
-                        start: this.items.start,
-                        end: this.items.end,
-                        created_by: this.$store.state.application.user.id,
-                    }).then(response => {
+
+                    let formData = new FormData();
+                    formData.append('src', this.items.src);
+                    formData.append('branch_id', this.items.branch_id);
+                    formData.append('name', this.items.name);
+                    formData.append('description', this.items.description);
+                    formData.append('code', this.items.code);
+                    formData.append('required_number', this.items.required_number);
+                    formData.append('start', this.items.start);
+                    formData.append('end', this.items.end);
+                    formData.append('created_by', this.$store.state.application.user.id);
+
+                    this.$http.post(this.$store.state.application.config.api + 'coupons/add', formData).then(response => {
                         this.$f7.dialog.close();
                         this.$f7.dialog.alert("Datos enviados", "Éxito");
                         this.items = {
-                            branch_id:'',
-                            name:'',
+                            branch_id: '',
+                            name: '',
                             description: '',
                             code: '',
                             required_number: '',
                             start: '',
-                            end: ''
+                            end: '',
                         }
                     }, response => {
                         console.log(response, 'error on checkForm coupons/add');
@@ -221,6 +237,9 @@
                     this.$f7.dialog.alert("Todos los campos son requeridos.");
                 }
             },
+            onChangeFileUpload: function () {
+                this.items.src = this.$refs.file.files[0];
+            }
         }
     }
 </script>

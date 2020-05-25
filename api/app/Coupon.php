@@ -21,6 +21,7 @@ Class Coupon extends Model
         'required_number',
         'start',
         'end',
+        'src',
         'branch_id' ,
     ];
     protected $primaryKey = 'id';

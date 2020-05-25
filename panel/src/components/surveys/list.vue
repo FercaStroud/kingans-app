@@ -325,7 +325,7 @@
                 this.$http.post(this.$store.state.application.config.api + 'surveys/get/all').then(response => {
                     vm.$f7.dialog.close();
                     vm.surveys = response.data
-                    console.log(vm.surveys)
+                    //console.log(vm.surveys)
                 }, response => {
                     console.log(response, 'error on getList sueveys/get');
                     this.$f7.dialog.close();

@@ -29,6 +29,7 @@ import BranchesList from '../components/branches/list.vue';
 
 //News
 import NewsAddPage from '../components/news/add.vue';
+import NewsListPage from '../components/news/list.vue';
 
 //Others
 import NotFoundPage from '../pages/404.vue';
@@ -124,6 +125,11 @@ let routes = [
         path: '/news/add',
         name: 'NewsAdd',
         component:  NewsAddPage
+    },
+    {
+        path: '/news/list',
+        name: 'NewsList',
+        component:  NewsListPage
     },
     {
         path: '(.*)',
