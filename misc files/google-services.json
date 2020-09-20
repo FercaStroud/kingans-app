@@ -30,6 +30,14 @@
             {
               "client_id": "881825572359-t7jiqcm9j1ao7v3vs3m8q2s264mu2dfp.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "881825572359-lfeudolbh21ttcmp0461ff24lh5u0p6u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kingans",
+                "app_store_id": "1490212239"
+              }
             }
           ]
         }
