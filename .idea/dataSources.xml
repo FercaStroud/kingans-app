@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="u126314_kindat19@174.136.52.205" uuid="6d5e612a-95f8-4710-97ec-af153d51b19f">
+    <data-source source="LOCAL" name="kingansc_app@65.99.225.55" uuid="6d5e612a-95f8-4710-97ec-af153d51b19f">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://174.136.52.205:3306/u126314_kindat19</jdbc-url>
+      <jdbc-url>jdbc:mysql://65.99.225.55:3306/kingansc_app</jdbc-url>
     </data-source>
   </component>
 </project>

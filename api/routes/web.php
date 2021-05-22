@@ -19,6 +19,7 @@ use \Illuminate\Support\Str;
 $app->get('/', function (Request $request) {
     //echo \Illuminate\Support\Str::random(8);
     //return Hash::make('DEMO');
+    return response()->json(['success' => true]);
 });
 
 $app->group(['prefix' => 'branches'], function () use ($app) {

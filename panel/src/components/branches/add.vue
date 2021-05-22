@@ -173,7 +173,7 @@
                     formData.append('city', this.items.city);
                     formData.append('address', this.items.address);
                     formData.append('phone', this.items.phone);
-                    formData.append('scheduling', this.items.start);
+                    formData.append('scheduling', this.items.scheduling);
                     formData.append('map', this.items.map);
                     formData.append('facebook', this.items.facebook);
                     formData.append('instagram', this.items.instagram);
