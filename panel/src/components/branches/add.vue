@@ -67,6 +67,32 @@
                         ></f7-list-input>
                         <f7-list-input
                                 class="kingans-border"
+                                label="WhatsApp"
+                                placeholder="EJ: URL/WA.ME/XXXXXX"
+                                type="text"
+                                info="Obligatorio"
+                                :value="items.wa_url"
+                                clear-button
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                                @input="items.wa_url = $event.target.value"
+                        ></f7-list-input>
+                        <f7-list-input
+                                class="kingans-border"
+                                label="Pedido en Línea URL / Sucursal"
+                                placeholder="EJ: wansoft.xxx/xxxx/xxx"
+                                type="text"
+                                info="Obligatorio"
+                                :value="items.menu_url"
+                                clear-button
+                                validate
+                                required
+                                :error-message="'Campo Obligatorio'"
+                                @input="items.menu_url = $event.target.value"
+                        ></f7-list-input>
+                        <f7-list-input
+                                class="kingans-border"
                                 label="Horarios"
                                 placeholder="EJ: L-V 00:00Hrs - 00:00Hrs / S-D 00:00Hrs - 00:00Hrs"
                                 type="text"
@@ -147,7 +173,9 @@
                     map: '',
                     facebook: '',
                     instagram: '',
-                    svg: ''
+                    svg: '',
+                    wa_url:'',
+                    menu_url:'',
                 }
             }
         },
@@ -176,6 +204,8 @@
                     formData.append('scheduling', this.items.scheduling);
                     formData.append('map', this.items.map);
                     formData.append('facebook', this.items.facebook);
+                    formData.append('wa_url', this.items.wa_url);
+                    formData.append('menu_url', this.items.menu_url);
                     formData.append('instagram', this.items.instagram);
                     formData.append('svg', this.items.svg);
                     formData.append('created_by', this.$store.state.application.user.id);
@@ -186,7 +216,7 @@
                         this.items = {
                             name: '', city: '', address: '',
                             phone: '', scheduling: '',
-                            map: '', facebook: '', instagram: '', svg: ''
+                            map: '', facebook: '', instagram: '', svg: '', wa_url: '', menu_url: '',
                         }
                     }, response => {
                         console.log(response, 'error on checkForm branches/add');

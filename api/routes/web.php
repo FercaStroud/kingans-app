@@ -53,6 +53,8 @@ $app->group(['prefix' => 'branches'], function () use ($app) {
         $branch->scheduling = $request->get("scheduling");
         $branch->map = $request->get("map");
         $branch->facebook = $request->get("facebook");
+        $branch->wa_url = $request->get("wa_url");
+        $branch->menu_url = $request->get("menu_url");
         $branch->instagram = $request->get("instagram");
         $branch->svg = $fileName;
         $branch->created_by = $request->get("created_by");
@@ -97,6 +99,8 @@ $app->group(['prefix' => 'branches'], function () use ($app) {
         $branch->facebook = $request->get("facebook");
         $branch->instagram = $request->get("instagram");
         $branch->svg = $fileName;
+        $branch->wa_url = $request->get("wa_url");
+        $branch->menu_url = $request->get("menu_url");
         $branch->updated_by = $request->get("updated_by");
 
         $branch->save();

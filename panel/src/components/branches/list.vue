@@ -112,6 +112,33 @@
                                         :error-message="'Campo Obligatorio'"
                                         @input="itemToEdit.phone = $event.target.value"
                                 ></f7-list-input>
+
+                              <f7-list-input
+                                  class="kingans-border"
+                                  label="WhatsApp"
+                                  placeholder="EJ: URL/WA.ME/XXXXXX"
+                                  type="text"
+                                  info="Obligatorio"
+                                  :value="items.wa_url"
+                                  clear-button
+                                  validate
+                                  required
+                                  :error-message="'Campo Obligatorio'"
+                                  @input="items.wa_url = $event.target.value"
+                              ></f7-list-input>
+                              <f7-list-input
+                                  class="kingans-border"
+                                  label="Pedido en Línea URL / Sucursal"
+                                  placeholder="EJ: wansoft.xxx/xxxx/xxx"
+                                  type="text"
+                                  info="Obligatorio"
+                                  :value="items.menu_url"
+                                  clear-button
+                                  validate
+                                  required
+                                  :error-message="'Campo Obligatorio'"
+                                  @input="items.menu_url = $event.target.value"
+                              ></f7-list-input>
                                 <f7-list-input
                                         class="kingans-border"
                                         label="Horarios"
@@ -202,7 +229,9 @@
                     instagram: '',
                     map: '',
                     facebook: '',
-                    svg: ''
+                    svg: '',
+                    wa_url:'',
+                    menu_url:'',
                 }
             }
         },
@@ -252,7 +281,7 @@
 
                     //this.items = response.data
                 }, response => {
-                    console.log(response, 'error on checkForm branches/add');
+                    console.log(response, 'error on checkForm branches/delete');
                     this.$f7.dialog.close();
                     this.$f7.dialog.alert("Servidor no disponible", 'Intente más tarde');
                 });
@@ -281,6 +310,8 @@
                     formData.append('scheduling', this.itemToEdit.scheduling);
                     formData.append('map', this.itemToEdit.map);
                     formData.append('facebook', this.itemToEdit.facebook);
+                    formData.append('wa_url', this.items.wa_url);
+                    formData.append('menu_url', this.items.menu_url);
                     formData.append('instagram', this.itemToEdit.instagram);
                     formData.append('svg', this.itemToEdit.svg);
                     formData.append('updated_by', this.$store.state.application.user.id);
@@ -291,7 +322,7 @@
                         vm.itemToEdit = {
                             name: '', city: '', address: '',
                             phone: '', scheduling: '', instagram: '',
-                            map: '', facebook: '', svg: ''
+                            map: '', facebook: '',  svg: '', wa_url: '', menu_url: '',
                         }
                         vm.popupEditOpened = false;
                         vm.$f7.dialog.close();

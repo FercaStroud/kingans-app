@@ -8,14 +8,14 @@
                 <img style="height: 25px" src="../assets/kingansWhite.svg" alt="logo">
             </f7-nav-title>
             <f7-nav-right>
-                <f7-link @click="checkVisits" href="/promotions/false">
+                <!--<f7-link @click="checkVisits" href="/promotions/false">
                     <f7-icon style="" material="stars"/>
                     <span>Premios</span>
-                </f7-link>
+                </f7-link>-->
             </f7-nav-right>
         </f7-navbar>
 
-        <f7-fab @click="checkVisits" position="right-bottom" slot="fixed">
+        <!--<f7-fab @click="checkVisits" position="right-bottom" slot="fixed">
             <div slot="text" v-if="$store.state.application.visits === null">
                 <strong style="font-size:1.2em">Consultar Visitas</strong>
             </div>
@@ -25,7 +25,7 @@
             </div>
 
             <f7-icon material="account_balance_wallet"/>
-        </f7-fab>
+        </f7-fab>-->
 
         <f7-block>
             <span style="font-size: 1.6em;color: black;">{{$store.state.application.user.name}}</span><br/>
