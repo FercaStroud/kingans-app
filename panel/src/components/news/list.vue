@@ -57,7 +57,7 @@
                             >
                         </f7-card-content>
                         <f7-card-footer>
-                            <f7-link>
+                            <f7-link @click="deleteItem(item.id)">
                                 <f7-icon class="icon-btn" material="delete"></f7-icon>
                                 Eliminar
                             </f7-link>

@@ -12,32 +12,32 @@
                         <strong style="font-size: 1.4em;position: relative;top: 22px;left: 10px;">{{$store.state.application.user.name}}</strong><br/>
                         <strong style="font-size: .9em;position: relative;top: 25px;left: 10px;">Bienvenido</strong>
                     </f7-block-title>
-                    <f7-block-title>Acceso Rápido</f7-block-title>
+                    <!--<f7-block-title>Acceso Rápido</f7-block-title>
                     <f7-list>
-                        <!--<f7-list-item link="/dashboard/" view=".view-main" panel-close title="Dashboard"></f7-list-item>-->
+                        <f7-list-item link="/dashboard/" view=".view-main" panel-close title="Dashboard"></f7-list-item>
                         <f7-list-item link="/coupons/exchange/" view=".view-main" panel-close
                                       title="Captura de Códigos / Visitas"></f7-list-item>
-                    </f7-list>
+                    </f7-list>-->
                     <f7-block-title>Catálogos</f7-block-title>
                     <f7-list accordion-list>
-                        <f7-list-item accordion-item title="Noticias"
+                        <f7-list-item accordion-item title="Promociones"
                                       v-if="$store.state.application.user.type === 'A'">
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
                                             link="/news/add" view=".view-main" panel-close
-                                            title="Añadir Noticia"
+                                            title="Añadir Promociones"
                                             subtitle="Catálogo">
                                     </f7-list-item>
                                     <f7-list-item
                                             link="/news/list" view=".view-main" panel-close
-                                            title="Listar Noticias"
+                                            title="Listar Promociones"
                                             subtitle="Catálogo">
                                     </f7-list-item>
                                 </f7-list>
                             </f7-accordion-content>
                         </f7-list-item>
-                        <f7-list-item accordion-item title="Cupones">
+                        <!--<f7-list-item accordion-item title="Cupones">
                             <f7-accordion-content>
                                 <f7-list inset>
                                     <f7-list-item
@@ -88,7 +88,7 @@
                                     </f7-list-item>
                                 </f7-list>
                             </f7-accordion-content>
-                        </f7-list-item>
+                        </f7-list-item>-->
                         <f7-list-item accordion-item title="Usuarios Panel Kingans"
                                       v-if="$store.state.application.user.type === 'A'">
                             <f7-accordion-content>

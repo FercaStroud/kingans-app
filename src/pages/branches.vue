@@ -74,7 +74,7 @@
               </f7-button>
             </f7-col>
             <f7-col>
-              <f7-button large @click="openBrowser(item.menu_url)">
+              <f7-button large @click="openBrowser(item.wa_url)">
                 <f7-icon class="active" style="font-size: 1.5em" material="chat"></f7-icon>
                 WhatsApp
               </f7-button>
